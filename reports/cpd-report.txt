@@ -1,0 +1,381 @@
+Found a 8 line (64 tokens) duplication in the following files: 
+Starting at line 131 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 171 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "deferredMethodID", "[I");
+            mv.visitInsn(Opcodes.ARRAYLENGTH);
+            Label l5 = new Label();
+=====================================================================
+Found a 6 line (57 tokens) duplication in the following files: 
+Starting at line 62 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+Starting at line 88 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+
+            String newDesc = deferrableMethod.getAppendDesc();
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL", threadLocalBufferGenerator.getClassDescriptor());
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, threadLocalBufferGenerator.getClassName(), "get", "()Ljava/lang/Object;");
+            mv.visitTypeInsn(Opcodes.CHECKCAST, bufferGenerator.getClassName());
+=====================================================================
+Found a 6 line (49 tokens) duplication in the following files: 
+Starting at line 97 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+Starting at line 121 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+
+        String descriptor = "(Ldeferredmethods/Processor;I" + BytecodeHelper.getDescriptor(args) + ")V";
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>", descriptor, null, null);
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitVarInsn(Opcodes.ALOAD, 1);
+        mv.visitVarInsn(Opcodes.ILOAD, 2);
+=====================================================================
+Found a 5 line (45 tokens) duplication in the following files: 
+Starting at line 62 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+Starting at line 67 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+
+        mv.visitMethodInsn(Opcodes.INVOKEINTERFACE, "deferredmethods/Processor", "process", "(Ljava/lang/Runnable;)V");
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL", threadLocalBufferGenerator.getClassDescriptor());
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, threadLocalBufferGenerator.getClassName(), "remove", "()V");
+=====================================================================
+Found a 4 line (37 tokens) duplication in the following files: 
+Starting at line 97 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+Starting at line 195 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        String descriptor = "(I" + BytecodeHelper.getDescriptor(args) + ")V";
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>", descriptor, null, null);
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+=====================================================================
+Found a 9 line (37 tokens) duplication in the following files: 
+Starting at line 7 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskImplWithSingleton.java
+Starting at line 10 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskImpl.java
+
+    @Override
+    public void doSomething() {
+        counter.increment();
+        for (int i = 0; i < 100; i++) {
+            Math.pow(i, i);
+        }
+    }
+    
+}
+=====================================================================
+Found a 4 line (35 tokens) duplication in the following files: 
+Starting at line 107 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 134 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "deferredMethodID", "[I");
+            mv.visitInsn(Opcodes.ARRAYLENGTH);
+=====================================================================
+Found a 10 line (34 tokens) duplication in the following files: 
+Starting at line 27 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/DeferredExecution.java
+Starting at line 39 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/DeferredExecution.java
+
+        return createDeferredEnv(userDefIntf, userDefImpl, proc, bufferSize, ClassLoader.getSystemClassLoader(), args);
+    }
+
+//    public static <T extends Deferred<T>> T createDeferredEnv(Class<T> intf, Class<T> impl)
+    
+    
+    // TODO check dynamic proxy exception
+    // TODO separate internal from external exceptions
+    public static DeferredEnv createDeferredEnv(Class<? extends Deferred> userDefIntf,
+            Class<? extends Deferred> userDefImpl, Processor proc, int bufferSize, ClassLoader classLoader,
+=====================================================================
+Found a 5 line (33 tokens) duplication in the following files: 
+Starting at line 66 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 140 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitJumpInsn(Opcodes.IF_ICMPGE, l1);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "deferredMethodID", "[I");
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+=====================================================================
+Found a 5 line (32 tokens) duplication in the following files: 
+Starting at line 51 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 111 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        mv.visitJumpInsn(Opcodes.IF_ICMPLT, l3);
+
+        if (deferredMethodsReader.hasProcessingHooks()) {
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), "afterProcessing", "()V");
+=====================================================================
+Found a 5 line (32 tokens) duplication in the following files: 
+Starting at line 80 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 312 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+    public void testDeferredEnvWithClassLoader() throws Exception {
+        // set up
+        Counter counter = new Counter();
+        DeferredEnv deferredEnv = DeferredExecution.createDeferredEnv(Task.class, TaskWithInstanceVar.class,
+                new SynchronousProc(), ClassLoader.getSystemClassLoader(), counter);
+=====================================================================
+Found a 7 line (31 tokens) duplication in the following files: 
+Starting at line 52 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 316 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+                new SynchronousProc(), ClassLoader.getSystemClassLoader(), counter);
+        Task task = (Task) deferredEnv;
+
+        // exercise
+        for (int i = 0; i < 1000; i++) {
+            task.doSomething();
+        }
+=====================================================================
+Found a 6 line (30 tokens) duplication in the following files: 
+Starting at line 30 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java
+Starting at line 50 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java
+
+    public void testGetArgListFromMethodList() throws Exception {
+        // set up
+        DeferredMethodsReader reader = new DeferredMethodsReader(CrazyInterface.class, CrazyInterface.class);
+
+        // exercise
+        List<Method> methodList = reader.getMethodList();
+=====================================================================
+Found a 5 line (29 tokens) duplication in the following files: 
+Starting at line 143 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 171 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+=====================================================================
+Found a 4 line (29 tokens) duplication in the following files: 
+Starting at line 66 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 107 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        mv.visitVarInsn(Opcodes.ILOAD, 1);
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "deferredMethodID", "[I");
+        mv.visitInsn(Opcodes.ARRAYLENGTH);
+=====================================================================
+Found a 5 line (28 tokens) duplication in the following files: 
+Starting at line 28 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/DeferredExecution.java
+Starting at line 34 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/DeferredExecution.java
+
+        return createDeferredEnv(userDefIntf, userDefImpl, proc, DEFAULT_BUFFER_SIZE, classLoader, args);
+    }
+
+    public static DeferredEnv createDeferredEnv(Class<? extends Deferred> userDefIntf,
+            Class<? extends Deferred> userDefImpl, Processor proc, int bufferSize, Object... args) throws IOException {
+=====================================================================
+Found a 2 line (28 tokens) duplication in the following files: 
+Starting at line 127 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 242 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        List<Method> deferrableMethods = deferredMethodsReader.getMethodList();
+        for (int i = 0; i < deferrableMethods.size(); i++) {
+=====================================================================
+Found a 5 line (28 tokens) duplication in the following files: 
+Starting at line 78 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 127 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        List<Method> deferrableMethods = deferredMethodsReader.getMethodList();
+        for (int i = 0; i < deferrableMethods.size(); i++) {
+            Method method = deferrableMethods.get(i);
+
+            mv = cw.visitMethod(Opcodes.ACC_PUBLIC, method.getAppendName(), method.getAppendDesc(), null, null);
+=====================================================================
+Found a 5 line (28 tokens) duplication in the following files: 
+Starting at line 70 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+Starting at line 107 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+
+                deferredEnvGenerator.getClassDescriptor());
+
+        for (int i = 0; i < args.length; i++) {
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitVarInsn(Opcodes.ALOAD, i + 2);
+=====================================================================
+Found a 1 line (28 tokens) duplication in the following files: 
+Starting at line 8 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskWithArrayTypesImpl.java
+Starting at line 6 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskWithArrayTypes.java
+
+    public void doSomething(int[] i, int[][] j, Integer[] k, Integer[][] l);
+=====================================================================
+Found a 7 line (28 tokens) duplication in the following files: 
+Starting at line 26 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskWithCoalescingImpl.java
+Starting at line 9 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskImplWithSingleton.java
+
+        counter.increment();
+        for (int i = 0; i < 100; i++) {
+            Math.pow(i, i);
+        }
+    }
+    
+}
+=====================================================================
+Found a 1 line (28 tokens) duplication in the following files: 
+Starting at line 13 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskWithPrimitiveTypesImpl.java
+Starting at line 6 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/TaskWithPrimitiveTypes.java
+
+    public void doSomething(int i, byte b, long l, float f, double d, short s, char c, boolean bool);
+=====================================================================
+Found a 3 line (27 tokens) duplication in the following files: 
+Starting at line 131 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 154 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+                        + args[j].getType().getDescriptor());
+                mv.visitVarInsn(Opcodes.ALOAD, 0);
+                mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+=====================================================================
+Found a 4 line (27 tokens) duplication in the following files: 
+Starting at line 59 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+Starting at line 131 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv = cw.visitMethod(Opcodes.ACC_PUBLIC, method.getAppendName(), method.getAppendDesc(), null, null);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+=====================================================================
+Found a 3 line (27 tokens) duplication in the following files: 
+Starting at line 45 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/extendthread/ExtendThread.java
+Starting at line 106 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredMethodsReader.java
+
+            @Override
+            public void visit(int version, int access, String name, String signature, String superName,
+                    String[] interfaces) {
+=====================================================================
+Found a 3 line (27 tokens) duplication in the following files: 
+Starting at line 82 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 290 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+        Counter counter = new Counter();
+        DeferredEnv deferredEnv = DeferredExecution.createDeferredEnv(Task.class, TaskWithInstanceVar.class,
+                new SynchronousProc(), bufferSize, counter);
+=====================================================================
+Found a 12 line (27 tokens) duplication in the following files: 
+Starting at line 19 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java
+Starting at line 37 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+public class DeferredEnvTest {
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
+
+    @Test
+    public void testDeferredEnvWithNoParam() throws Exception {
+=====================================================================
+Found a 10 line (26 tokens) duplication in the following files: 
+Starting at line 115 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 224 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), arg.getName(), "[" + arg.getType().getDescriptor());
+        }
+
+        mv.visitInsn(Opcodes.RETURN);
+
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();
+    }
+
+    private void bufferFields(ClassWriter cw) {
+=====================================================================
+Found a 4 line (26 tokens) duplication in the following files: 
+Starting at line 30 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/extendthread/ExtendThread.java
+Starting at line 64 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredMethodsReader.java
+
+        ClassVisitor cv = new ClassVisitor(Opcodes.V1_6) {
+            // TODO refactor!!
+            @Override
+            public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+=====================================================================
+Found a 4 line (25 tokens) duplication in the following files: 
+Starting at line 66 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+Starting at line 131 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv = cw.visitMethod(Opcodes.ACC_PUBLIC, method.getAppendName(), method.getAppendDesc(), null, null);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+            mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "currentPos", "I");
+=====================================================================
+Found a 7 line (25 tokens) duplication in the following files: 
+Starting at line 107 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+Starting at line 167 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), "currentPos", "I");
+
+            mv.visitLabel(l1);
+
+            mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+
+            mv.visitVarInsn(Opcodes.ALOAD, 0);
+=====================================================================
+Found a 3 line (25 tokens) duplication in the following files: 
+Starting at line 59 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/DeferredEnvGenerator.java
+Starting at line 66 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+        mv.visitFrame(Opcodes.F_APPEND, 1, new Object[] { Opcodes.INTEGER }, 0, null);
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "deferredMethodID", "[I");
+=====================================================================
+Found a 8 line (25 tokens) duplication in the following files: 
+Starting at line 112 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+Starting at line 224 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), arg.getName(), "[" + arg.getType().getDescriptor());
+        }
+
+        mv.visitInsn(Opcodes.RETURN);
+
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();
+    }
+=====================================================================
+Found a 3 line (25 tokens) duplication in the following files: 
+Starting at line 71 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java
+Starting at line 151 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/bytecodegeneration/BufferGenerator.java
+
+            for (int j = 0; j < args.length; j++) {
+                mv.visitVarInsn(Opcodes.ALOAD, 0);
+                mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), args[j].getName(), "["
+=====================================================================
+Found a 1 line (25 tokens) duplication in the following files: 
+Starting at line 16 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/playground/CounterFactory.java
+Starting at line 48 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/playground/CounterFactory.java
+
+-------------------------------------------------
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 214 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 81 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/deferredmethods/DeferredExecution.java
+
+        Map<String, byte[]> mapClassnameToBytecode = new HashMap<String, byte[]>();
+        mapClassnameToBytecode.put(deferredEnvGenerator.getClassNameWithDots(), deferredEnvBytecode);
+=====================================================================
+Found a 7 line (25 tokens) duplication in the following files: 
+Starting at line 51 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 83 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+        DeferredEnv deferredEnv = DeferredExecution.createDeferredEnv(Task.class, TaskWithInstanceVar.class,
+                new SynchronousProc(), counter);
+        Task task = (Task) deferredEnv;
+
+        // exercise
+        // task.setCounter(counter);
+        for (int i = 0; i < 100; i++) {
+=====================================================================
+Found a 3 line (25 tokens) duplication in the following files: 
+Starting at line 50 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+Starting at line 177 of /Users/igormoreno/Documents/eclipse-workspace/usi-deferredmethods/src/test/deferredmethods/DeferredEnvTest.java
+
+        Counter counterForDeferredTask = new Counter();
+        DeferredEnv deferredEnv = DeferredExecution.createDeferredEnv(Task.class, TaskImpl.class,
+                new SynchronousProc(), counterForDeferredTask);

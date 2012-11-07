@@ -1,0 +1,6 @@
+# rename this file to Makefile.local to take effect
+
+# if variable is not defined autodetection or default is used
+#JAVA_HOME		= /home/ansalond/Software/java/current
+#JAVA_HOME		= /home/ansalond/Software/java/jdk1.6.0_32
+JAVA_HOME		= /usr/jdk1.6.0_37/

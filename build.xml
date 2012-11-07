@@ -1,0 +1,72 @@
+<project name="deferred_methods" default="prepare-all" basedir=".">
+
+	<property file="build.properties" />
+
+	<path id="buildpath">
+		<pathelement location="${junit.path}" />
+		<pathelement location="${asm.path}" />
+		<pathelement location="bin" />
+		<pathelement location="${deferred.path}" />
+	</path>
+
+	<target name="prepare-all" depends="compile,compile-test,compile-junit-test" />
+
+	<target name="compile" depends="extend-thread">
+		<mkdir dir="bin" />
+		<javac srcdir="src" includes="deferredmethods/**" destdir="bin" debug="true" includeAntRuntime="false">
+			<classpath refid="buildpath" />
+			<compilerarg value="-Xbootclasspath/p:${extendedthread.path}" />
+		</javac>
+		<mkdir dir="build" />
+<!--		<jar basedir="bin" destfile="${deferred.path}" /> -->
+		<jar destfile="${deferred.path}">
+			<fileset dir="bin" includes="deferredmethods/**/*.class" />
+<!--			<fileset dir="src" includes="deferredmethods/**/*.java" /> -->
+		</jar>
+	</target>
+
+	<target name="extend-thread" depends="compile-tlvinserter">
+		<mkdir dir="bin-thread/java/lang" />
+		<java fork="true" classname="deferredmethods.bytecodegeneration.extendthread.ExtendThread">
+			<classpath refid="buildpath" />
+		</java>
+		<mkdir dir="build" />
+		<jar basedir="bin-thread" destfile="${extendedthread.path}" />
+		<delete dir="bin-thread" />
+	</target>
+
+	<target name="compile-tlvinserter">
+		<mkdir dir="bin" />
+		<javac srcdir="src" includes="deferredmethods/bytecodegeneration/extendthread/" destdir="bin" debug="true" includeAntRuntime="false">
+			<classpath refid="buildpath" />
+		</javac>
+	</target>
+
+	<target name="compile-junit-test" depends="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" includes="test/**" destdir="bin" debug="true" includeAntRuntime="false">
+			<classpath refid="buildpath" />
+		</javac>
+		<mkdir dir="build" />
+		<jar destfile="${deferred.junit.test.path}">
+			<fileset dir="bin" includes="test/**" />
+		</jar>
+	</target>
+
+	<target name="compile-test" depends="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" includes="newTest/**" destdir="bin" debug="true" includeAntRuntime="false">
+			<classpath refid="buildpath" />
+		</javac>
+		<mkdir dir="build" />
+		<jar destfile="${deferred.test.path}">
+			<fileset dir="bin" includes="newTest/**" />
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="bin" />
+		<delete dir="build" />
+	</target>
+
+</project>

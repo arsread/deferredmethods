@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.2.3	//
+Agent_OnLoad	overAgent.cpp	/^JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM *jvm, char *options, void *reserved)$/;"	f
+Agent_OnUnload	overAgent.cpp	/^JNIEXPORT void JNICALL Agent_OnUnload(JavaVM *vm)$/;"	f
+COMMON_FLAGS	Makefile	/^COMMON_FLAGS=-fPIC$/;"	m
+DEBUG	Makefile	/^	$(MAKE) DEBUG=TRUE$/;"	m
+GlobalAgentData	overAgent.h	/^} GlobalAgentData;$/;"	t
+LIBNAME	Makefile	/^LIBNAME=overAgent$/;"	m
+LIBRARY	Makefile	/^LIBRARY=lib$(LIBNAME).jnilib$/;"	m
+LIBRARY	Makefile	/^LIBRARY=lib$(LIBNAME).so$/;"	m
+LINK_SHARED	Makefile	/^LINK_SHARED=$(LINK.cpp) -shared -o $@$/;"	m
+OA_NAME	overAgent.h	22;"	d
+OA_VERSION	overAgent.h	23;"	d
+OBJECTS	Makefile	/^OBJECTS=$(SOURCES:%.cpp=%.o)$/;"	m
+OVERAGENT_H_INCLUDED	overAgent.h	7;"	d
+SOURCES	Makefile	/^SOURCES=overAgent.cpp$/;"	m
+UNAME	Makefile	/^UNAME := $(shell uname)$/;"	m
+callbackJava	overAgent.h	/^   jmethodID callbackJava;$/;"	m	struct:
+callbackThreadEnd	overAgent.cpp	/^static void JNICALL callbackThreadEnd(jvmtiEnv *jvmti, JNIEnv* jni_env, jthread thread)$/;"	f	file:
+callbackVMDeath	overAgent.cpp	/^static void JNICALL callbackVMDeath(jvmtiEnv *jvmti_env, JNIEnv* jni_env)$/;"	f	file:
+capa	overAgent.cpp	/^static jvmtiCapabilities capa;$/;"	v	file:
+check_jvmti_error	overAgent.cpp	/^void check_jvmti_error(jvmtiEnv *jvmti, jvmtiError errnum, const char *str)$/;"	f
+enter_critical_section	overAgent.cpp	/^static void enter_critical_section()$/;"	f	file:
+exit_critical_section	overAgent.cpp	/^static void exit_critical_section()$/;"	f	file:
+gdata	overAgent.cpp	/^GlobalAgentData gdata;$/;"	v
+jvmti	overAgent.cpp	/^static jvmtiEnv *jvmti = NULL;$/;"	v	file:
+jvmti	overAgent.h	/^   jvmtiEnv    *jvmti;$/;"	m	struct:
+lock	overAgent.h	/^   jrawMonitorID  lock;$/;"	m	struct:
+overAgentClass	overAgent.h	/^   jclass overAgentClass;$/;"	m	struct:
