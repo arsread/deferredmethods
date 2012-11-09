@@ -13,5 +13,8 @@ public interface CPTestInterfce extends Deferred {
 
 	void foo3(ProcessingCheckPoint pcp2);
 	
+	void fooBuffParaTest(ProcessingCheckPoint pcp,int i);
+	
+	void fooBuffParaTest2(int i, int i2);
 	
 }

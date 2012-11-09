@@ -11,7 +11,7 @@
 // #INCLUDE //
 //////////////
 #include <unistd.h>
-#include <syscall.h>
+#include <sys/syscall.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

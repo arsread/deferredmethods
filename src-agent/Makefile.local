@@ -3,4 +3,4 @@
 # if variable is not defined autodetection or default is used
 #JAVA_HOME		= /home/ansalond/Software/java/current
 #JAVA_HOME		= /home/ansalond/Software/java/jdk1.6.0_32
-JAVA_HOME		= /usr/jdk1.6.0_37/
+JAVA_HOME		= /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home

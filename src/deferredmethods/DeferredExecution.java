@@ -22,57 +22,57 @@ import deferredmethods.proc.Processor;
  */
 public class DeferredExecution {
 
-    private static final int DEFAULT_BUFFER_SIZE = 100;
+//    private static final int DEFAULT_BUFFER_SIZE = 100;
     private static final AtomicInteger id = new AtomicInteger(0);
 
     // TODO use weak references
     private static ConcurrentLinkedQueue<GeneralDeferredEnv<?>> allDeferredEnvs = new ConcurrentLinkedQueue<GeneralDeferredEnv<?>>();
 
-    /**
-     * Creates an instance of the deferred environment.
-     * 
-     * @param userDefIntf
-     *            Class that implements the methods to be deferred.
-     * @param userDefImpl
-     *            Interface defining the methods to be deferred.
-     * @param proc
-     *            Processor used to process the buffers. That is to execute the
-     *            deferred methods.
-     * @param args
-     *            Arguments passed to the constructor of the class that
-     *            implements the methods to be deferred (userDefIntf).
-     * @return An Instance of the deferred environment.
-     * @throws IOException
-     */
-    public static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
-            Class<? extends T> userDefImpl, Processor proc, Object... args) throws IllegalArgumentException {
-        return createDeferredEnv(userDefIntf, userDefImpl, proc, DEFAULT_BUFFER_SIZE,
-                ClassLoader.getSystemClassLoader(), args);
-    }
-
-    /**
-     * Creates an instance of the deferred environment.
-     * 
-     * @param userDefIntf
-     *            Class that implements the methods to be deferred.
-     * @param userDefImpl
-     *            Interface defining the methods to be deferred.
-     * @param proc
-     *            Processor used to process the buffers. That is to execute the
-     *            deferred methods.
-     * @param classLoader
-     *            Class loader used to load the dynamically generated classes.
-     * @param args
-     *            Arguments passed to the constructor of the class that
-     *            implements the methods to be deferred (userDefIntf).
-     * @return An Instance of the deferred environment.
-     * @throws IOException
-     */
-    public static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
-            Class<? extends T> userDefImpl, Processor proc, ClassLoader classLoader, Object... args)
-            throws IllegalArgumentException {
-        return createDeferredEnv(userDefIntf, userDefImpl, proc, DEFAULT_BUFFER_SIZE, classLoader, args);
-    }
+//    /**
+//     * Creates an instance of the deferred environment.
+//     * 
+//     * @param userDefIntf
+//     *            Class that implements the methods to be deferred.
+//     * @param userDefImpl
+//     *            Interface defining the methods to be deferred.
+//     * @param proc
+//     *            Processor used to process the buffers. That is to execute the
+//     *            deferred methods.
+//     * @param args
+//     *            Arguments passed to the constructor of the class that
+//     *            implements the methods to be deferred (userDefIntf).
+//     * @return An Instance of the deferred environment.
+//     * @throws IOException
+//     */
+//    public static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
+//            Class<? extends T> userDefImpl, Processor proc, Object... args) throws IllegalArgumentException {
+//        return createDeferredEnv(userDefIntf, userDefImpl, proc, DEFAULT_BUFFER_SIZE,
+//                ClassLoader.getSystemClassLoader(), args);
+//    }
+//
+//    /**
+//     * Creates an instance of the deferred environment.
+//     * 
+//     * @param userDefIntf
+//     *            Class that implements the methods to be deferred.
+//     * @param userDefImpl
+//     *            Interface defining the methods to be deferred.
+//     * @param proc
+//     *            Processor used to process the buffers. That is to execute the
+//     *            deferred methods.
+//     * @param classLoader
+//     *            Class loader used to load the dynamically generated classes.
+//     * @param args
+//     *            Arguments passed to the constructor of the class that
+//     *            implements the methods to be deferred (userDefIntf).
+//     * @return An Instance of the deferred environment.
+//     * @throws IOException
+//     */
+//    private static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
+//            Class<? extends T> userDefImpl, Processor proc, ClassLoader classLoader, Object... args)
+//            throws IllegalArgumentException {
+//        return createDeferredEnv(userDefIntf, userDefImpl, proc, DEFAULT_BUFFER_SIZE, classLoader, args);
+//    }
 
     /**
      * Creates an instance of the deferred environment.
@@ -118,7 +118,7 @@ public class DeferredExecution {
      * @return An Instance of the deferred environment.
      * @throws IOException
      */
-    public static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
+    private static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,
             Class<? extends T> userDefImpl, Processor proc, int bufferSize, ClassLoader classLoader, Object... args)
             throws IllegalArgumentException {
 

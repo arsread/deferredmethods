@@ -41,7 +41,7 @@ CFLAGS += -DDEBUG
 endif
 
 CXXFLAGS = $(CFLAGS)
-CXXFLAGS += -m32 -L/usr/lib
+CXXFLAGS += -m64
 
 all: $(LIBRARY) 
 

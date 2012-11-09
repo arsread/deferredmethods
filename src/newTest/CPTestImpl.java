@@ -37,4 +37,16 @@ public class CPTestImpl implements CPTestInterfce {
 		System.out.println("I'm foo3!CheckPoint 2 statue:"+pcp2.isProcessed());
 	}
 
+	@Override
+	public void fooBuffParaTest(ProcessingCheckPoint pcp, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void fooBuffParaTest2(int i, int i2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
