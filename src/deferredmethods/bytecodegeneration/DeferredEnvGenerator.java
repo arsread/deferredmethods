@@ -224,7 +224,7 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitVarInsn(Opcodes.ASTORE, 1);
 
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
-		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "cpList",
+		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "cpListbk",
 				"Ljava/util/LinkedList;");
 		mv.visitVarInsn(Opcodes.ALOAD, 1);
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
