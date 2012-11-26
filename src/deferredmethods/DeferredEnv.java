@@ -43,5 +43,5 @@ public interface DeferredEnv<T extends Deferred> {
     
     public ProcessingCheckPoint createCheckPoint();
     
-	public void comfirmBuffer(int bufferID);
+	public void comfirmBuffer(int bufferID, long threadID);
 }

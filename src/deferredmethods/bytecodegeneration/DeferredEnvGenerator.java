@@ -225,10 +225,10 @@ public class DeferredEnvGenerator extends ClassGenerator {
 
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "cpList",
-				"Ljava/util/concurrent/ConcurrentLinkedQueue;");
+				"Ljava/util/LinkedList;");
 		mv.visitVarInsn(Opcodes.ALOAD, 1);
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
-				"java/util/concurrent/ConcurrentLinkedQueue", "add",
+				"java/util/LinkedList", "add",
 				"(Ljava/lang/Object;)Z");
 		mv.visitInsn(Opcodes.POP);
 

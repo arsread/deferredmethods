@@ -1,6 +1,7 @@
 package deferredmethods;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -17,11 +18,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class ThreadLocalBuffer<T> {
 
     private final int deferredEnvId;
-    protected final AtomicInteger bufferID;
+    private final HashMap<Long, AtomicInteger> bufferIDAlloc;
 
     public ThreadLocalBuffer(GeneralDeferredEnv<?> deferredEnv) {
         this.deferredEnvId = deferredEnv.getId();
-        this.bufferID = new AtomicInteger(1);
+        this.bufferIDAlloc = new HashMap<Long, AtomicInteger>();
     }
 
 //    public T get() {
@@ -73,6 +74,14 @@ public abstract class ThreadLocalBuffer<T> {
 
     public void remove() {
         Thread.currentThread().threadLocalBuffer[deferredEnvId] = null;
+    }
+    
+    protected synchronized int getBufferID(long threadID){
+    	if (!bufferIDAlloc.containsKey(threadID)){
+    		bufferIDAlloc.put(threadID, new AtomicInteger(0));
+    	}
+    	
+    	return bufferIDAlloc.get(threadID).incrementAndGet();
     }
 
     protected abstract T initialValue();

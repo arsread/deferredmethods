@@ -1,9 +1,7 @@
 package deferredmethods;
 
+import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import deferredmethods.proc.Processor;
 
@@ -20,7 +18,7 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements Deferred
     private final int id;
 
     private volatile PriorityQueue<Integer> bufferHeap;
-    protected ConcurrentLinkedQueue<GeneralProcessingCheckPoint> cpList;
+    protected LinkedList<GeneralProcessingCheckPoint> cpList;
     private volatile int bufferCapacity;
     private volatile int envCouter;
     protected final Processor proc;
@@ -40,7 +38,7 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements Deferred
         this.proc = proc;
         this.bufferCapacity = bufferCapacity;
         this.bufferHeap = new PriorityQueue<Integer>();
-        this.cpList = new ConcurrentLinkedQueue<GeneralProcessingCheckPoint>();
+        this.cpList = new LinkedList<GeneralProcessingCheckPoint>();
         this.envCouter = 0;
     }
 
@@ -59,7 +57,7 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements Deferred
     }
     
     @Override
-    public synchronized void comfirmBuffer(final int bufferID){
+    public synchronized void comfirmBuffer(final int bufferID, final long threadID){
     	if (bufferID == envCouter +1 ) {
     		envCouter++;
     		while (!bufferHeap.isEmpty() && bufferHeap.peek()  == envCouter+1){

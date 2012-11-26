@@ -66,8 +66,9 @@ public class ThreadLocalBufferGenerator extends ClassGenerator {
         mv.visitInsn(Opcodes.DUP);
         
         mv.visitVarInsn(Opcodes.ALOAD, 0);
-        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferID", "Ljava/util/concurrent/atomic/AtomicInteger;");
-        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/concurrent/atomic/AtomicInteger", "getAndIncrement", "()I");
+        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/Thread", "getId", "()J");
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), "getBufferID", "(J)I");
         mv.visitVarInsn(Opcodes.ALOAD, 0);
         mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "generatedDeferredEnv",
                 deferredEnvGenerator.getClassDescriptor());
