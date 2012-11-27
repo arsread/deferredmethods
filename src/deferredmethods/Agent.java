@@ -39,6 +39,8 @@ public class Agent {
             try { activateBypass.invoke(null, new Object[0]); } catch (Throwable t) { t.printStackTrace(); }
         }
 
+        System.out.println("Thread:"+Thread.currentThread()+" is dying!");
+
         DeferredExecution.processRemainingBuffers();
 
         if(deactivateBypass != null) {
@@ -55,6 +57,6 @@ public class Agent {
 //    		System.out.println(t.getName() + "\t" + t.isAlive());
 //    	}
     	DeferredExecution.stopProcessors();
-    	System.out.println("FINAL COUNTER VALUE: " + Example.counter.get());
+//    	System.out.println("FINAL COUNTER VALUE: " + Example.counter.get());
     }
 }

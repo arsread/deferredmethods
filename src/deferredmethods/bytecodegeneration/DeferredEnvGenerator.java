@@ -78,10 +78,10 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				threadLocalBufferGenerator.getClassName(), "get",
 				"()Ljava/lang/Object;");
-		mv.visitTypeInsn(Opcodes.CHECKCAST, "java/lang/Runnable");
+		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/ExtendedRunnable");
 		mv.visitMethodInsn(Opcodes.INVOKEINTERFACE,
 				"deferredmethods/proc/Processor", "process",
-				"(Ljava/lang/Runnable;)V");
+				"(Ldeferredmethods/ExtendedRunnable;)V");
 
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",

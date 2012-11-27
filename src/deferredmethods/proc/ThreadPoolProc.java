@@ -7,6 +7,8 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import deferredmethods.ExtendedRunnable;
+
 public class ThreadPoolProc implements Processor {
     private static final int DEFAULT_THREAD_POOL_SIZE = 4;
     private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE * 10;
@@ -25,9 +27,9 @@ public class ThreadPoolProc implements Processor {
             bypass = found;
         }
 
-        private final BlockingQueue<Runnable> queue;
+        private final BlockingQueue<ExtendedRunnable> queue;
 
-        public WorkerThread(BlockingQueue<Runnable> queue) {
+        public WorkerThread(BlockingQueue<ExtendedRunnable> queue) {
             super("TP_WORKER" + counter.incrementAndGet());
             setDaemon(true);
             this.queue = queue;
@@ -40,7 +42,7 @@ public class ThreadPoolProc implements Processor {
 
             while(true) {
                 try {
-                    Runnable task = queue.take();
+                    ExtendedRunnable task = queue.take();
                     task.run();
                 } catch(InterruptedException e) {
                     e.printStackTrace();
@@ -49,7 +51,7 @@ public class ThreadPoolProc implements Processor {
         }
     }
 
-    private static class SynchPill implements Runnable {
+    private static class SynchPill implements ExtendedRunnable {
         private final CyclicBarrier barrier;
 
         public SynchPill(CyclicBarrier barrier) {
@@ -60,12 +62,18 @@ public class ThreadPoolProc implements Processor {
             barrierAwait(barrier); // to synch with the sender
             barrierAwait(barrier); // to actually wait
         }
+
+		@Override
+		public Thread handInThread() {
+			// TODO Auto-generated method stub
+			return null;
+		}
     }
 
     private final AtomicBoolean isRunning;
     private final CyclicBarrier barrier;
     private final SynchPill synchPill;
-    private final BlockingQueue<Runnable> workQueue;
+    private final BlockingQueue<ExtendedRunnable> workQueue;
 //    private final WorkerThread[] workers;
     public static volatile WorkerThread[] workers;
 
@@ -82,7 +90,7 @@ public class ThreadPoolProc implements Processor {
 
         synchPill = new SynchPill(barrier);
 
-        workQueue = new ArrayBlockingQueue<Runnable>(queueCapacity);
+        workQueue = new ArrayBlockingQueue<ExtendedRunnable>(queueCapacity);
 
         workers = new WorkerThread[numThreads];
         for(int i = 0; i < numThreads; i++) {
@@ -92,7 +100,7 @@ public class ThreadPoolProc implements Processor {
     }
 
     @Override
-    public void process(Runnable buffer) {
+    public void process(ExtendedRunnable buffer) {
         if(isRunning.get()) { //some buffers might be processed after the status is set to !isRunning
             forceSubmission(workQueue, buffer);
         }
@@ -123,7 +131,13 @@ public class ThreadPoolProc implements Processor {
         try { barrier.await(); } catch (Throwable t) { t.printStackTrace(); }
     }
 
-    private static void forceSubmission(BlockingQueue<Runnable> queue, Runnable task) {
+    private static void forceSubmission(BlockingQueue<ExtendedRunnable> queue, ExtendedRunnable task) {
         try { queue.put(task); } catch(InterruptedException e) { e.printStackTrace(); }
     }
+
+	@Override
+	public void ensureQueue(Thread thread) {
+		// TODO Auto-generated method stub
+		
+	}
 }

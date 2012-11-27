@@ -31,7 +31,7 @@ public class BufferGenerator extends ClassGenerator {
         // class definition
         String superClassName = interfaceReader.getImplInternalName();
         cw.visit(Opcodes.V1_6, Opcodes.ACC_PUBLIC + Opcodes.ACC_SUPER, getClassName(), null, superClassName,
-                new String[] { "java/lang/Runnable" });
+                new String[] { "deferredmethods/ExtendedRunnable" });
 
         bufferFields(cw);
 
@@ -40,6 +40,8 @@ public class BufferGenerator extends ClassGenerator {
         bufferAppendMethods(cw);
 
         bufferRunMethod(cw);
+        
+        handInThreadMethod(cw);
 
         cw.visitEnd();
 
@@ -279,5 +281,18 @@ public class BufferGenerator extends ClassGenerator {
                     + arg.getType().getDescriptor(), null, null);
             fv.visitEnd();
         }
+    }
+    
+    //Method handInThread()
+    private void handInThreadMethod(ClassWriter cw) {
+        MethodVisitor mv;
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "handInThread", "()Ljava/lang/Thread;", null, null);
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "thread", "Ljava/lang/Thread;");
+        mv.visitInsn(Opcodes.ARETURN);
+        
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();
     }
 }

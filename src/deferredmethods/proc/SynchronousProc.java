@@ -1,5 +1,7 @@
 package deferredmethods.proc;
 
+import deferredmethods.ExtendedRunnable;
+
 public class SynchronousProc implements Processor {
     private volatile boolean isRunning = false;
 
@@ -8,7 +10,7 @@ public class SynchronousProc implements Processor {
     }
 
     @Override
-    public void process(Runnable buffer) {
+    public void process(ExtendedRunnable buffer) {
         if(isRunning) {
             buffer.run();
         }
@@ -23,5 +25,11 @@ public class SynchronousProc implements Processor {
     public void stop() {
         isRunning = false;
     }
+
+	@Override
+	public void ensureQueue(Thread thread) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
