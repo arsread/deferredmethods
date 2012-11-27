@@ -19,13 +19,13 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	private volatile int bufferCapacity;
 	protected final Processor proc;
 
-	private HashMap<Long, PriorityQueue<Integer>> bufferHeap;
-	private HashMap<Long, LinkedList<GeneralProcessingCheckPoint>> cpList;
-	private HashMap<Long, Integer> envCouter; 
+	private final HashMap<Long, PriorityQueue<Integer>> bufferHeap;
+	private final HashMap<Long, LinkedList<GeneralProcessingCheckPoint>> cpList;
+	private final HashMap<Long, Integer> envCouter;
 
-	private volatile PriorityQueue<Integer> bufferHeapbk;
-	protected LinkedList<GeneralProcessingCheckPoint> cpListbk;
-	private volatile int envCouterbk;
+	// private volatile PriorityQueue<Integer> bufferHeapbk;
+	// protected LinkedList<GeneralProcessingCheckPoint> cpListbk;
+	// private volatile int envCouterbk;
 
 	/**
 	 * Minimum requirements for a deferred environment.
@@ -41,14 +41,14 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 		this.id = id;
 		this.proc = proc;
 		this.bufferCapacity = bufferCapacity;
-		
+
 		this.bufferHeap = new HashMap<Long, PriorityQueue<Integer>>();
 		this.cpList = new HashMap<Long, LinkedList<GeneralProcessingCheckPoint>>();
 		this.envCouter = new HashMap<Long, Integer>();
-		
-		this.bufferHeapbk = new PriorityQueue<Integer>();
-		this.cpListbk = new LinkedList<GeneralProcessingCheckPoint>();
-		this.envCouterbk = 0;
+
+		// this.bufferHeapbk = new PriorityQueue<Integer>();
+		// this.cpListbk = new LinkedList<GeneralProcessingCheckPoint>();
+		// this.envCouterbk = 0;
 	}
 
 	@Override
@@ -68,50 +68,59 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	@Override
 	public synchronized void comfirmBuffer(final int bufferID,
 			final long threadID) {
-		if (bufferID == envCouterbk + 1) {
-			envCouterbk++;
-			while (!bufferHeapbk.isEmpty()
-					&& bufferHeapbk.peek() == envCouterbk + 1) {
-				envCouterbk++;
-				bufferHeapbk.remove();
+		if (bufferID == getEnvCouter(threadID) + 1) {
+			increseEnvCouter(threadID);
+			while (!getBufferHeap(threadID).isEmpty()
+					&& getBufferHeap(threadID).peek() == getEnvCouter(threadID) + 1) {
+				increseEnvCouter(threadID);
+				getBufferHeap(threadID).remove();
 			}
-			updateCheckPoints();
+			updateCheckPoints(threadID);
 		} else {
-			bufferHeapbk.add(bufferID);
+			getBufferHeap(threadID).add(bufferID);
 		}
 	}
 
-	private void updateCheckPoints() {
-		while (!cpListbk.isEmpty()
-				&& cpListbk.peek().getBufferID() <= envCouterbk) {
-			cpListbk.peek().setProcessed();
-			cpListbk.remove();
+	private void updateCheckPoints(long threadID) {
+		synchronized (cpList) {
+			LinkedList<GeneralProcessingCheckPoint> tmpCPList = getCPList(threadID);
+			while (!tmpCPList.isEmpty()
+					&& tmpCPList.peek().getBufferID() <= getEnvCouter(threadID)) {
+				tmpCPList.peek().setProcessed();
+				tmpCPList.remove();
+			}
 		}
 	}
-	
-	private PriorityQueue<Integer> getBufferHeap(long threadID){
-		if (!bufferHeap.containsKey(threadID)){
+
+	private PriorityQueue<Integer> getBufferHeap(long threadID) {
+		if (!bufferHeap.containsKey(threadID)) {
 			bufferHeap.put(threadID, new PriorityQueue<Integer>());
 		}
 		return bufferHeap.get(threadID);
 	}
-	
-	private LinkedList<GeneralProcessingCheckPoint> getCPList(long threadID){
-		if (!cpList.containsKey(threadID)){
+
+	private LinkedList<GeneralProcessingCheckPoint> getCPList(long threadID) {
+		if (!cpList.containsKey(threadID)) {
 			cpList.put(threadID, new LinkedList<GeneralProcessingCheckPoint>());
 		}
 		return cpList.get(threadID);
 	}
-	
-	private int getEnvCouter(long threadID){
-		if (!envCouter.containsKey(threadID)){
+
+	protected void addCPList(long threadID, GeneralProcessingCheckPoint cp) {
+		synchronized (cpList) {
+			getCPList(threadID).add(cp);
+		}
+	}
+
+	private int getEnvCouter(long threadID) {
+		if (!envCouter.containsKey(threadID)) {
 			envCouter.put(threadID, 0);
 		}
 		return envCouter.get(threadID);
 	}
-	
-	private void increseEnvCouter(long threadID){
+
+	private void increseEnvCouter(long threadID) {
 		int couter = envCouter.get(threadID);
-		envCouter.put(threadID, couter+1);
+		envCouter.put(threadID, couter + 1);
 	}
 }

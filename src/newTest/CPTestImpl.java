@@ -24,17 +24,17 @@ public class CPTestImpl implements CPTestInterfce {
 
 	@Override
 	public void foo2end() {
-		System.out.println("foo2 ends!!");
+		System.out.println("main thread's buffer ends!!");
 	}
 
 	@Override
-	public void foo3(ProcessingCheckPoint pcp2) {
+	public void foo3(long threadID,ProcessingCheckPoint pcp) {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("I'm foo3!CheckPoint 2 statue:"+pcp2.isProcessed());
+		System.out.println("I'm thread:"+threadID+"\tCheckPoint 1 statue:"+pcp.isProcessed());
 	}
 
 	@Override
