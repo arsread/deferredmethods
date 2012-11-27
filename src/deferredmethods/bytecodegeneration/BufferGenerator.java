@@ -125,8 +125,8 @@ public class BufferGenerator extends ClassGenerator {
         mv.visitVarInsn(Opcodes.ALOAD, 0);
         mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferID", "I");
         mv.visitVarInsn(Opcodes.ALOAD, 0);
-        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "threadID", "J");
-        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, deferredEnvGenerator.getClassName(), "comfirmBuffer", "(IJ)V");
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "thread", "Ljava/lang/Thread;");
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, deferredEnvGenerator.getClassName(), "comfirmBuffer", "(ILjava/lang/Thread;)V");
 
         mv.visitInsn(Opcodes.RETURN);
 
@@ -227,8 +227,7 @@ public class BufferGenerator extends ClassGenerator {
 
         mv.visitVarInsn(Opcodes.ALOAD, 0);
         mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
-        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/Thread", "getId", "()J");
-        mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), "threadID", "J");
+        mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), "thread", "Ljava/lang/Thread;");
         
         List<Argument> allArgs = deferredMethodsReader.getArgList();
         for (Argument arg : allArgs) {
@@ -264,7 +263,7 @@ public class BufferGenerator extends ClassGenerator {
         fv = cw.visitField(Opcodes.ACC_PUBLIC, "currentPos", "I", null, null);
         fv.visitEnd();
         
-        fv = cw.visitField(Opcodes.ACC_PRIVATE+Opcodes.ACC_FINAL, "threadID", "J", null, null);
+        fv = cw.visitField(Opcodes.ACC_PRIVATE+Opcodes.ACC_FINAL, "thread", "Ljava/lang/Thread;", null, null);
         fv.visitEnd();
 
         List<Method> deferrableMethods = deferredMethodsReader.getMethodList();

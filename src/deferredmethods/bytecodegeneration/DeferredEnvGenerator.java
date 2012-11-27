@@ -225,11 +225,10 @@ public class DeferredEnvGenerator extends ClassGenerator {
 
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
-        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/Thread", "getId", "()J");
 		mv.visitVarInsn(Opcodes.ALOAD, 1);
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				getClassName(), "addCPList",
-				"(JLdeferredmethods/GeneralProcessingCheckPoint;)V");
+				"(Ljava/lang/Thread;Ldeferredmethods/GeneralProcessingCheckPoint;)V");
 //		mv.visitInsn(Opcodes.POP);
 
 		// Processing current buffer
