@@ -21,10 +21,6 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	protected final Processor proc;
 
 	private final IdentityHashMap<Thread, ThreadCheckPointItems> threadItemsMap;
-	
-//	private final IdentityHashMap<Thread, PriorityQueue<Integer>> bufferHeap;
-//	private final IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>> cpList;
-//	private final IdentityHashMap<Thread, Integer> envCouter;
 
 	/**
 	 * Minimum requirements for a deferred environment.
@@ -42,10 +38,6 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 		this.bufferCapacity = bufferCapacity;
 		
 		this.threadItemsMap = new IdentityHashMap<Thread, ThreadCheckPointItems>();
-
-//		this.bufferHeap = new IdentityHashMap<Thread, PriorityQueue<Integer>>();
-//		this.cpList = new IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>>();
-//		this.envCouter = new IdentityHashMap<Thread, Integer>();
 	}
 
 	@Override

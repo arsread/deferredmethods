@@ -4,5 +4,5 @@ public interface ProcessingCheckPoint {
 	
 	public boolean isProcessed();
 	
-	public void awaitProcessed();
+	public void awaitProcessed() throws InterruptedException;
 }

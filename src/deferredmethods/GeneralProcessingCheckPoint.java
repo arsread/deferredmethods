@@ -19,16 +19,16 @@ public class GeneralProcessingCheckPoint implements ProcessingCheckPoint {
 		return isprocessed;
 	}
 	
-	public void setProcessed() {
+	public synchronized void setProcessed() {
 		this.isprocessed = true;
+		notifyAll();
 	}
 
 	@Override
-	public void awaitProcessed() {
+	public synchronized void awaitProcessed() throws InterruptedException {
 		while (!isprocessed) {
-			try { Thread.sleep(1000); } catch (InterruptedException e) { };
+			wait();
 		}
-		
 	}
 
 }
