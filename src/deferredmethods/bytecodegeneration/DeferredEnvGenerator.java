@@ -75,9 +75,12 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 				threadLocalBufferGenerator.getClassDescriptor());
+		mv.visitVarInsn(Opcodes.ALOAD, 0);
+		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
+				"Ldeferredmethods/proc/Processor;");
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				threadLocalBufferGenerator.getClassName(), "get",
-				"()Ljava/lang/Object;");
+				"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
 		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/ExtendedRunnable");
 		mv.visitMethodInsn(Opcodes.INVOKEINTERFACE,
 				"deferredmethods/proc/Processor", "process",
@@ -110,9 +113,12 @@ public class DeferredEnvGenerator extends ClassGenerator {
 			mv.visitVarInsn(Opcodes.ALOAD, 0);
 			mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 					threadLocalBufferGenerator.getClassDescriptor());
+			mv.visitVarInsn(Opcodes.ALOAD, 0);
+			mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
+					"Ldeferredmethods/proc/Processor;");
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 					threadLocalBufferGenerator.getClassName(), "get",
-					"()Ljava/lang/Object;");
+					"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
 			mv.visitTypeInsn(Opcodes.CHECKCAST, bufferGenerator.getClassName());
 
 			Type[] types = deferrableMethod.getTypes();
@@ -213,9 +219,12 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 				threadLocalBufferGenerator.getClassDescriptor());
+		mv.visitVarInsn(Opcodes.ALOAD, 0);
+		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
+				"Ldeferredmethods/proc/Processor;");
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				threadLocalBufferGenerator.getClassName(), "get",
-				"()Ljava/lang/Object;");
+				"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
 		mv.visitTypeInsn(Opcodes.CHECKCAST, bufferGenerator.getClassName());
 		mv.visitFieldInsn(Opcodes.GETFIELD, bufferGenerator.getClassName(),
 				"bufferID", "I");

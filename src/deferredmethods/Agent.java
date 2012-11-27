@@ -39,8 +39,6 @@ public class Agent {
             try { activateBypass.invoke(null, new Object[0]); } catch (Throwable t) { t.printStackTrace(); }
         }
 
-        System.out.println("Thread:"+Thread.currentThread()+" is dying!");
-
         DeferredExecution.processRemainingBuffers();
 
         if(deactivateBypass != null) {

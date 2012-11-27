@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import deferredmethods.proc.Processor;
+
 /**
  * This implementation directly accesses an array of Object inserted in the
  * java.lang.Thread class accessed with
@@ -42,7 +44,7 @@ public abstract class ThreadLocalBuffer<T> {
 //        return (T) buffer;
 //    }
 
-    public T get() {
+    public T get(Processor proc) {
         Object[] threadLocalBuffer = Thread.currentThread().threadLocalBuffer;
 
         Object buffer = null;
@@ -51,6 +53,7 @@ public abstract class ThreadLocalBuffer<T> {
         } catch(ArrayIndexOutOfBoundsException e) { }
 
         if (buffer == null) {
+        	proc.ensureQueue(Thread.currentThread());
             threadLocalBuffer = ensureCapacity(threadLocalBuffer, deferredEnvId + 1);
             buffer = initialValue();
             threadLocalBuffer[deferredEnvId] = buffer;

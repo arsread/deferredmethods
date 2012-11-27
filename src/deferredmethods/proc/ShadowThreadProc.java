@@ -117,7 +117,6 @@ public class ShadowThreadProc implements Processor {
     public void process(ExtendedRunnable buffer) {
         if(isRunning.get()) { //some buffers might be processed after the status is set to !isRunning
         	Thread thread = buffer.handInThread();
-        	System.out.println("I'm processing "+thread+"'s buffer");
         	BlockingQueue<ExtendedRunnable> workQueue = getQueue(thread);
             forceSubmission(workQueue, buffer);
         }
@@ -158,7 +157,6 @@ public class ShadowThreadProc implements Processor {
     
     public synchronized void ensureQueue(Thread thread){
     	if (!threadQueueMap.containsKey(thread)) {
-    		System.out.println("I'm getting "+thread+"'s buffer!");
     		BlockingQueue<ExtendedRunnable> queue = new ArrayBlockingQueue<ExtendedRunnable>(queueCapacity);
     		threadQueueMap.put(thread, queue);
     		WorkerThread worker = new WorkerThread(queue);
@@ -170,9 +168,6 @@ public class ShadowThreadProc implements Processor {
 
     private BlockingQueue<ExtendedRunnable> getQueue(Thread thread) {
     	ensureQueue(thread);
-    	
-        System.out.println("workerSize:"+workerList.size());
-
     	return threadQueueMap.get(thread);
 	}
 }
