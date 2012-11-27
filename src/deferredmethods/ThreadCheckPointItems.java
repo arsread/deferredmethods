@@ -1,44 +1,33 @@
 package deferredmethods;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class ThreadCheckPointItems {
-	private final HashMap<Long, PriorityQueue<Integer>> bufferHeap;
-	private final HashMap<Long, LinkedList<GeneralProcessingCheckPoint>> cpList;
-	private final HashMap<Long, Integer> envCouter; 
+	private final PriorityQueue<Integer> bufferHeap;
+	private final LinkedList<GeneralProcessingCheckPoint> cpList;
+	private int envCouter; 
 
 	public ThreadCheckPointItems(){
-		this.bufferHeap = new HashMap<Long, PriorityQueue<Integer>>();
-		this.cpList = new HashMap<Long, LinkedList<GeneralProcessingCheckPoint>>();
-		this.envCouter = new HashMap<Long, Integer>();
+		this.bufferHeap = new PriorityQueue<Integer>();
+		this.cpList = new LinkedList<GeneralProcessingCheckPoint>();
+		this.envCouter = 0;
 	}
 
-	public PriorityQueue<Integer> getBufferHeap(long threadID){
-		if (!bufferHeap.containsKey(threadID)){
-			bufferHeap.put(threadID, new PriorityQueue<Integer>());
-		}
-		return bufferHeap.get(threadID);
+	public PriorityQueue<Integer> getBufferHeap(){
+		return bufferHeap;
 	}
 	
-	public LinkedList<GeneralProcessingCheckPoint> getCPList(long threadID){
-		if (!cpList.containsKey(threadID)){
-			cpList.put(threadID, new LinkedList<GeneralProcessingCheckPoint>());
-		}
-		return cpList.get(threadID);
+	public LinkedList<GeneralProcessingCheckPoint> getCPList(){
+		return cpList;
 	}
 	
-	public int getEnvCouter(long threadID){
-		if (!envCouter.containsKey(threadID)){
-			envCouter.put(threadID, 0);
-		}
-		return envCouter.get(threadID);
+	public int getEnvCouter(){
+		return envCouter;
 	}
 	
-	public void increseEnvCouter(long threadID){
-		int couter = envCouter.get(threadID);
-		envCouter.put(threadID, couter+1);
+	public void setEnvCouter(int value){
+		envCouter = value;
 	}
 	
 }

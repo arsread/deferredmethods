@@ -20,13 +20,11 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	private volatile int bufferCapacity;
 	protected final Processor proc;
 
-	private final IdentityHashMap<Thread, PriorityQueue<Integer>> bufferHeap;
-	private final IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>> cpList;
-	private final IdentityHashMap<Thread, Integer> envCouter;
-
-	// private volatile PriorityQueue<Integer> bufferHeapbk;
-	// protected LinkedList<GeneralProcessingCheckPoint> cpListbk;
-	// private volatile int envCouterbk;
+	private final IdentityHashMap<Thread, ThreadCheckPointItems> threadItemsMap;
+	
+//	private final IdentityHashMap<Thread, PriorityQueue<Integer>> bufferHeap;
+//	private final IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>> cpList;
+//	private final IdentityHashMap<Thread, Integer> envCouter;
 
 	/**
 	 * Minimum requirements for a deferred environment.
@@ -42,14 +40,12 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 		this.id = id;
 		this.proc = proc;
 		this.bufferCapacity = bufferCapacity;
+		
+		this.threadItemsMap = new IdentityHashMap<Thread, ThreadCheckPointItems>();
 
-		this.bufferHeap = new IdentityHashMap<Thread, PriorityQueue<Integer>>();
-		this.cpList = new IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>>();
-		this.envCouter = new IdentityHashMap<Thread, Integer>();
-
-		// this.bufferHeapbk = new PriorityQueue<Integer>();
-		// this.cpListbk = new LinkedList<GeneralProcessingCheckPoint>();
-		// this.envCouterbk = 0;
+//		this.bufferHeap = new IdentityHashMap<Thread, PriorityQueue<Integer>>();
+//		this.cpList = new IdentityHashMap<Thread, LinkedList<GeneralProcessingCheckPoint>>();
+//		this.envCouter = new IdentityHashMap<Thread, Integer>();
 	}
 
 	@Override
@@ -69,59 +65,48 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	@Override
 	public synchronized void comfirmBuffer(final int bufferID,
 			final Thread thread) {
-		if (bufferID == getEnvCouter(thread) + 1) {
-			increseEnvCouter(thread);
-			while (!getBufferHeap(thread).isEmpty()
-					&& getBufferHeap(thread).peek() == getEnvCouter(thread) + 1) {
-				increseEnvCouter(thread);
-				getBufferHeap(thread).remove();
+		ThreadCheckPointItems threadItems = getThreadItems(thread);
+		PriorityQueue<Integer> bufferHeap = threadItems.getBufferHeap();
+		LinkedList<GeneralProcessingCheckPoint> cpList = threadItems.getCPList();
+		int envCouter = threadItems.getEnvCouter(); 
+
+		if (bufferID == envCouter + 1) {
+			envCouter++;
+			while (!bufferHeap.isEmpty()
+					&& bufferHeap.peek() == envCouter + 1) {
+				envCouter++;
+				bufferHeap.remove();
 			}
-			updateCheckPoints(thread);
+			threadItems.setEnvCouter(envCouter);
+			updateCheckPoints(cpList, envCouter);
 		} else {
-			getBufferHeap(thread).add(bufferID);
+			bufferHeap.add(bufferID);
 		}
 	}
-
-	private void updateCheckPoints(Thread thread) {
+	
+	private void updateCheckPoints(LinkedList<GeneralProcessingCheckPoint> cpList, int envCouter) {
 		synchronized (cpList) {
-			LinkedList<GeneralProcessingCheckPoint> tmpCPList = getCPList(thread);
-			while (!tmpCPList.isEmpty()
-					&& tmpCPList.peek().getBufferID() <= getEnvCouter(thread)) {
-				tmpCPList.peek().setProcessed();
-				tmpCPList.remove();
+			while (!cpList.isEmpty()
+					&& cpList.peek().getBufferID() <= envCouter) {
+				cpList.peek().setProcessed();
+				cpList.remove();
 			}
 		}
 	}
-
-	private PriorityQueue<Integer> getBufferHeap(Thread thread) {
-		if (!bufferHeap.containsKey(thread)) {
-			bufferHeap.put(thread, new PriorityQueue<Integer>());
+	
+	private ThreadCheckPointItems getThreadItems(Thread thread){
+		synchronized (threadItemsMap){
+			if (!threadItemsMap.containsKey(thread)) {
+				threadItemsMap.put(thread, new ThreadCheckPointItems());
+			}
+			return threadItemsMap.get(thread);
 		}
-		return bufferHeap.get(thread);
-	}
-
-	private LinkedList<GeneralProcessingCheckPoint> getCPList(Thread thread) {
-		if (!cpList.containsKey(thread)) {
-			cpList.put(thread, new LinkedList<GeneralProcessingCheckPoint>());
-		}
-		return cpList.get(thread);
 	}
 
 	protected void addCPList(Thread thread, GeneralProcessingCheckPoint cp) {
+		LinkedList<GeneralProcessingCheckPoint> cpList=getThreadItems(thread).getCPList();
 		synchronized (cpList) {
-			getCPList(thread).add(cp);
+			cpList.add(cp);
 		}
-	}
-
-	private int getEnvCouter(Thread thread) {
-		if (!envCouter.containsKey(thread)) {
-			envCouter.put(thread, 0);
-		}
-		return envCouter.get(thread);
-	}
-
-	private void increseEnvCouter(Thread thread) {
-		int couter = envCouter.get(thread);
-		envCouter.put(thread, couter + 1);
 	}
 }
