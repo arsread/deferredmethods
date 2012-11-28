@@ -55,24 +55,27 @@ public abstract class GeneralDeferredEnv<T extends Deferred> implements
 	}
 
 	@Override
-	public synchronized void comfirmBuffer(final int bufferID,
+	public void comfirmBuffer(final int bufferID,
 			final Thread thread) {
 		ThreadCheckPointItems threadItems = getThreadItems(thread);
 		PriorityQueue<Integer> bufferHeap = threadItems.getBufferHeap();
 		LinkedList<GeneralProcessingCheckPoint> cpList = threadItems.getCPList();
-		int envCouter = threadItems.getEnvCouter(); 
 
-		if (bufferID == envCouter + 1) {
-			envCouter++;
-			while (!bufferHeap.isEmpty()
-					&& bufferHeap.peek() == envCouter + 1) {
+		synchronized (threadItems) {
+			int envCouter = threadItems.getEnvCouter(); 
+	
+			if (bufferID == envCouter + 1) {
 				envCouter++;
-				bufferHeap.remove();
+				while (!bufferHeap.isEmpty()
+						&& bufferHeap.peek() == envCouter + 1) {
+					envCouter++;
+					bufferHeap.remove();
+				}
+				threadItems.setEnvCouter(envCouter);
+				updateCheckPoints(cpList, envCouter);
+			} else {
+				bufferHeap.add(bufferID);
 			}
-			threadItems.setEnvCouter(envCouter);
-			updateCheckPoints(cpList, envCouter);
-		} else {
-			bufferHeap.add(bufferID);
 		}
 	}
 	
