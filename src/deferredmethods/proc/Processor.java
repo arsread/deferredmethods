@@ -1,6 +1,6 @@
 package deferredmethods.proc;
 
-import deferredmethods.ExtendedRunnable;
+import deferredmethods.Buffer;
 
 /**
  * A processor is responsible for actually executing the deferred methods.
@@ -16,9 +16,8 @@ public interface Processor {
      * 
      * @param buffer Buffer to be executed
      */
-    void process(ExtendedRunnable buffer);
+    void process(Buffer buffer);
     void start();
     void stop();
-    
-    void ensureQueue(Thread thread);
+    void producerThreadDied(Thread t);
 }

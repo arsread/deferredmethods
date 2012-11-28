@@ -75,16 +75,13 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 				threadLocalBufferGenerator.getClassDescriptor());
-		mv.visitVarInsn(Opcodes.ALOAD, 0);
-		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
-				"Ldeferredmethods/proc/Processor;");
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				threadLocalBufferGenerator.getClassName(), "get",
-				"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
-		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/ExtendedRunnable");
+				"()Ljava/lang/Object;");
+		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/Buffer");
 		mv.visitMethodInsn(Opcodes.INVOKEINTERFACE,
 				"deferredmethods/proc/Processor", "process",
-				"(Ldeferredmethods/ExtendedRunnable;)V");
+				"(Ldeferredmethods/Buffer;)V");
 
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
@@ -113,12 +110,9 @@ public class DeferredEnvGenerator extends ClassGenerator {
 			mv.visitVarInsn(Opcodes.ALOAD, 0);
 			mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 					threadLocalBufferGenerator.getClassDescriptor());
-			mv.visitVarInsn(Opcodes.ALOAD, 0);
-			mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
-					"Ldeferredmethods/proc/Processor;");
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 					threadLocalBufferGenerator.getClassName(), "get",
-					"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
+					"()Ljava/lang/Object;");
 			mv.visitTypeInsn(Opcodes.CHECKCAST, bufferGenerator.getClassName());
 
 			Type[] types = deferrableMethod.getTypes();
@@ -219,12 +213,9 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 				threadLocalBufferGenerator.getClassDescriptor());
-		mv.visitVarInsn(Opcodes.ALOAD, 0);
-		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "proc",
-				"Ldeferredmethods/proc/Processor;");
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 				threadLocalBufferGenerator.getClassName(), "get",
-				"(Ldeferredmethods/proc/Processor;)Ljava/lang/Object;");
+				"()Ljava/lang/Object;");
 		mv.visitTypeInsn(Opcodes.CHECKCAST, bufferGenerator.getClassName());
 		mv.visitFieldInsn(Opcodes.GETFIELD, bufferGenerator.getClassName(),
 				"bufferID", "I");

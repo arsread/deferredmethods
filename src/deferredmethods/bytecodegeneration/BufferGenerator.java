@@ -31,7 +31,7 @@ public class BufferGenerator extends ClassGenerator {
         // class definition
         String superClassName = interfaceReader.getImplInternalName();
         cw.visit(Opcodes.V1_6, Opcodes.ACC_PUBLIC + Opcodes.ACC_SUPER, getClassName(), null, superClassName,
-                new String[] { "deferredmethods/ExtendedRunnable" });
+                new String[] { "deferredmethods/Buffer" });
 
         bufferFields(cw);
 

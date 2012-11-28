@@ -1,7 +1,6 @@
 package deferredmethods.proc;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -13,7 +12,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import deferredmethods.ExtendedRunnable;
+import deferredmethods.Buffer;
 
 public class ShadowThreadProc implements Processor {
     private static final int DEFAULT_THREAD_POOL_SIZE = 4;
@@ -33,9 +32,9 @@ public class ShadowThreadProc implements Processor {
             bypass = found;
         }
 
-        private final BlockingQueue<ExtendedRunnable> queue;
+        private final BlockingQueue<Runnable> queue;
 
-        public WorkerThread(BlockingQueue<ExtendedRunnable> queue) {
+        public WorkerThread(BlockingQueue<Runnable> queue) {
             super("TP_WORKER" + counter.incrementAndGet());
             setDaemon(true);
             this.queue = queue;
@@ -48,7 +47,7 @@ public class ShadowThreadProc implements Processor {
 
             while(true) {
                 try {
-                    ExtendedRunnable task = queue.take();
+                    Runnable task = queue.take();
                     task.run();
                 } catch(InterruptedException e) {
                     e.printStackTrace();
@@ -57,7 +56,7 @@ public class ShadowThreadProc implements Processor {
         }
     }
 
-    private static class SynchPill implements ExtendedRunnable {
+    private static class SynchPill implements Runnable {
         private final CyclicBarrier barrier;
 
         public SynchPill(CyclicBarrier barrier) {
@@ -69,20 +68,15 @@ public class ShadowThreadProc implements Processor {
             barrierAwait(barrier); // to actually wait
         }
 
-		@Override
-		public Thread handInThread() {
-			// TODO Auto-generated method stub
-			return null;
-		}
     }
 
     private final AtomicBoolean isRunning;
 //    private CyclicBarrier barrier;
 //    private SynchPill synchPill;
-	private final IdentityHashMap<Thread, BlockingQueue<ExtendedRunnable>> threadQueueMap;
+	private final IdentityHashMap<Thread, BlockingQueue<Runnable>> threadQueueMap;
     private final int queueCapacity;
     private final List<WorkerThread> workerList;
-//    private final BlockingQueue<ExtendedRunnable> workQueue;
+//    private final BlockingQueue<Runnable> workQueue;
 //    private final WorkerThread[] workers;
 //    public static volatile ArrayList<WorkerThread> workers;
 
@@ -103,9 +97,11 @@ public class ShadowThreadProc implements Processor {
         
         workerList = new LinkedList<WorkerThread>();
 
-//        workQueue = new ArrayBlockingQueue<ExtendedRunnable>(queueCapacity);
+//        workQueue = new ArrayBlockingQueue<Runnable>(queueCapacity);
 
-        threadQueueMap = new IdentityHashMap<Thread, BlockingQueue<ExtendedRunnable>>();
+        threadQueueMap = new IdentityHashMap<Thread, BlockingQueue<Runnable>>();
+        registerNewThread(null);
+
 //        workers = new ArrayList<WorkerThread>();
 //        for(int i = 0; i < numThreads; i++) {
 //            workers[i] = new WorkerThread(workQueue);
@@ -114,10 +110,10 @@ public class ShadowThreadProc implements Processor {
     }
 
     @Override
-    public void process(ExtendedRunnable buffer) {
+    public void process(Buffer buffer) {
         if(isRunning.get()) { //some buffers might be processed after the status is set to !isRunning
         	Thread thread = buffer.handInThread();
-        	BlockingQueue<ExtendedRunnable> workQueue = getQueue(thread);
+        	BlockingQueue<Runnable> workQueue = getQueue(thread);
             forceSubmission(workQueue, buffer);
         }
     }
@@ -135,11 +131,11 @@ public class ShadowThreadProc implements Processor {
     public void stop() {
         if(isRunning.compareAndSet(true, false)) {
             if(DEBUG) System.out.println("Stopping...");
-            Iterator<Entry<Thread, BlockingQueue<ExtendedRunnable>>> itr = threadQueueMap.entrySet().iterator();
+            Iterator<Entry<Thread, BlockingQueue<Runnable>>> itr = threadQueueMap.entrySet().iterator();
             CyclicBarrier barrier = new CyclicBarrier(workerList.size()+1);
             SynchPill synchPill = new SynchPill(barrier);
             while(itr.hasNext()) {
-            	Entry<Thread, BlockingQueue<ExtendedRunnable>> entry = itr.next();
+            	Entry<Thread, BlockingQueue<Runnable>> entry = itr.next();
                 forceSubmission(entry.getValue(), synchPill);
             }
             barrierAwait(barrier);
@@ -151,23 +147,38 @@ public class ShadowThreadProc implements Processor {
         try { barrier.await(); } catch (Throwable t) { t.printStackTrace(); }
     }
 
-    private static void forceSubmission(BlockingQueue<ExtendedRunnable> queue, ExtendedRunnable task) {
+    private static void forceSubmission(BlockingQueue<Runnable> queue, Runnable task) {
         try { queue.put(task); } catch(InterruptedException e) { e.printStackTrace(); }
     }
     
-    public synchronized void ensureQueue(Thread thread){
-    	if (!threadQueueMap.containsKey(thread)) {
-    		BlockingQueue<ExtendedRunnable> queue = new ArrayBlockingQueue<ExtendedRunnable>(queueCapacity);
-    		threadQueueMap.put(thread, queue);
-    		WorkerThread worker = new WorkerThread(queue);
-    		workerList.add(worker);
-    		worker.start();
-    	}
-    }
-    
 
-    private BlockingQueue<ExtendedRunnable> getQueue(Thread thread) {
-    	ensureQueue(thread);
-    	return threadQueueMap.get(thread);
+    //WARNING: this method is not synchronized
+    private BlockingQueue<Runnable> registerNewThread(Thread thread) {
+		BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(queueCapacity);
+		try {
+			WorkerThread worker = new WorkerThread(queue);
+    		worker.start();
+    		workerList.add(worker);
+    		threadQueueMap.put(thread, queue);
+		} catch(NullPointerException e) {
+			queue = threadQueueMap.get(null);
+		}
+		return queue;
+    }
+
+    private BlockingQueue<Runnable> getQueue(Thread thread) {
+    	BlockingQueue<Runnable> queue;
+    	synchronized (threadQueueMap) {
+    		if ((queue = threadQueueMap.get(thread)) == null) {
+    			queue = registerNewThread(thread);
+    		}
+    		return queue;
+    	}
+	}
+
+	@Override
+	public void producerThreadDied(Thread t) {
+		// TODO Auto-generated method stub
+		
 	}
 }

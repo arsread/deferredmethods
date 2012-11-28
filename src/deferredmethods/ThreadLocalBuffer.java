@@ -44,7 +44,7 @@ public abstract class ThreadLocalBuffer<T> {
 //        return (T) buffer;
 //    }
 
-    public T get(Processor proc) {
+    public T get() {
         Object[] threadLocalBuffer = Thread.currentThread().threadLocalBuffer;
 
         Object buffer = null;
@@ -53,7 +53,6 @@ public abstract class ThreadLocalBuffer<T> {
         } catch(ArrayIndexOutOfBoundsException e) { }
 
         if (buffer == null) {
-        	proc.ensureQueue(Thread.currentThread());
             threadLocalBuffer = ensureCapacity(threadLocalBuffer, deferredEnvId + 1);
             buffer = initialValue();
             threadLocalBuffer[deferredEnvId] = buffer;
