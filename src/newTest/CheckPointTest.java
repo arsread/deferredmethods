@@ -36,10 +36,11 @@ public class CheckPointTest {
 
 				@Override
 				public void run() {
-					for (int i = 0; i < 5; i++) {
+					for (int i = 0; i < 4; i++) {
 						CPTest.foo3(Thread.currentThread().getId(),pcp1);
 					}
 //					def.processCurrentBuffer();
+//					CPTest.foo3(Thread.currentThread().getId(),pcp1);
 				}
 
 			}).start();

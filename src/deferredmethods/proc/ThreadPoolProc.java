@@ -70,7 +70,7 @@ public class ThreadPoolProc implements Processor {
     private final SynchPill synchPill;
     private final BlockingQueue<Runnable> workQueue;
 //    private final WorkerThread[] workers;
-    public static volatile WorkerThread[] workers;
+    public volatile WorkerThread[] workers;
 
     public ThreadPoolProc() {
         this(DEFAULT_THREAD_POOL_SIZE, DEFAULT_QUEUE_CAPACITY);
