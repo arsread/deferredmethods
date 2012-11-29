@@ -236,4 +236,10 @@ public class DeferredExecution {
         return id.getAndIncrement();
     }
 
+	public static void stopWorkerThreads() {
+	       for (GeneralDeferredEnv<?> deferredEnv : allDeferredEnvs) {
+	    	   deferredEnv.proc.producerThreadDied(Thread.currentThread());
+            }
+	}
+
 }

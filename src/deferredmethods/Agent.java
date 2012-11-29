@@ -2,10 +2,6 @@ package deferredmethods;
 
 import java.lang.reflect.Method;
 
-import newTest.Example;
-
-import deferredmethods.proc.ThreadPoolProc;
-
 /**
  * Class to be called by the native agent on each thread's death in order to
  * process the remaining unprocessed buffer associated with the thread that is about to die.
@@ -40,6 +36,7 @@ public class Agent {
         }
 
         DeferredExecution.processRemainingBuffers();
+//        DeferredExecution.stopWorkerThreads();
 
         if(deactivateBypass != null) {
             try { deactivateBypass.invoke(null, new Object[0]); } catch (Throwable t) { t.printStackTrace(); }

@@ -3,13 +3,12 @@ package newTest;
 import deferredmethods.DeferredEnv;
 import deferredmethods.DeferredExecution;
 import deferredmethods.ProcessingCheckPoint;
-import deferredmethods.proc.ShadowThreadProc;
-import deferredmethods.proc.ThreadPoolProc;
+import deferredmethods.proc.ShadowThreadProc2;
 
 public class CheckPointTest {
 	public static void main(String[] args) {
 		final DeferredEnv<CPTestInterfce> def = DeferredExecution.createDeferredEnv(
-				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProc(),
+				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProc2(),
 				1000);
 		final CPTestInterfce CPTest = def.getProxy();
 
