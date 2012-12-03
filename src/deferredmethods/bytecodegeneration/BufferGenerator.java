@@ -42,13 +42,18 @@ public class BufferGenerator extends ClassGenerator {
         bufferRunMethod(cw);
         
         handInThreadMethod(cw);
+        
+        getBufferIdMethod(cw);
+        
+        getEnvMethod(cw);
 
         cw.visitEnd();
 
         return cw.toByteArray();
     }
 
-    private void bufferRunMethod(ClassWriter cw) {
+
+	private void bufferRunMethod(ClassWriter cw) {
         List<Method> deferrableMethods = deferredMethodsReader.getMethodList();
 
         MethodVisitor mv;
@@ -295,4 +300,29 @@ public class BufferGenerator extends ClassGenerator {
         mv.visitMaxs(0, 0);
         mv.visitEnd();
     }
+    
+    private void getBufferIdMethod(ClassWriter cw) {
+        MethodVisitor mv;
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "getBufferId", "()I", null, null);
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferID", "I");
+        mv.visitInsn(Opcodes.IRETURN);
+        
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();		
+	}
+    
+    private void getEnvMethod(ClassWriter cw) {
+        MethodVisitor mv;
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "getEnv", "()Ldeferred/DeferredEnv;", null, null);
+
+        mv.visitVarInsn(Opcodes.ALOAD, 0);
+        mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "generatedEnv", deferredEnvGenerator.getClassDescriptor());
+		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferred/DeferredEnv");
+        mv.visitInsn(Opcodes.ARETURN);
+        
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();		
+	}
 }

@@ -242,4 +242,11 @@ public class DeferredExecution {
             }
 	}
 
+	public static void setEndFlags() {
+		Thread thread = Thread.currentThread();
+	   	for(GeneralDeferredEnv<?> deferredEnv : allDeferredEnvs) {
+    		deferredEnv.setEnd(thread);
+    	}
+	}
+
 }

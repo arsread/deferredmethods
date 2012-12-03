@@ -101,7 +101,7 @@ public class ShadowThreadProc2 implements Processor {
 	private final AtomicBoolean isRunning;
 	private final IdentityHashMap<Thread, WorkerThread> threadWorkerMap;
 	private final int queueCapacity;
-	private final List<WorkerThread> workerList;
+//	private final List<WorkerThread> workerList;
 
 	public ShadowThreadProc2() {
 		this(DEFAULT_THREAD_POOL_SIZE, DEFAULT_QUEUE_CAPACITY);
@@ -115,7 +115,7 @@ public class ShadowThreadProc2 implements Processor {
 		isRunning = new AtomicBoolean(true);
 		this.queueCapacity = queueCapacity;
 
-		workerList = new LinkedList<WorkerThread>();
+//		workerList = new LinkedList<WorkerThread>();
 
 		threadWorkerMap = new IdentityHashMap<Thread, WorkerThread>();
 		
@@ -124,7 +124,7 @@ public class ShadowThreadProc2 implements Processor {
 		WorkerThread worker = new WorkerThread(nullQueue);
 		worker.setDaemon(true);
 		worker.start();
-		workerList.add(worker);
+//		workerList.add(worker);
 		threadWorkerMap.put(null, worker);
 
 	}
@@ -168,7 +168,7 @@ public class ShadowThreadProc2 implements Processor {
 			if (worker != null) {
 				CyclicBarrier barrier = new CyclicBarrier(2);
 				 SynchPill synchPill = new SynchPill(barrier);
-				workerList.remove(worker);// but I cannot do it immediately
+//				workerList.remove(worker);// but I cannot do it immediately
 				forceSubmission(worker.getQueue(), synchPill);
 				barrierAwait(barrier);
 			}
@@ -201,7 +201,7 @@ public class ShadowThreadProc2 implements Processor {
 		try {
 			WorkerThread worker = new WorkerThread(queue);
 			worker.start();
-			workerList.add(worker);
+//			workerList.add(worker);
 			threadWorkerMap.put(thread, worker);
 		} catch (NullPointerException e) {
 			queue = threadWorkerMap.get(null).getQueue();
@@ -227,7 +227,7 @@ public class ShadowThreadProc2 implements Processor {
 		synchronized (threadWorkerMap) {
 			WorkerThread worker = threadWorkerMap.remove(thread);
 			if (worker != null) {
-				workerList.remove(worker);// but I cannot do it immediately
+//				workerList.remove(worker);// but I cannot do it immediately
 				worker.terminate();
 			}
 		}

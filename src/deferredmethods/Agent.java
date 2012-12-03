@@ -36,6 +36,7 @@ public class Agent {
         }
 
         DeferredExecution.processRemainingBuffers();
+        DeferredExecution.setEndFlags();
         DeferredExecution.stopWorkerThreads();
 
         if(deactivateBypass != null) {
@@ -47,11 +48,6 @@ public class Agent {
      * To be called on thread's death so it can process its remaining buffers.
      */
     public static void onVMDeath() {
-//    	System.out.println("I am dying!!!!!!");
-//    	for(Thread t : ThreadPoolProc.workers) {
-//    		System.out.println(t.getName() + "\t" + t.isAlive());
-//    	}
     	DeferredExecution.stopProcessors();
-//    	System.out.println("FINAL COUNTER VALUE: " + Example.counter.get());
     }
 }

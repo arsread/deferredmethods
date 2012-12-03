@@ -11,7 +11,7 @@
 
 	<target name="prepare-all" depends="compile,compile-test,compile-junit-test" />
 
-	<target name="compile" depends="extend-thread">
+	<target name="compile" depends="extend-thread,extend-lock">
 		<mkdir dir="bin" />
 		<javac srcdir="src" includes="deferredmethods/**" destdir="bin" debug="true" includeAntRuntime="false">
 			<classpath refid="buildpath" />
@@ -38,6 +38,23 @@
 	<target name="compile-tlvinserter">
 		<mkdir dir="bin" />
 		<javac srcdir="src" includes="deferredmethods/bytecodegeneration/extendthread/" destdir="bin" debug="true" includeAntRuntime="false">
+			<classpath refid="buildpath" />
+		</javac>
+	</target>
+
+	<target name="extend-lock" depends="compile-lockinserter">
+		<mkdir dir="bin-lock/java/util/concurrent/locks" />
+		<java fork="true" classname="deferredmethods.bytecodegeneration.extendlock.ExtendReentrantLock">
+			<classpath refid="buildpath" />
+		</java>
+		<mkdir dir="build" />
+		<jar basedir="bin-lock" destfile="${extendedlock.path}" />
+		<delete dir="bin-lock" />
+	</target>
+
+	<target name="compile-lockinserter">
+		<mkdir dir="bin" />
+		<javac srcdir="src" includes="deferredmethods/bytecodegeneration/extendlock/" destdir="bin" debug="true" includeAntRuntime="false">
 			<classpath refid="buildpath" />
 		</javac>
 	</target>
