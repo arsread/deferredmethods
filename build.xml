@@ -54,7 +54,7 @@
 		</java>
 		<mkdir dir="build" />
 		<jar basedir="bin-lock" destfile="${extendedlock.path}" />
-		<delete dir="bin-lock" /> 
+		<delete dir="bin-lock" />  
 	</target>
 
 	<target name="compile-lockinserter">

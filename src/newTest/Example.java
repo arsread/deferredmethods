@@ -4,9 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import deferredmethods.DeferredEnv;
 import deferredmethods.DeferredExecution;
-import deferredmethods.GeneralProcessingCheckPoint;
 import deferredmethods.ProcessingCheckPoint;
-import deferredmethods.proc.SynchronousProc;
 import deferredmethods.proc.ThreadPoolProc;
 
 public class Example {
