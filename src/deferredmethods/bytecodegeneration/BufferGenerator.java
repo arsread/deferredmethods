@@ -315,11 +315,11 @@ public class BufferGenerator extends ClassGenerator {
     
     private void getEnvMethod(ClassWriter cw) {
         MethodVisitor mv;
-        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "getEnv", "()Ldeferred/DeferredEnv;", null, null);
+        mv = cw.visitMethod(Opcodes.ACC_PUBLIC, "getEnv", "()Ldeferredmethods/DeferredEnv;", null, null);
 
         mv.visitVarInsn(Opcodes.ALOAD, 0);
         mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "generatedEnv", deferredEnvGenerator.getClassDescriptor());
-		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferred/DeferredEnv");
+		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/DeferredEnv");
         mv.visitInsn(Opcodes.ARETURN);
         
         mv.visitMaxs(0, 0);

@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import deferredmethods.Buffer;
 import deferredmethods.DeferredExecution;
 
-public class ShadowThreadProc2 implements Processor {
+public class ShadowThreadProcWithHooks implements Processor {
 	private static final int DEFAULT_THREAD_POOL_SIZE = 4;
 	private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE * 10;
 	private static final boolean DEBUG = Boolean.getBoolean("dm.debug");
@@ -103,11 +103,11 @@ public class ShadowThreadProc2 implements Processor {
 	private final int queueCapacity;
 //	private final List<WorkerThread> workerList;
 
-	public ShadowThreadProc2() {
+	public ShadowThreadProcWithHooks() {
 		this(DEFAULT_THREAD_POOL_SIZE, DEFAULT_QUEUE_CAPACITY);
 	}
 
-	public ShadowThreadProc2(int numThreads, int queueCapacity) {
+	public ShadowThreadProcWithHooks(int numThreads, int queueCapacity) {
 		if (DEBUG)
 			System.out.println("[ThreadPoolProc] Pool size: " + numThreads
 					+ "; Queue capacity: " + queueCapacity);

@@ -15,13 +15,18 @@
 		<mkdir dir="bin" />
 		<javac srcdir="src" includes="deferredmethods/**" destdir="bin" debug="true" includeAntRuntime="false">
 			<classpath refid="buildpath" />
-			<compilerarg value="-Xbootclasspath/p:${extendedthread.path}" />
+			<compilerarg value="-Xbootclasspath/p:${extendedthread.path}:${extenedlock.path}" />
 		</javac>
 		<mkdir dir="build" />
 <!--		<jar basedir="bin" destfile="${deferred.path}" /> -->
 		<jar destfile="${deferred.path}">
-			<fileset dir="bin" includes="deferredmethods/**/*.class" />
+			<fileset dir="bin" includes="deferredmethods/**/*.class" excludes="deferredmethods/Buffer.class,deferredmethods/DeferredEnv.class" />
 <!--			<fileset dir="src" includes="deferredmethods/**/*.java" /> -->
+		</jar>
+
+		<jar destfile="${bootinterface.path}">
+			<fileset dir="bin" includes="deferredmethods/Buffer.class" />
+			<fileset dir="bin" includes="deferredmethods/DeferredEnv.class" />
 		</jar>
 	</target>
 
@@ -43,13 +48,13 @@
 	</target>
 
 	<target name="extend-lock" depends="compile-lockinserter">
-		<mkdir dir="bin-lock/java/util/concurrent/locks" />
+		<mkdir dir="bin-lock/java/util/concurrent/locks/ReentrantReadWriteLock" />
 		<java fork="true" classname="deferredmethods.bytecodegeneration.extendlock.ExtendReentrantLock">
 			<classpath refid="buildpath" />
 		</java>
 		<mkdir dir="build" />
 		<jar basedir="bin-lock" destfile="${extendedlock.path}" />
-		<delete dir="bin-lock" />
+		<delete dir="bin-lock" /> 
 	</target>
 
 	<target name="compile-lockinserter">

@@ -16,9 +16,10 @@ public final class ExtendReentrantLock {
     private static final String LOCK_BIN_DIR = "./bin-lock/";
 
     public static void main(String[] args) throws Exception {
+    	String[] classArray = {"java/util/concurrent/locks/ReentrantLock.class"};
     	
         String lcokClassName = "java/util/concurrent/locks/ReentrantLock.class";
-
+        
         InputStream tis = ClassLoader.getSystemResourceAsStream(lcokClassName);
 
         ClassReader cr = new ClassReader(tis);
@@ -32,11 +33,9 @@ public final class ExtendReentrantLock {
                 if ("lock".equals(name)) {
                 	mv.visitCode();
                 	mv.visitVarInsn(Opcodes.ALOAD, 0);
-
                 	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/concurrent/locks/ReentrantLock", "tryLock", "()Z");
                 	Label l0 = new Label();
                 	mv.visitJumpInsn(Opcodes.IFNE, l0);
-                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
                     
                     mv.visitInsn(Opcodes.ICONST_0);
                     mv.visitVarInsn(Opcodes.ISTORE, 1);
@@ -44,26 +43,31 @@ public final class ExtendReentrantLock {
                     mv.visitJumpInsn(Opcodes.GOTO, l1);
                     Label l2 = new Label();
                     mv.visitLabel(l2);
-                    mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang.Object;");
+                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
+                    mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
                     mv.visitVarInsn(Opcodes.ILOAD, 1);
                     mv.visitInsn(Opcodes.AALOAD);
+                    mv.visitInsn(Opcodes.DUP);
+                    Label l3 = new Label();
+                    mv.visitJumpInsn(Opcodes.IFNULL, l3);
             		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/Buffer");
                     mv.visitMethodInsn(Opcodes.INVOKEINTERFACE, "deferredmethods/Buffer", "getEnv", "()Ldeferredmethods/DeferredEnv;");
                     mv.visitMethodInsn(Opcodes.INVOKEINTERFACE, "deferredmethods/DeferredEnv", "processCurrentBuffer", "()V");
+                    mv.visitLabel(l3);
                     mv.visitIincInsn(1, 1);
                     mv.visitLabel(l1);
+                    
                     mv.visitVarInsn(Opcodes.ILOAD, 1);
-                    mv.visitVarInsn(Opcodes.ILOAD, 0);
-                    mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang.Object;");
+                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
+                    mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
                     mv.visitInsn(Opcodes.ARRAYLENGTH);
                     mv.visitJumpInsn(Opcodes.IF_ICMPLT, l2);
-                    Label l5 = new Label();
-                    mv.visitLabel(l5);
                     
                 	mv.visitVarInsn(Opcodes.ALOAD, 0);
                 	mv.visitFieldInsn(Opcodes.GETFIELD, "java/util/concurrent/locks/ReentrantLock", "sync", "Ljava/util/concurrent/locks/ReentrantLock$Sync;");
                 	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/concurrent/locks/ReentrantLock$Sync", "lock", "()V");
                 	mv.visitLabel(l0);
+                	mv.visitInsn(Opcodes.POP);
                 	mv.visitInsn(Opcodes.RETURN);
                 	mv.visitMaxs(0, 0);
                 	return null;
@@ -72,12 +76,6 @@ public final class ExtendReentrantLock {
                 return mv;
             }
 
-            @Override
-            public void visit(int version, int access, String name, String signature, String superName,
-                    String[] interfaces) {
-                super.visit(version, access, name, signature, superName, interfaces);
-                super.visitField(Opcodes.ACC_PUBLIC, "threadLocalBuffer", "[Ljava/lang/Object;", null, null);
-            }
         };
 
         cr.accept(cv, 0);

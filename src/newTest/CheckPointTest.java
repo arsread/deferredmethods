@@ -3,12 +3,12 @@ package newTest;
 import deferredmethods.DeferredEnv;
 import deferredmethods.DeferredExecution;
 import deferredmethods.ProcessingCheckPoint;
-import deferredmethods.proc.ShadowThreadProc2;
+import deferredmethods.proc.ShadowThreadProcWithHooks;
 
 public class CheckPointTest {
 	public static void main(String[] args) {
 		final DeferredEnv<CPTestInterfce> def = DeferredExecution.createDeferredEnv(
-				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProc2(),
+				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProcWithHooks(),
 				1000);
 		final CPTestInterfce CPTest = def.getProxy();
 
@@ -39,8 +39,8 @@ public class CheckPointTest {
 					for (int i = 0; i < 4; i++) {
 						CPTest.foo3(Thread.currentThread().getId(),pcp1);
 					}
-//					def.processCurrentBuffer();
-//					CPTest.foo3(Thread.currentThread().getId(),pcp1);
+					def.processCurrentBuffer();
+					CPTest.foo3(Thread.currentThread().getId(),pcp1);
 				}
 
 			}).start();
