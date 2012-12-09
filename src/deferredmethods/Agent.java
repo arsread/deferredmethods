@@ -38,7 +38,7 @@ public class Agent {
         DeferredExecution.processRemainingBuffers();
         DeferredExecution.setEndFlags();
         DeferredExecution.stopWorkerThreads();
-
+        
         if(deactivateBypass != null) {
             try { deactivateBypass.invoke(null, new Object[0]); } catch (Throwable t) { t.printStackTrace(); }
         }

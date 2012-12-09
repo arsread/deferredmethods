@@ -22,7 +22,7 @@ public final class ExtendReentrantLock {
     	
 //        String lockClassName = "java/util/concurrent/locks/ReentrantReadWriteLock$ReadLock";
         
-    	for (String lockClassName:classArray){
+    	for (final String lockClassName:classArray){
         InputStream tis = ClassLoader.getSystemResourceAsStream(lockClassName+".class");
 
         ClassReader cr = new ClassReader(tis);
@@ -31,13 +31,11 @@ public final class ExtendReentrantLock {
         ClassVisitor cv = new ClassVisitor(Opcodes.V1_6, cw) {
             @Override
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-                MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
-
                 if ("lock".equals(name)) {
-                	mv=cv.visitMethod(access, "rename_lock", desc, signature, exceptions);
+                	return cv.visitMethod(access, "rename_lock", desc, signature, exceptions);
                 }
 
-                return mv;
+                return super.visitMethod(access, name, desc, signature, exceptions);
             }
             
             @Override
@@ -45,10 +43,10 @@ public final class ExtendReentrantLock {
             	MethodVisitor mv=super.visitMethod(Opcodes.ACC_PUBLIC, "lock", "()V", null, null);
             	mv.visitCode();
              	mv.visitVarInsn(Opcodes.ALOAD, 0);
-            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/concurrent/locks/ReentrantLock", "tryLock", "()Z");
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, lockClassName, "tryLock", "()Z");
             	Label l0 = new Label();
             	mv.visitJumpInsn(Opcodes.IFNE, l0);
-                
+            	
                 mv.visitInsn(Opcodes.ICONST_0);
                 mv.visitVarInsn(Opcodes.ISTORE, 1);
                 Label l1 = new Label();
@@ -65,6 +63,8 @@ public final class ExtendReentrantLock {
         		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/Buffer");
                 mv.visitMethodInsn(Opcodes.INVOKEINTERFACE, "deferredmethods/Buffer", "getEnv", "()Ldeferredmethods/DeferredEnv;");
                 mv.visitMethodInsn(Opcodes.INVOKEINTERFACE, "deferredmethods/DeferredEnv", "processCurrentBuffer", "()V");
+//            	mv.visitInsn(Opcodes.POP);
+
                 mv.visitLabel(l3);
                 mv.visitIincInsn(1, 1);
                 mv.visitLabel(l1);
@@ -79,11 +79,11 @@ public final class ExtendReentrantLock {
                 mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
                 mv.visitInsn(Opcodes.ARRAYLENGTH);
                 mv.visitJumpInsn(Opcodes.IF_ICMPLT, l2);
-                
             	mv.visitVarInsn(Opcodes.ALOAD, 0);
-            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/concurrent/locks/ReentrantLock", "rename_lock", "()V");
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, lockClassName, "rename_lock", "()V");
+             	
             	mv.visitLabel(l0);
-            	mv.visitInsn(Opcodes.POP);
+//            	mv.visitInsn(Opcodes.POP);
             	mv.visitInsn(Opcodes.RETURN);
             	mv.visitMaxs(0, 0);
             	mv.visitEnd();

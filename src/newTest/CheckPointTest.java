@@ -1,5 +1,7 @@
 package newTest;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 import deferredmethods.DeferredEnv;
 import deferredmethods.DeferredExecution;
 import deferredmethods.ProcessingCheckPoint;
@@ -11,7 +13,7 @@ public class CheckPointTest {
 				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProcWithHooks(),
 				1000);
 		final CPTestInterfce CPTest = def.getProxy();
-
+		
 		for (int i = 0; i < 30; i++)
 			CPTest.foo1();
 		CPTest.foo2end();

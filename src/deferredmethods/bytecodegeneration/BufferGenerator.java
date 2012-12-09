@@ -100,7 +100,7 @@ public class BufferGenerator extends ClassGenerator {
                 mv.visitVarInsn(Opcodes.ILOAD, 1);
                 mv.visitInsn(arg.getType().getOpcode(Opcodes.IALOAD));
             }
-
+            
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), method.getName(), method.getDesc());
 
             if (i < deferrableMethods.size() - 1) mv.visitJumpInsn(Opcodes.GOTO, switchEnd);

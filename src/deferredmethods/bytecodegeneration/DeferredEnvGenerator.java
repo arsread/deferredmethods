@@ -78,7 +78,6 @@ public class DeferredEnvGenerator extends ClassGenerator {
 		mv.visitTypeInsn(Opcodes.CHECKCAST, "deferredmethods/Buffer");
 		mv.visitVarInsn(Opcodes.ASTORE, 1);
 		
-
 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitVarInsn(Opcodes.ALOAD, 1);
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), "handInBuffer", "(Ldeferredmethods/Buffer;)V");
@@ -91,7 +90,7 @@ public class DeferredEnvGenerator extends ClassGenerator {
 				"deferredmethods/proc/Processor", "process",
 				"(Ldeferredmethods/Buffer;)V");
 
-		mv.visitVarInsn(Opcodes.ALOAD, 0);
+ 		mv.visitVarInsn(Opcodes.ALOAD, 0);
 		mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(), "bufferTL",
 				threadLocalBufferGenerator.getClassDescriptor());
 		mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
