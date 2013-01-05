@@ -1,77 +1,87 @@
 package newTest;
 
+import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 
 import deferredmethods.DeferredEnv;
 import deferredmethods.DeferredExecution;
-import deferredmethods.proc.SynchronousProc;
+import deferredmethods.proc.ShadowThreadProcWithHooks;
 
 public class LockTest {
 	public static void main(String[] args) {
-		final DeferredEnv<LockTestInt> def = DeferredExecution
-				.createDeferredEnv(LockTestInt.class, LockTestImpl.class,
-						new SynchronousProc(), 1000);
-		final LockTestInt lockTest = def.getProxy();
-		final ReentrantLock lock = new ReentrantLock();
-//		final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
-//		final ReadLock rl = rwl.readLock();
-//		final WriteLock wl = rwl.writeLock();
+		DeferredEnv<LockTestInter> def = DeferredExecution.createDeferredEnv(
+				LockTestInter.class, LockTestImpl.class,
+				new ShadowThreadProcWithHooks(), 1000);
+		final LockTestInter test = def.getProxy();
 		final SharedObj obj = new SharedObj();
-		final SharedObj obj2 = new SharedObj();
 
-		for (int i = 0; i < 1; i++) {
-			new Thread("ReadLockThread-" + i) {
+		final ReentrantLock lock = new ReentrantLock();
+
+		for (int i = 0; i < 10; i++) {
+			new Thread("Increase-" + i) {
 				@Override
 				public void run() {
-//					int count = -1;
+					Random ran = new Random();
 					while (true) {
-//						lockTest.beforeGetLock(getName());
-						try{
+						if (ran.nextBoolean()) {
 							lock.lock();
-//						lockTest.afterGetLock(getName());
-//						if (count != obj.readVal()){ 
-//							lockTest.readLock(getName(), obj);
-//							count = obj.readVal();
-//						}
-//						lockTest.beforeReleaseLock(getName());
-						lockTest.readLock(getName(), obj);
-						}finally{
+							test.increase(obj);
 							lock.unlock();
+						} else {
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
 						}
-//						lockTest.afterReleaseLock(getName());
 					}
 				}
 			}.start();
 		}
 
-//		try {
-//			Thread.sleep(1000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		for (int i = 0; i < 1; i++) {
-			new Thread("WriteLockThread-" + i) {
+		for (int i = 0; i < 10; i++) {
+			new Thread("Decrease-" + i) {
 				@Override
 				public void run() {
+					Random ran = new Random();
 					while (true) {
-//						lockTest.beforeGetLock(getName());
-//						System.out.println(getName()+"try to lock!");
-						try{
+						if (ran.nextBoolean()) {
 							lock.lock();
-//						lockTest.afterGetLock(getName());
-						lockTest.writeLock(getName(), obj);
-//						lockTest.beforeReleaseLock(getName());
-						} finally{
+							test.decrease(obj);
 							lock.unlock();
+						} else {
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
 						}
-//						lockTest.afterReleaseLock(getName());
 					}
 				}
 			}.start();
 		}
-		
+
+		for (int i = 0; i < 1; i++) {
+			new Thread("Monitor-" + i) {
+				@Override
+				public void run() {
+					while (true) {
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						lock.lock();
+						if (obj.readVal()>100 || obj.readVal()<-100){
+							System.out.println("reset..");
+							obj.setVal(0);
+						}
+						System.out.println("current value:"+obj.readVal());
+						lock.unlock();
+					}
+				}
+			}.start();
+		}
+
 	}
-
 }
