@@ -25,8 +25,6 @@ import org.objectweb.asm.tree.TypeInsnNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
 public class InjectHelper implements Opcodes {
-	public static final int[] instrByteCode = { RETURN, IRETURN, LRETURN,
-			DRETURN, FRETURN, ARETURN };
 
 	public static byte[] transformSynchronized(byte[] classfileBuffer) {
 		ClassReader classReader = new ClassReader(classfileBuffer);
@@ -54,6 +52,8 @@ public class InjectHelper implements Opcodes {
 				exitMethod.add(new VarInsnNode(ALOAD, valTop));
 				exitMethod.add(new InsnNode(MONITOREXIT));
 
+				LabelNode start = new LabelNode();
+				methodNode.instructions.insert(start);
 				methodNode.instructions.insert(enterMethod);
 
 				ListIterator<AbstractInsnNode> it = methodNode.instructions
@@ -61,18 +61,15 @@ public class InjectHelper implements Opcodes {
 				/* change sychronized methods -> sychronized(this) */
 				while (it.hasNext()) {
 					AbstractInsnNode instr = it.next();
-					for (int target : instrByteCode) {
-						if (instr.getOpcode() == target) {
-							methodNode.instructions.insertBefore(instr,
-									exitMethod);
-						}
+					int opcode=instr.getOpcode();
+					if ( opcode >= IRETURN && opcode <= RETURN) {
+						methodNode.instructions.insertBefore(instr,
+								exitMethod);
 					}
 				}
 
-				LabelNode start = new LabelNode();
 				LabelNode end = new LabelNode();
 				LabelNode handler = new LabelNode();
-				methodNode.instructions.insert(start);
 				methodNode.instructions.add(end);
 				methodNode.instructions.add(handler);
 
@@ -81,17 +78,11 @@ public class InjectHelper implements Opcodes {
 				exitMethod.add(new InsnNode(MONITOREXIT));
 				exceptionHandler.add(new InsnNode(ATHROW));
 
-				if (methodNode.exceptions.size() > 0) {
 
-					methodNode.instructions.add(exceptionHandler);
+				methodNode.instructions.add(exceptionHandler);
 
-					for (String type : methodNode.exceptions) {
-//						System.out.println(classNode.name + "\t"
-//								+ methodNode.name + "\t" + type);
-						methodNode.tryCatchBlocks.add(new TryCatchBlockNode(
-								start, end, handler, type));
-					}
-				}
+				methodNode.tryCatchBlocks.add(new TryCatchBlockNode(
+						start, end, handler, null));
 
 			}
 		}
@@ -117,17 +108,18 @@ public class InjectHelper implements Opcodes {
 			while (it.hasNext()) {
 				AbstractInsnNode instr = it.next();
 				if (instr.getOpcode() == MONITORENTER) {
-					// System.out.println("Found MONITORENTER:"+classNode.name+"\t"+methodNode.name+"\t"+instr.LINE);
 					methodNode.instructions.insertBefore(instr,
 							buildTryMonitorEnter(classNode, valTop));
 					it.next();
 					methodNode.instructions.remove(instr);
+					it.previous();
 				}
 				if (instr.getOpcode() == MONITOREXIT) {
 					methodNode.instructions.insertBefore(instr,
 							buildTryMonitorExit(classNode, valTop));
 					it.next();
 					methodNode.instructions.remove(instr);
+					it.previous();
 				}
 			}
 		}
@@ -167,12 +159,6 @@ public class InjectHelper implements Opcodes {
 		buildMonitorEnter.add(new MethodInsnNode(INVOKEVIRTUAL,
 				"sun/misc/Unsafe", "tryMonitorEnter", "(Ljava/lang/Object;)Z"));
 		buildMonitorEnter.add(new JumpInsnNode(IFNE, jumpTarget));
-
-//		buildMonitorEnter.add(new FieldInsnNode(GETSTATIC, "java/lang/System",
-//				"out", "Ljava/io/PrintStream;"));
-//		buildMonitorEnter.add(new LdcInsnNode("Lock not available!"));
-//		buildMonitorEnter.add(new MethodInsnNode(INVOKEVIRTUAL,
-//				"java/io/PrintStream", "println", "(Ljava/lang/String;)V"));
 
 		buildMonitorEnter.add(buildCallProcess(valTop + 3));
 
