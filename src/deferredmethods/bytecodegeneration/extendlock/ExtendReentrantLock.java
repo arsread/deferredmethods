@@ -74,11 +74,11 @@ public final class ExtendReentrantLock {
                 mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
                 mv.visitInsn(Opcodes.ARRAYLENGTH);
                 mv.visitJumpInsn(Opcodes.IF_ICMPLT, l2);
-                mv.visitVarInsn(Opcodes.ILOAD, 1);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
-                mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
-                mv.visitInsn(Opcodes.ARRAYLENGTH);
-                mv.visitJumpInsn(Opcodes.IF_ICMPLT, l2);
+//                mv.visitVarInsn(Opcodes.ILOAD, 1);
+//                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Thread", "currentThread", "()Ljava/lang/Thread;");
+//                mv.visitFieldInsn(Opcodes.GETFIELD, "java/lang/Thread", "threadLocalBuffer", "[Ljava/lang/Object;");
+//                mv.visitInsn(Opcodes.ARRAYLENGTH);
+//                mv.visitJumpInsn(Opcodes.IF_ICMPLT, l2);
             	mv.visitVarInsn(Opcodes.ALOAD, 0);
             	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, lockClassName, "rename_lock", "()V");
              	

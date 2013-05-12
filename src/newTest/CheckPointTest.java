@@ -12,11 +12,11 @@ public class CheckPointTest {
 		final DeferredEnv<CPTestInterfce> def = DeferredExecution.createDeferredEnv(
 				CPTestInterfce.class, CPTestImpl.class, new ShadowThreadProcWithHooks(),
 				1000);
-		final CPTestInterfce CPTest = def.getProxy();
+		final CPTestInterfce cpTest = def.getProxy();
 		
 		for (int i = 0; i < 30; i++)
-			CPTest.foo1();
-		CPTest.foo2end();
+			cpTest.foo1();
+		cpTest.foo2end();
 		final ProcessingCheckPoint pcp1 = def.createCheckPoint();
 		System.out.println("CheckPoint1 Created!");
 		// if (!pcp1.isProcessed()) {
@@ -39,10 +39,10 @@ public class CheckPointTest {
 				@Override
 				public void run() {
 					for (int i = 0; i < 4; i++) {
-						CPTest.foo3(Thread.currentThread().getId(),pcp1);
+						cpTest.foo3(Thread.currentThread().getId(),pcp1);
 					}
 					def.processCurrentBuffer();
-					CPTest.foo3(Thread.currentThread().getId(),pcp1);
+					cpTest.foo3(Thread.currentThread().getId(),pcp1);
 				}
 
 			}).start();

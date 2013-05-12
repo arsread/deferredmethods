@@ -1,5 +1,6 @@
 package deferredmethods;
 
+import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Method;
 
 /**
