@@ -5,11 +5,12 @@
 	<path id="buildpath">
 		<pathelement location="${junit.path}" />
 		<pathelement location="${asm.path}" />
+		<pathelement location="${asm.lib.path}" />
 		<pathelement location="bin" />
 		<pathelement location="${deferred.path}" />
 	</path>
 
-	<target name="prepare-all" depends="compile,compile-test,compile-junit-test" />
+	<target name="prepare-all" depends="compile,compile-test,compile-junit-test,jar-sync" />
 
 	<target name="compile" depends="extend-thread,extend-lock">
 		<mkdir dir="bin" />
@@ -90,5 +91,25 @@
 		<delete dir="bin" />
 		<delete dir="build" />
 	</target>
+
+	<target name="jar-sync" >
+		<delete file="${sync.path}" /> 
+		<jar destfile="${sync.path}" >
+			<fileset dir="bin" includes="deferredmethods/syncInstrument/**/*.class" />
+                        <manifest>
+                                <attribute name="Premain-class" value="deferredmethods.syncInstrument.agent.Agent"/>
+                        </manifest>
+                </jar>
+        </target>
+	<!--
+        <target name="compile-syn-injector">
+                <delete dir="bin/" />
+                <mkdir dir="bin/" />
+                <javac srcdir="src/" destdir="bin/" includeAntRuntime="false">
+                        <classpath location="/home/arsread/workspace/disl/lib/asm-debug-all-4.0.jar" />
+                </javac>
+        </target>
+	-->
+
 
 </project>
