@@ -14,7 +14,7 @@ public class SyncTransformer implements ClassFileTransformer {
 	public byte[] transform(ClassLoader loader, String className,
 			Class<?> classBeingRedefined, ProtectionDomain protectionDomain,
 			byte[] classfileBuffer) throws IllegalClassFormatException {
-		System.out.println("Trying to instrument:"+className);
+//		System.out.println("Trying to instrument:"+className);
         if (className.startsWith("deferredmethods")
                 || className.startsWith("sun")
                 || className.startsWith("java")
@@ -26,9 +26,11 @@ public class SyncTransformer implements ClassFileTransformer {
             return classfileBuffer;
         }
         
-//        System.out.println("inside transformer...");
-        
+        System.out.println("inside transformer..."+className);
+
         byte[] tmp = InjectHelper.transformSynchronized(classfileBuffer);
+
+        System.out.println("outside transformer..."+className);
         
 //        try {
 //        	System.out.println("writing...");

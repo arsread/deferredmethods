@@ -27,6 +27,7 @@ import org.objectweb.asm.tree.VarInsnNode;
 public class InjectHelper implements Opcodes {
 
 	public static byte[] transformSynchronized(byte[] classfileBuffer) {
+        System.out.println("Inside transSync!!!!");
 		ClassReader classReader = new ClassReader(classfileBuffer);
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
@@ -99,6 +100,7 @@ public class InjectHelper implements Opcodes {
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
+        System.out.println("inside transformer 2!!!!!...");
 		for (MethodNode methodNode : classNode.methods) {
 			int classStatic = methodNode.access & ACC_STATIC;
 
