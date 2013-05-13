@@ -6,7 +6,6 @@ import sun.misc.Unsafe;
 public class UnsafeObject {
 	public static Unsafe unsafe;
 	
-	@SuppressWarnings("all")
 	static{
 		Field f = null;
 		try {
