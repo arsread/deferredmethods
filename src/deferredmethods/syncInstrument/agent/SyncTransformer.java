@@ -14,7 +14,7 @@ public class SyncTransformer implements ClassFileTransformer {
 	public byte[] transform(ClassLoader loader, String className,
 			Class<?> classBeingRedefined, ProtectionDomain protectionDomain,
 			byte[] classfileBuffer) throws IllegalClassFormatException {
-//		System.out.println("Trying to instrument:"+className);
+		System.out.println("Trying to instrument:"+className);
         if (className.startsWith("deferredmethods")
                 || className.startsWith("sun")
                 || className.startsWith("java")
@@ -52,7 +52,7 @@ public class SyncTransformer implements ClassFileTransformer {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//        System.out.println("Complete to instrument:"+className);
+        System.out.println("Complete to instrument:"+className);
         
 		return tmp;
 	}
