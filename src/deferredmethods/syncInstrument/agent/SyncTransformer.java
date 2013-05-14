@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
+import java.security.KeyStore.Builder;
 
 public class SyncTransformer implements ClassFileTransformer {
 
@@ -25,12 +26,11 @@ public class SyncTransformer implements ClassFileTransformer {
 //        	System.out.println("skipping class : " + className);
             return classfileBuffer;
         }
+       // System.out.println("trying inject..."+className);
         
-        System.out.println("inside transformer..."+className);
+       byte[] tmp = InjectHelper.transformSynchronized(classfileBuffer);
 
-        byte[] tmp = InjectHelper.transformSynchronized(classfileBuffer);
-
-        System.out.println("outside transformer..."+className);
+//        System.out.println("successfully inject..."+className);
         
 //        try {
 //        	System.out.println("writing...");
@@ -44,17 +44,18 @@ public class SyncTransformer implements ClassFileTransformer {
 //        System.out.println("first step...");
         
         tmp = InjectHelper.transformMonitor(tmp);
+//        byte[] tmp = InjectHelper.transformMonitor(classfileBuffer);
         
 //        try {
 //        	System.out.println("writing...");
-//    		FileOutputStream os = new FileOutputStream("bin/"+className+"_instr2.class");
+//    		FileOutputStream os = new FileOutputStream(className+"_instr.class");
 //    		os.write(tmp);
 //    		os.close();
 //		} catch (Exception e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-        System.out.println("Complete to instrument:"+className);
+        //System.out.println("Complete to instrument:"+className);
         
 		return tmp;
 	}

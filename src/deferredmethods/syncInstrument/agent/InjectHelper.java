@@ -27,32 +27,36 @@ import org.objectweb.asm.tree.VarInsnNode;
 public class InjectHelper implements Opcodes {
 
 	public static byte[] transformSynchronized(byte[] classfileBuffer) {
-        System.out.println("Inside transSync!!!!");
+
 		ClassReader classReader = new ClassReader(classfileBuffer);
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
 		for (MethodNode methodNode : classNode.methods) {
-			if ((methodNode.access & ACC_SYNCHRONIZED) != 0) {
-				methodNode.access &= (~ACC_SYNCHRONIZED);
 
-				int classStatic = methodNode.access & ACC_STATIC;
+			if ((methodNode.access & ACC_SYNCHRONIZED) != 0 ) {
+				
+				int classStatic = (methodNode.access & ACC_STATIC);
 				int valTop = methodNode.localVariables.size() + 1;
 
 				InsnList enterMethod = new InsnList();
+				
 				if (classStatic == 0) {
 					enterMethod.add(new VarInsnNode(ALOAD, 0));
 				} else {
-					enterMethod.add(new LdcInsnNode(Type
-							.getType(classNode.name)));
+
+					enterMethod.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
 				}
-				enterMethod.add(new InsnNode(DUP));
-				enterMethod.add(new VarInsnNode(ASTORE, valTop));
+				
 				enterMethod.add(new InsnNode(MONITORENTER));
 
-//				InsnList exitMethod = new InsnList();
-//				exitMethod.add(new VarInsnNode(ALOAD, valTop));
-//				exitMethod.add(new InsnNode(MONITOREXIT));
+				InsnList exitMethod = new InsnList();
+				if (classStatic == 0){
+					exitMethod.add(new VarInsnNode(ALOAD, 0));
+				} else {
+					exitMethod.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
+				}
+				exitMethod.add(new InsnNode(MONITOREXIT));
 
 				LabelNode start = new LabelNode();
 				methodNode.instructions.insert(start);
@@ -65,8 +69,12 @@ public class InjectHelper implements Opcodes {
 					AbstractInsnNode instr = it.next();
 					int opcode = instr.getOpcode();
 					if (opcode >= IRETURN && opcode <= RETURN) {
-//						methodNode.instructions.insertBefore(instr, exitMethod);
-						methodNode.instructions.insertBefore(instr, new VarInsnNode(ALOAD, valTop));
+
+						if (classStatic == 0){
+							methodNode.instructions.insertBefore(instr, new VarInsnNode(ALOAD, 0));
+						} else {
+							methodNode.instructions.insertBefore(instr, new LdcInsnNode(Type.getObjectType(classNode.name)));
+						}
 						methodNode.instructions.insertBefore(instr, new InsnNode(MONITOREXIT));
 					}
 				}
@@ -77,7 +85,11 @@ public class InjectHelper implements Opcodes {
 				methodNode.instructions.add(handler);
 
 				InsnList exceptionHandler = new InsnList();
-				exceptionHandler.add(new VarInsnNode(ALOAD, valTop));
+				if (classStatic == 0){
+					exceptionHandler.add(new VarInsnNode(ALOAD, 0));
+				} else {
+					exceptionHandler.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
+				}
 				exceptionHandler.add(new InsnNode(MONITOREXIT));
 				exceptionHandler.add(new InsnNode(ATHROW));
 
@@ -100,7 +112,7 @@ public class InjectHelper implements Opcodes {
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
-        System.out.println("inside transformer 2!!!!!...");
+        //System.out.println("inside transformer 2!!!!!...");
 		for (MethodNode methodNode : classNode.methods) {
 			int classStatic = methodNode.access & ACC_STATIC;
 
