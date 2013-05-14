@@ -131,16 +131,20 @@ public class DeferredEnvGenerator extends ClassGenerator {
 
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
 					bufferGenerator.getClassName(), newName, newDesc);
-			Label l1 = new Label();
-			mv.visitJumpInsn(Opcodes.IFNE, l1);
+//			Label l1 = new Label();
+//			mv.visitJumpInsn(Opcodes.IFNE, l1);
+//
+//			mv.visitVarInsn(Opcodes.ALOAD, 0);
+//			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(),
+//					"processCurrentBuffer", "()V");
+//			mv.visitLabel(l1);
 
-			mv.visitVarInsn(Opcodes.ALOAD, 0);
-			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(),
-					"processCurrentBuffer", "()V");
-			mv.visitLabel(l1);
-
-			mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
-			mv.visitInsn(Opcodes.RETURN);
+//			mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+			if (deferrableMethod.hasRet()){
+				mv.visitInsn(Opcodes.ARETURN);
+			} else {
+				mv.visitInsn(Opcodes.RETURN);
+			}
 
 			mv.visitMaxs(0, 0);
 			mv.visitEnd();
