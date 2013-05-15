@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -62,8 +63,9 @@ public class ShadowThreadProcWithHooks implements Processor {
 
 			while (!queue.isEmpty() || isRunning) {
 				try {
-					Runnable task = queue.take();
-					task.run();
+					Runnable task;
+					task = queue.poll(1, TimeUnit.SECONDS);
+					if (task!=null) task.run();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -79,7 +81,7 @@ public class ShadowThreadProcWithHooks implements Processor {
 			return queue;
 		}
 
-		public void terminate() {
+		public synchronized void terminate() {
 			isRunning = false;
 		}
 	}

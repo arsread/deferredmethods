@@ -7,13 +7,14 @@ public class Ret<T> {
 	
 	public void mov(Ret<T> ret){
 		try {
-			set(ret.get());
+			set(ret.get(null));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public synchronized T get() throws InterruptedException {
+	public synchronized T get(DeferredEnv<?> env) throws InterruptedException {
+		if (env != null) env.processCurrentBuffer();
 		while (!isDone){
 			wait();
 		}

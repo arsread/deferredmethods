@@ -1,0 +1,401 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb6d738b0, pid=26638, tid=2403003248
+#
+# JRE version: 6.0_30-b12
+# Java VM: Java HotSpot(TM) Server VM (20.5-b03 mixed mode linux-x86 )
+# Problematic frame:
+# V  [libjvm.so+0x4038b0]  unsigned+0xe0
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x084cf800):  JavaThread "SIGINT handler" daemon [_thread_in_vm, id=26651, stack(0x8f35e000,0x8f3af000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0xb7171d08, ECX=0xa92b9f80, EDX=0x084cf800
+ESP=0x8f3ada90, EBP=0x8f3adb18, ESI=0x8f3adaa0, EDI=0xa92b9f80
+EIP=0xb6d738b0, EFLAGS=0x00210286, CR2=0x00000000
+
+Top of Stack: (sp=0x8f3ada90)
+0x8f3ada90:   083cd670 b77462c3 8f3adad0 084cf800
+0x8f3adaa0:   00000010 00000010 b7713500 b6887000
+0x8f3adab0:   0000000f b7601af4 b7713500 b7746264
+0x8f3adac0:   0000000e 00000001 b7712ff4 00000010
+0x8f3adad0:   084cf800 084833dc 000000ae b710f420
+0x8f3adae0:   084cf800 00000005 00000000 b7767bdb
+0x8f3adaf0:   084cf800 00000000 00000001 00000005
+0x8f3adb00:   00000000 b7746000 b7746284 b7747ff4 
+
+Instructions: (pc=0xb6d738b0)
+0xb6d73890:   b8 c7 45 bc 00 00 00 00 8b 78 04 85 ff 0f 85 41
+0xb6d738a0:   01 00 00 8b 45 10 8d 75 88 c7 45 a8 0e 00 00 00
+0xb6d738b0:   8b 08 8d 7d a8 8b 41 08 8b 51 0c 83 c2 28 66 8b
+0xb6d738c0:   40 2a 51 25 ff ff 00 00 8b 04 82 50 8b 45 84 50 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0xb7171d08: <offset 0x801d08> in /usr/jdk/jdk1.6.0_30/jre/lib/i386/server/libjvm.so at 0xb6970000
+ECX=0xa92b9f80 is an oop
+java.lang.NoClassDefFoundError 
+ - klass: 'java/lang/NoClassDefFoundError'
+EDX=0x084cf800 is a thread
+ESP=0x8f3ada90 is pointing into the stack for thread: 0x084cf800
+EBP=0x8f3adb18 is pointing into the stack for thread: 0x084cf800
+ESI=0x8f3adaa0 is pointing into the stack for thread: 0x084cf800
+EDI=0xa92b9f80 is an oop
+java.lang.NoClassDefFoundError 
+ - klass: 'java/lang/NoClassDefFoundError'
+
+
+Stack: [0x8f35e000,0x8f3af000],  sp=0x8f3ada90,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x4038b0]  unsigned+0xe0
+C  [liboverAgent.so+0xbfa]  JNIEnv_::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+0x2a
+V  [libjvm.so+0x3ddb66]  before_exit(JavaThread*)+0x156
+V  [libjvm.so+0x43fb0d]  JVM_Halt+0x8d
+C  [libjava.so+0xe47f]  Java_java_lang_Shutdown_halt0+0x1f
+j  java.lang.Shutdown.halt0(I)V+0
+j  java.lang.Shutdown.halt(I)V+7
+j  java.lang.Shutdown.exit(I)V+100
+j  java.lang.Terminator$1.handle(Lsun/misc/Signal;)V+8
+j  sun.misc.Signal$1.run()V+8
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x3dfd11]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1c1
+V  [libjvm.so+0x5e12d8]  os::os_exception_wrapper(void (*)(JavaValue*, methodHandle*, JavaCallArguments*, Thread*), JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x18
+V  [libjvm.so+0x3df585]  JavaCalls::call_virtual(JavaValue*, KlassHandle, symbolHandle, symbolHandle, JavaCallArguments*, Thread*)+0xc5
+V  [libjvm.so+0x3df648]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, symbolHandle, symbolHandle, Thread*)+0x58
+V  [libjvm.so+0x463fa7]  thread_entry(JavaThread*, Thread*)+0xa7
+V  [libjvm.so+0x6e16ff]  JavaThread::run()+0x11f
+V  [libjvm.so+0x5e2b2e]  java_start(Thread*)+0x14e
+C  [libpthread.so.0+0x6d31]  short+0xd1
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.Shutdown.halt0(I)V+0
+j  java.lang.Shutdown.halt(I)V+7
+j  java.lang.Shutdown.exit(I)V+100
+j  java.lang.Terminator$1.handle(Lsun/misc/Signal;)V+8
+j  sun.misc.Signal$1.run()V+8
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x084cf800 JavaThread "SIGINT handler" daemon [_thread_in_vm, id=26651, stack(0x8f35e000,0x8f3af000)]
+  0x8f627000 JavaThread "TP_WORKER1" daemon [_thread_blocked, id=26650, stack(0x8f3af000,0x8f400000)]
+  0x8f602400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=26648, stack(0x8f5af000,0x8f600000)]
+  0x8f600800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=26647, stack(0x8f732000,0x8f7b3000)]
+  0x0847ec00 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=26646, stack(0x8f7b3000,0x8f834000)]
+  0x08464800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=26645, stack(0x8f834000,0x8f885000)]
+  0x08456400 JavaThread "Finalizer" daemon [_thread_blocked, id=26644, stack(0x8fbb6000,0x8fc07000)]
+  0x08451800 JavaThread "Reference Handler" daemon [_thread_blocked, id=26643, stack(0x8fc07000,0x8fc58000)]
+  0x083d1000 JavaThread "main" [_thread_blocked, id=26639, stack(0xb68f5000,0xb6946000)]
+
+Other Threads:
+  0x0844d800 VMThread [stack: 0x8fc58000,0x8fcd9000] [id=26642]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 9408K, used 2695K [0xa9040000, 0xa9ab0000, 0xb3790000)
+  eden space 8128K, 33% used [0xa9040000,0xa92e1d18,0xa9830000)
+  from space 1280K, 0% used [0xa9970000,0xa9970000,0xa9ab0000)
+  to   space 1280K, 0% used [0xa9830000,0xa9830000,0xa9970000)
+ PSOldGen        total 21376K, used 0K [0x94190000, 0x95670000, 0xa9040000)
+  object space 21376K, 0% used [0x94190000,0x94190000,0x95670000)
+ PSPermGen       total 16384K, used 2549K [0x90190000, 0x91190000, 0x94190000)
+  object space 16384K, 15% used [0x90190000,0x9040d678,0x91190000)
+
+Code Cache  [0xb3858000, 0xb3a98000, 0xb6858000)
+ total_blobs=111 nmethods=4 adapters=62 free_code_cache=50029824 largest_free_block=13888
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:04 1850868    /usr/jdk/jdk1.6.0_30/bin/java
+08052000-08053000 rwxp 00009000 08:04 1850868    /usr/jdk/jdk1.6.0_30/bin/java
+083ca000-08532000 rwxp 00000000 00:00 0          [heap]
+8f35e000-8f361000 ---p 00000000 00:00 0 
+8f361000-8f3af000 rwxp 00000000 00:00 0 
+8f3af000-8f3b2000 ---p 00000000 00:00 0 
+8f3b2000-8f400000 rwxp 00000000 00:00 0 
+8f400000-8f455000 rwxp 00000000 00:00 0 
+8f455000-8f500000 ---p 00000000 00:00 0 
+8f52e000-8f52f000 ---p 00000000 00:00 0 
+8f52f000-8f5af000 rwxp 00000000 00:00 0 
+8f5af000-8f5b2000 ---p 00000000 00:00 0 
+8f5b2000-8f600000 rwxp 00000000 00:00 0 
+8f600000-8f700000 rwxp 00000000 00:00 0 
+8f732000-8f735000 ---p 00000000 00:00 0 
+8f735000-8f7b3000 rwxp 00000000 00:00 0 
+8f7b3000-8f7b6000 ---p 00000000 00:00 0 
+8f7b6000-8f834000 rwxp 00000000 00:00 0 
+8f834000-8f837000 ---p 00000000 00:00 0 
+8f837000-8f885000 rwxp 00000000 00:00 0 
+8f885000-8f9b6000 r-xp 00188000 08:04 1839527    /usr/lib/locale/locale-archive
+8f9b6000-8fbb6000 r-xp 00000000 08:04 1839527    /usr/lib/locale/locale-archive
+8fbb6000-8fbb9000 ---p 00000000 00:00 0 
+8fbb9000-8fc07000 rwxp 00000000 00:00 0 
+8fc07000-8fc0a000 ---p 00000000 00:00 0 
+8fc0a000-8fc58000 rwxp 00000000 00:00 0 
+8fc58000-8fc59000 ---p 00000000 00:00 0 
+8fc59000-8fd0d000 rwxp 00000000 00:00 0 
+8fd0d000-8feaa000 r-xs 030b8000 08:04 1979638    /usr/jdk/jdk1.6.0_30/jre/lib/rt.jar
+8feaa000-8feab000 ---p 00000000 00:00 0 
+8feab000-8ff2b000 rwxp 00000000 00:00 0 
+8ff2b000-8ff2c000 ---p 00000000 00:00 0 
+8ff2c000-8ffb4000 rwxp 00000000 00:00 0 
+8ffb4000-8ffcc000 rwxp 00000000 00:00 0 
+8ffcc000-8ffd7000 rwxp 00000000 00:00 0 
+8ffd7000-90074000 rwxp 00000000 00:00 0 
+90074000-9007c000 rwxp 00000000 00:00 0 
+9007c000-90094000 rwxp 00000000 00:00 0 
+90094000-9009f000 rwxp 00000000 00:00 0 
+9009f000-9013b000 rwxp 00000000 00:00 0 
+9013b000-90141000 rwxp 00000000 00:00 0 
+90141000-9018f000 rwxp 00000000 00:00 0 
+9018f000-91190000 rwxp 00000000 00:00 0 
+91190000-94190000 rwxp 00000000 00:00 0 
+94190000-95670000 rwxp 00000000 00:00 0 
+95670000-a9040000 rwxp 00000000 00:00 0 
+a9040000-a9ab0000 rwxp 00000000 00:00 0 
+a9ab0000-b3790000 rwxp 00000000 00:00 0 
+b3798000-b37a1000 rwxp 00000000 00:00 0 
+b37a1000-b3858000 rwxp 00000000 00:00 0 
+b3858000-b3a98000 rwxp 00000000 00:00 0 
+b3a98000-b6858000 rwxp 00000000 00:00 0 
+b6858000-b6867000 r-xp 00000000 08:04 1979561    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libzip.so
+b6867000-b6869000 rwxp 0000e000 08:04 1979561    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libzip.so
+b6869000-b6874000 r-xp 00000000 08:04 816126     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6874000-b6875000 r-xp 0000a000 08:04 816126     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6875000-b6876000 rwxp 0000b000 08:04 816126     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6876000-b6880000 r-xp 00000000 08:04 816113     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6880000-b6881000 r-xp 00009000 08:04 816113     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6881000-b6882000 rwxp 0000a000 08:04 816113     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6887000-b6888000 rwxp 00000000 00:00 0 
+b6888000-b6889000 r-xs 00001000 08:04 683913     /home/arsread/workspace/deferredmethods/build/sync_instr.jar
+b6889000-b688b000 r-xs 0000a000 08:04 690060     /home/arsread/workspace/deferredmethods/lib/asm-4.0.jar
+b688b000-b6890000 r-xs 0004a000 08:04 691588     /home/arsread/workspace/disl/lib/asm-debug-all-4.0.jar
+b6890000-b6898000 rwxs 00000000 08:04 539642     /tmp/hsperfdata_arsread/26638
+b6898000-b68ad000 r-xp 00000000 08:04 816110     /lib/i386-linux-gnu/libnsl-2.13.so
+b68ad000-b68ae000 r-xp 00015000 08:04 816110     /lib/i386-linux-gnu/libnsl-2.13.so
+b68ae000-b68af000 rwxp 00016000 08:04 816110     /lib/i386-linux-gnu/libnsl-2.13.so
+b68af000-b68b1000 rwxp 00000000 00:00 0 
+b68b1000-b68b3000 r-xs 0000e000 08:04 683499     /home/arsread/workspace/deferredmethods/build/deferred.jar
+b68b3000-b68bb000 r-xp 00000000 08:04 816114     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b68bb000-b68bc000 r-xp 00007000 08:04 816114     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b68bc000-b68bd000 rwxp 00008000 08:04 816114     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b68bd000-b68c6000 r-xp 00000000 08:04 1979548    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libinstrument.so
+b68c6000-b68c7000 rwxp 00008000 08:04 1979548    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libinstrument.so
+b68c7000-b68ea000 r-xp 00000000 08:04 1979547    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libjava.so
+b68ea000-b68ec000 rwxp 00023000 08:04 1979547    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libjava.so
+b68ec000-b68f3000 r-xp 00000000 08:04 794712     /lib/i386-linux-gnu/librt-2.13.so
+b68f3000-b68f4000 r-xp 00006000 08:04 794712     /lib/i386-linux-gnu/librt-2.13.so
+b68f4000-b68f5000 rwxp 00007000 08:04 794712     /lib/i386-linux-gnu/librt-2.13.so
+b68f5000-b68f8000 ---p 00000000 00:00 0 
+b68f8000-b6946000 rwxp 00000000 00:00 0 
+b6946000-b696e000 r-xp 00000000 08:04 816123     /lib/i386-linux-gnu/libm-2.13.so
+b696e000-b696f000 r-xp 00028000 08:04 816123     /lib/i386-linux-gnu/libm-2.13.so
+b696f000-b6970000 rwxp 00029000 08:04 816123     /lib/i386-linux-gnu/libm-2.13.so
+b6970000-b7122000 r-xp 00000000 08:04 1979600    /usr/jdk/jdk1.6.0_30/jre/lib/i386/server/libjvm.so
+b7122000-b7176000 rwxp 007b1000 08:04 1979600    /usr/jdk/jdk1.6.0_30/jre/lib/i386/server/libjvm.so
+b7176000-b7595000 rwxp 00000000 00:00 0 
+b7595000-b7711000 r-xp 00000000 08:04 794710     /lib/i386-linux-gnu/libc-2.13.so
+b7711000-b7713000 r-xp 0017c000 08:04 794710     /lib/i386-linux-gnu/libc-2.13.so
+b7713000-b7714000 rwxp 0017e000 08:04 794710     /lib/i386-linux-gnu/libc-2.13.so
+b7714000-b7717000 rwxp 00000000 00:00 0 
+b7717000-b771a000 r-xp 00000000 08:04 816121     /lib/i386-linux-gnu/libdl-2.13.so
+b771a000-b771b000 r-xp 00002000 08:04 816121     /lib/i386-linux-gnu/libdl-2.13.so
+b771b000-b771c000 rwxp 00003000 08:04 816121     /lib/i386-linux-gnu/libdl-2.13.so
+b771c000-b7723000 r-xp 00000000 08:04 1979545    /usr/jdk/jdk1.6.0_30/jre/lib/i386/jli/libjli.so
+b7723000-b7725000 rwxp 00006000 08:04 1979545    /usr/jdk/jdk1.6.0_30/jre/lib/i386/jli/libjli.so
+b7725000-b7726000 rwxp 00000000 00:00 0 
+b7726000-b773d000 r-xp 00000000 08:04 816119     /lib/i386-linux-gnu/libpthread-2.13.so
+b773d000-b773e000 r-xp 00016000 08:04 816119     /lib/i386-linux-gnu/libpthread-2.13.so
+b773e000-b773f000 rwxp 00017000 08:04 816119     /lib/i386-linux-gnu/libpthread-2.13.so
+b773f000-b7741000 rwxp 00000000 00:00 0 
+b7741000-b7742000 r-xs 00004000 08:04 683641     /home/arsread/workspace/deferredmethods/build/deferred_test.jar
+b7742000-b7743000 r-xp 0174a000 08:04 1839527    /usr/lib/locale/locale-archive
+b7743000-b7744000 r-xs 00000000 08:04 683501     /home/arsread/workspace/deferredmethods/build/boot_interface.jar
+b7744000-b7745000 r-xs 00001000 08:04 681703     /home/arsread/workspace/deferredmethods/build/deferred_thread.jar
+b7745000-b7746000 r-xs 00001000 08:04 683153     /home/arsread/workspace/deferredmethods/build/deferred_lock.jar
+b7746000-b7747000 r-xp 00000000 08:04 690063     /home/arsread/workspace/deferredmethods/lib/liboverAgent.so
+b7747000-b7748000 r-xp 00001000 08:04 690063     /home/arsread/workspace/deferredmethods/lib/liboverAgent.so
+b7748000-b7749000 rwxp 00002000 08:04 690063     /home/arsread/workspace/deferredmethods/lib/liboverAgent.so
+b7749000-b774a000 rwxp 00000000 00:00 0 
+b774a000-b774b000 r-xp 00000000 00:00 0 
+b774b000-b7756000 r-xp 00000000 08:04 1979550    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libverify.so
+b7756000-b7757000 rwxp 0000b000 08:04 1979550    /usr/jdk/jdk1.6.0_30/jre/lib/i386/libverify.so
+b7757000-b7759000 rwxp 00000000 00:00 0 
+b7759000-b775a000 r-xp 00000000 00:00 0          [vdso]
+b775a000-b7778000 r-xp 00000000 08:04 816124     /lib/i386-linux-gnu/ld-2.13.so
+b7778000-b7779000 r-xp 0001d000 08:04 816124     /lib/i386-linux-gnu/ld-2.13.so
+b7779000-b777a000 rwxp 0001e000 08:04 816124     /lib/i386-linux-gnu/ld-2.13.so
+bff59000-bff7a000 rwxp 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -agentpath:/home/arsread/workspace/deferredmethods/lib/liboverAgent.so -javaagent:/home/arsread/workspace/deferredmethods/build/sync_instr.jar -Xbootclasspath/p:/home/arsread/workspace/deferredmethods/build/deferred_lock.jar:/home/arsread/workspace/deferredmethods/build/deferred_thread.jar:/home/arsread/workspace/deferredmethods/build/boot_interface.jar 
+java_command: newTest.SimpleTest
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/jdk/jdk1.6.0_30
+CLASSPATH=.:/usr/jdk/jdk1.6.0_30/lib/dt.jar:/usr/jdk/jdk1.6.0_30/lib/tools.jar:/usr/jdk/jUnit/junit-4.11-SNAPSHOT-20120416-1530.jar:/home/arsread/.vim/autoload
+PATH=/usr/jdk/jdk1.6.0_30/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+USERNAME=arsread
+LD_LIBRARY_PATH=/usr/jdk/jdk1.6.0_30/jre/lib/i386/server:/usr/jdk/jdk1.6.0_30/jre/lib/i386:/usr/jdk/jdk1.6.0_30/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x725400], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x725400], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5dff40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x5dff40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x5dff40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5dff40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5e31a0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x5e2d80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x5e2d80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x5e2d80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x5e2d80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:wheezy/sid
+
+uname:Linux 3.0.0-32-generic #51-Ubuntu SMP Thu Mar 21 15:51:26 UTC 2013 i686
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE 0k, NPROC 15915, NOFILE 4096, AS infinity
+load average:1.39 1.14 0.95
+
+/proc/meminfo:
+MemTotal:        2051200 kB
+MemFree:          282120 kB
+Buffers:          177032 kB
+Cached:           745300 kB
+SwapCached:         5480 kB
+Active:          1026188 kB
+Inactive:         608648 kB
+Active(anon):     673848 kB
+Inactive(anon):   266240 kB
+Active(file):     352340 kB
+Inactive(file):   342408 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+HighTotal:       1176944 kB
+HighFree:          35028 kB
+LowTotal:         874256 kB
+LowFree:          247092 kB
+SwapTotal:       1952764 kB
+SwapFree:        1904304 kB
+Dirty:              1972 kB
+Writeback:             0 kB
+AnonPages:        709088 kB
+Mapped:           143352 kB
+Shmem:            227460 kB
+Slab:              91020 kB
+SReclaimable:      76688 kB
+SUnreclaim:        14332 kB
+KernelStack:        3592 kB
+PageTables:         8304 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2978364 kB
+Committed_AS:    3264760 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       27384 kB
+VmallocChunk:      79124 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       16376 kB
+DirectMap4M:      892928 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+stepping	: 10
+cpu MHz		: 1600.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5851.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+stepping	: 10
+cpu MHz		: 1600.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5851.23
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 2051200k(282120k free), swap 1952764k(1904304k free)
+
+vm_info: Java HotSpot(TM) Server VM (20.5-b03) for linux-x86 JRE (1.6.0_30-b12), built on Nov 10 2011 01:04:19 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Wed May 15 12:47:12 2013
+elapsed time: 8 seconds
+

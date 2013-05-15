@@ -108,7 +108,8 @@ public class BufferGenerator extends ClassGenerator {
 
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(),
 					method.getName(), method.getDesc());
-
+			
+			//Store the return Ret<T> to the array
 			if (method.hasRet()) {
 				mv.visitVarInsn(Opcodes.ALOAD, 0);
 				mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(),
@@ -230,24 +231,44 @@ public class BufferGenerator extends ClassGenerator {
 			mv.visitVarInsn(Opcodes.ILOAD, currentPosLVI);
 			mv.visitFieldInsn(Opcodes.PUTFIELD, getClassName(), "currentPos",
 					"I");
-
+			
 			mv.visitVarInsn(Opcodes.ILOAD, currentPosLVI);
+
+			mv.visitInsn(Opcodes.DUP);
+			mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+			mv.visitInsn(Opcodes.SWAP);
+			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V");
+			
 			mv.visitVarInsn(Opcodes.ALOAD, 0);
 			mv.visitFieldInsn(Opcodes.GETFIELD, getClassName(),
 					"deferredMethodID", "[I");
 			mv.visitInsn(Opcodes.ARRAYLENGTH);
+			
+			mv.visitInsn(Opcodes.DUP);
+			mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+			mv.visitInsn(Opcodes.SWAP);
+			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V");
+
 
 			Label l5 = new Label();
+			mv.visitInsn(Opcodes.SWAP);
 			mv.visitJumpInsn(Opcodes.IF_ICMPGE, l5);
+			
+			//Test to process
+			mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+			mv.visitLdcInsn("Process a buffer!!!!");
+			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V");
+			
 			mv.visitVarInsn(Opcodes.ALOAD, 0);
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), "getEnv",
 					"()Ldeferredmethods/DeferredEnv;");
 			mv.visitMethodInsn(Opcodes.INVOKEINTERFACE,
 					"deferredmethods/DeferredEnv", "processCurrentBuffer",
 					"()V");
+			
 			mv.visitLabel(l5);
 
-			// mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+			 mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
 			if (method.hasRet()) {
 				mv.visitInsn(Opcodes.ARETURN);
 			} else {
