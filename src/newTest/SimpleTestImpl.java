@@ -18,9 +18,7 @@ public class SimpleTestImpl implements SimpleTestInter {
 	@Override
 	public Ret<Integer> ret() {
 		System.out.println("return method!");
-		Ret<Integer> x=new Ret<Integer>();
-		x.set(20);
-		return x;
+		return new Ret<Integer>(20);
 	}
 
 }

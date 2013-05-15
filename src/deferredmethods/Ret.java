@@ -5,6 +5,13 @@ public class Ret<T> {
 	private T val;
 	private boolean isDone=false;
 	
+	public Ret(){
+	}
+	
+	public Ret(T val){
+		set(val);
+	}
+	
 	public void mov(Ret<T> ret){
 		try {
 			set(ret.get(null));
