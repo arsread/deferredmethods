@@ -241,7 +241,7 @@ public class BufferGenerator extends ClassGenerator {
 
 			Label l5 = new Label();
 			mv.visitInsn(Opcodes.SWAP);
-			mv.visitJumpInsn(Opcodes.IF_ICMPGE, l5);
+			mv.visitJumpInsn(Opcodes.IF_ICMPGT, l5);
 			
 			mv.visitVarInsn(Opcodes.ALOAD, 0);
 			mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, getClassName(), "getEnv",
