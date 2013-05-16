@@ -1,18 +1,17 @@
 package deferredmethods;
 
-
 public class Ret<T> {
 	private T val;
-	private boolean isDone=false;
-	
-	public Ret(){
+	private boolean isDone = false;
+
+	public Ret() {
 	}
-	
-	public Ret(T val){
+
+	public Ret(T val) {
 		set(val);
 	}
-	
-	public void mov(Ret<T> ret){
+
+	public void mov(Ret<T> ret) {
 		try {
 			set(ret.get(null));
 		} catch (InterruptedException e) {
@@ -20,15 +19,18 @@ public class Ret<T> {
 		}
 	}
 
-	public synchronized T get(DeferredEnv<?> env) throws InterruptedException {
-		if (env != null) env.processCurrentBuffer();
-		while (!isDone){
-			wait();
+	public T get(DeferredEnv<?> env) throws InterruptedException {
+		if (env != null)
+			env.processCurrentBuffer();
+		synchronized (this) {
+			while (!isDone) {
+				wait();
+			}
 		}
 		return val;
 	}
-	
-	public synchronized void set(T val){
+
+	public synchronized void set(T val) {
 		this.val = val;
 		isDone = true;
 		notifyAll();

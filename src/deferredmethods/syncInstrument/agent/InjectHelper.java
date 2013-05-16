@@ -32,72 +32,85 @@ public class InjectHelper implements Opcodes {
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
-		for (MethodNode methodNode : classNode.methods) {
+		// System.out.println("Version:"+classNode.version);
+		if ((classNode.version >= V1_5) && (classNode.version != V1_1)) {
+			for (MethodNode methodNode : classNode.methods) {
 
-			if ((methodNode.access & ACC_SYNCHRONIZED) != 0 ) {
-				
-				int classStatic = (methodNode.access & ACC_STATIC);
-				int valTop = methodNode.localVariables.size() + 1;
+				if ((methodNode.access & ACC_SYNCHRONIZED) != 0) {
+					methodNode.access &= ~ACC_SYNCHRONIZED;
 
-				InsnList enterMethod = new InsnList();
-				
-				if (classStatic == 0) {
-					enterMethod.add(new VarInsnNode(ALOAD, 0));
-				} else {
+					int classStatic = (methodNode.access & ACC_STATIC);
+					int valTop = methodNode.localVariables.size() + 1;
 
-					enterMethod.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
-				}
-				
-				enterMethod.add(new InsnNode(MONITORENTER));
+					InsnList enterMethod = new InsnList();
 
-				InsnList exitMethod = new InsnList();
-				if (classStatic == 0){
-					exitMethod.add(new VarInsnNode(ALOAD, 0));
-				} else {
-					exitMethod.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
-				}
-				exitMethod.add(new InsnNode(MONITOREXIT));
+					if (classStatic == 0) {
+						enterMethod.add(new VarInsnNode(ALOAD, 0));
+					} else {
 
-				LabelNode start = new LabelNode();
-				methodNode.instructions.insert(start);
-				methodNode.instructions.insert(enterMethod);
-
-				ListIterator<AbstractInsnNode> it = methodNode.instructions
-						.iterator();
-				/* change sychronized methods -> sychronized(this) */
-				while (it.hasNext()) {
-					AbstractInsnNode instr = it.next();
-					int opcode = instr.getOpcode();
-					if (opcode >= IRETURN && opcode <= RETURN) {
-
-						if (classStatic == 0){
-							methodNode.instructions.insertBefore(instr, new VarInsnNode(ALOAD, 0));
-						} else {
-							methodNode.instructions.insertBefore(instr, new LdcInsnNode(Type.getObjectType(classNode.name)));
-						}
-						methodNode.instructions.insertBefore(instr, new InsnNode(MONITOREXIT));
+						enterMethod.add(new LdcInsnNode(Type
+								.getObjectType(classNode.name)));
 					}
+
+					enterMethod.add(new InsnNode(MONITORENTER));
+
+					InsnList exitMethod = new InsnList();
+					if (classStatic == 0) {
+						exitMethod.add(new VarInsnNode(ALOAD, 0));
+					} else {
+						exitMethod.add(new LdcInsnNode(Type
+								.getObjectType(classNode.name)));
+					}
+					exitMethod.add(new InsnNode(MONITOREXIT));
+
+					LabelNode start = new LabelNode();
+					methodNode.instructions.insert(start);
+					methodNode.instructions.insert(enterMethod);
+
+					ListIterator<AbstractInsnNode> it = methodNode.instructions
+							.iterator();
+					/* change sychronized methods -> sychronized(this) */
+					while (it.hasNext()) {
+						AbstractInsnNode instr = it.next();
+						int opcode = instr.getOpcode();
+						if (opcode >= IRETURN && opcode <= RETURN) {
+
+							if (classStatic == 0) {
+								methodNode.instructions.insertBefore(instr,
+										new VarInsnNode(ALOAD, 0));
+							} else {
+								methodNode.instructions
+										.insertBefore(
+												instr,
+												new LdcInsnNode(
+														Type.getObjectType(classNode.name)));
+							}
+							methodNode.instructions.insertBefore(instr,
+									new InsnNode(MONITOREXIT));
+						}
+					}
+
+					LabelNode end = new LabelNode();
+					LabelNode handler = new LabelNode();
+					methodNode.instructions.add(end);
+					methodNode.instructions.add(handler);
+
+					InsnList exceptionHandler = new InsnList();
+					if (classStatic == 0) {
+						exceptionHandler.add(new VarInsnNode(ALOAD, 0));
+					} else {
+						exceptionHandler.add(new LdcInsnNode(Type
+								.getObjectType(classNode.name)));
+					}
+					exceptionHandler.add(new InsnNode(MONITOREXIT));
+					exceptionHandler.add(new InsnNode(ATHROW));
+
+					methodNode.instructions.add(exceptionHandler);
+
+					methodNode.tryCatchBlocks.add(new TryCatchBlockNode(start,
+							end, handler, null));
+
 				}
-
-				LabelNode end = new LabelNode();
-				LabelNode handler = new LabelNode();
-				methodNode.instructions.add(end);
-				methodNode.instructions.add(handler);
-
-				InsnList exceptionHandler = new InsnList();
-				if (classStatic == 0){
-					exceptionHandler.add(new VarInsnNode(ALOAD, 0));
-				} else {
-					exceptionHandler.add(new LdcInsnNode(Type.getObjectType(classNode.name)));
-				}
-				exceptionHandler.add(new InsnNode(MONITOREXIT));
-				exceptionHandler.add(new InsnNode(ATHROW));
-
-				methodNode.instructions.add(exceptionHandler);
-
-				methodNode.tryCatchBlocks.add(new TryCatchBlockNode(start, end,
-						handler, null));
-
 			}
 		}
 
@@ -112,28 +125,30 @@ public class InjectHelper implements Opcodes {
 		ClassNode classNode = new ClassNode(Opcodes.ASM4);
 		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
-        //System.out.println("inside transformer 2!!!!!...");
-		for (MethodNode methodNode : classNode.methods) {
-			int classStatic = methodNode.access & ACC_STATIC;
+		// System.out.println("inside transformer 2!!!!!...");
+		if ((classNode.version >= V1_5) && (classNode.version != V1_1)) {
+			for (MethodNode methodNode : classNode.methods) {
+				int classStatic = methodNode.access & ACC_STATIC;
 
-			ListIterator<AbstractInsnNode> it = methodNode.instructions
-					.iterator();
-			/* Add processCurrentBuffer when use monitorenter */
-			while (it.hasNext()) {
-				AbstractInsnNode instr = it.next();
-				if (instr.getOpcode() == MONITORENTER) {
-					methodNode.instructions.insertBefore(instr,
-							buildTryMonitorEnter(classNode));
-					it.next();
-					methodNode.instructions.remove(instr);
-					it.previous();
-				}
-				if (instr.getOpcode() == MONITOREXIT) {
-					methodNode.instructions.insertBefore(instr,
-							buildTryMonitorExit(classNode));
-					it.next();
-					methodNode.instructions.remove(instr);
-					it.previous();
+				ListIterator<AbstractInsnNode> it = methodNode.instructions
+						.iterator();
+				/* Add processCurrentBuffer when use monitorenter */
+				while (it.hasNext()) {
+					AbstractInsnNode instr = it.next();
+					if (instr.getOpcode() == MONITORENTER) {
+						methodNode.instructions.insertBefore(instr,
+								buildTryMonitorEnter(classNode));
+						it.next();
+						methodNode.instructions.remove(instr);
+						it.previous();
+					}
+					if (instr.getOpcode() == MONITOREXIT) {
+						methodNode.instructions.insertBefore(instr,
+								buildTryMonitorExit(classNode));
+						it.next();
+						methodNode.instructions.remove(instr);
+						it.previous();
+					}
 				}
 			}
 		}
@@ -160,7 +175,8 @@ public class InjectHelper implements Opcodes {
 		buildMonitorEnter.add(new JumpInsnNode(IFNE, jumpTarget));
 
 		buildMonitorEnter.add(new MethodInsnNode(INVOKESTATIC,
-				"deferredmethods/syncInstrument/agent/CallProcess", "callProcess", "()V"));
+				"deferredmethods/syncInstrument/agent/CallProcess",
+				"callProcess", "()V"));
 
 		buildMonitorEnter.add(new FieldInsnNode(GETSTATIC,
 				"deferredmethods/syncInstrument/agent/UnsafeObject", "unsafe",
@@ -172,7 +188,7 @@ public class InjectHelper implements Opcodes {
 		buildMonitorEnter.add(jumpTarget);
 		buildMonitorEnter.add(new InsnNode(POP));
 		buildMonitorEnter.add(endTarget);
-		
+
 		return buildMonitorEnter;
 	}
 

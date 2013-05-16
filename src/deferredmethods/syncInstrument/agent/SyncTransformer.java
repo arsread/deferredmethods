@@ -15,53 +15,58 @@ public class SyncTransformer implements ClassFileTransformer {
 	public byte[] transform(ClassLoader loader, String className,
 			Class<?> classBeingRedefined, ProtectionDomain protectionDomain,
 			byte[] classfileBuffer) throws IllegalClassFormatException {
-//		System.out.println("Trying to instrument:"+className);
-        if (className.startsWith("deferredmethods")
-                || className.startsWith("sun")
-                || className.startsWith("java")
-                || className.startsWith("org/objectweb/asm")
-                || loader == null
-                ) {
+		// System.out.println("Trying to instrument:"+className);
+		if (className.startsWith("deferredmethods")
+				|| className.startsWith("sun") || className.startsWith("java")
+				|| className.startsWith("org/objectweb/asm") 
+//				|| className.startsWith("org/apache/xerces/impl/XMLEntityManager")
+//				|| className.startsWith("org/apache/xerces/impl/dv/DTDDVFactory")
+				|| loader == null) {
 
-//        	System.out.println("skipping class : " + className);
-            return classfileBuffer;
-        }
-       // System.out.println("trying inject..."+className);
-        
-       byte[] tmp = InjectHelper.transformSynchronized(classfileBuffer);
+			// System.out.println("skipping class : " + className);
+			return classfileBuffer;
+		}
+		// System.out.println("trying inject..."+className);
 
-//        System.out.println("successfully inject..."+className);
-        
-//        try {
-//        	System.out.println("writing...");
-//    		FileOutputStream os = new FileOutputStream("bin/"+className+"_instr1.class");
-//    		os.write(tmp);
-//    		os.close();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
+		byte[] tmp = InjectHelper.transformSynchronized(classfileBuffer);
+
+		// System.out.println("successfully inject..."+className);
+
+		// try {
+		// System.out.println("writing...");
+		// FileOutputStream os = new
+		// FileOutputStream("bin/"+className+"_instr1.class");
+		// os.write(tmp);
+		// os.close();
+		// } catch (Exception e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		// System.out.println("first step...");
+
+		tmp = InjectHelper.transformMonitor(tmp);
+//		 byte[] tmp = InjectHelper.transformMonitor(classfileBuffer);
+
+//		if (className.startsWith("org/apache/xerces/impl/XMLEntityManager")) {
+//			System.out.println("I found!!!!!!----->" + className);
+//			try {
+//				System.out.println("writing...");
+//				FileOutputStream os = new FileOutputStream("hehe.class");
+//				os.write(tmp);
+//				os.close();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 //		}
-//        System.out.println("first step...");
-        
-        tmp = InjectHelper.transformMonitor(tmp);
-//        byte[] tmp = InjectHelper.transformMonitor(classfileBuffer);
-        
-//        try {
-//        	System.out.println("writing...");
-//    		FileOutputStream os = new FileOutputStream(className+"_instr.class");
-//    		os.write(tmp);
-//    		os.close();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-        //System.out.println("Complete to instrument:"+className);
-        
+		// System.out.println("Complete to instrument:"+className);
+
 		return tmp;
+//		return classfileBuffer;
 	}
 
-//	private void write(String className, byte[] transform) throws Exception {
-//		
-//	}
+	// private void write(String className, byte[] transform) throws Exception {
+	//
+	// }
 
 }

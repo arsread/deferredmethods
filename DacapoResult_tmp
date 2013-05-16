@@ -1,0 +1,147 @@
+
+DaCapo:origin
+===== DaCapo 9.12 batik starting =====
+About to transcode 3 SVG file(s)
+
+Converting mapWaadt.svg to /home/arsread/workspace/deferredmethods/./scratch/mapWaadt.png ... ... success
+Converting mapSpain.svg to /home/arsread/workspace/deferredmethods/./scratch/mapSpain.png ... ... success
+Converting sydney.svg to /home/arsread/workspace/deferredmethods/./scratch/sydney.png ... ... success
+===== DaCapo 9.12 batik PASSED in 5280 msec =====
+DaCapo:sync-instr
+===== DaCapo 9.12 batik starting =====
+About to transcode 3 SVG file(s)
+
+Converting mapWaadt.svg to /home/arsread/workspace/deferredmethods/./scratch/mapWaadt.png ... ... success
+Converting mapSpain.svg to /home/arsread/workspace/deferredmethods/./scratch/mapSpain.png ... ... success
+Converting sydney.svg to /home/arsread/workspace/deferredmethods/./scratch/sydney.png ... ... success
+===== DaCapo 9.12 batik PASSED in 6973 msec =====
+DaCapo:origin
+Unzip workspace 
+===== DaCapo 9.12 eclipse starting =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo 9.12 eclipse PASSED in 65747 msec =====
+Delete workspace 
+DaCapo:sync-instr
+Unzip workspace 
+===== DaCapo 9.12 eclipse starting =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo 9.12 eclipse PASSED in 72211 msec =====
+Delete workspace 
+DaCapo:origin
+===== DaCapo 9.12 fop starting =====
+===== DaCapo 9.12 fop PASSED in 3595 msec =====
+DaCapo:sync-instr
+===== DaCapo 9.12 fop starting =====
+===== DaCapo 9.12 fop PASSED in 4885 msec =====
+DaCapo:origin
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,4000]
+===== DaCapo 9.12 h2 starting =====
+....
+Completed 4000 transactions
+	Stock level .............   155 ( 3.9%)
+	Order status by name ....   108 ( 2.7%)
+	Order status by ID ......    65 ( 1.6%)
+	Payment by name .........  1050 (26.2%)
+	Payment by ID ...........   661 (16.5%)
+	Delivery schedule .......   167 ( 4.2%)
+	New order ...............  1774 (44.4%)
+	New order rollback ......    20 ( 0.5%)
+Resetting database to initial state
+===== DaCapo 9.12 h2 PASSED in 7739 msec =====
+DaCapo:sync-instr
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,4000]
+===== DaCapo 9.12 h2 starting =====
+....
+Completed 4000 transactions
+	Stock level .............   155 ( 3.9%)
+	Order status by name ....   108 ( 2.7%)
+	Order status by ID ......    65 ( 1.6%)
+	Payment by name .........  1050 (26.2%)
+	Payment by ID ...........   661 (16.5%)
+	Delivery schedule .......   167 ( 4.2%)
+	New order ...............  1774 (44.4%)
+	New order rollback ......    20 ( 0.5%)
+Resetting database to initial state
+===== DaCapo 9.12 h2 PASSED in 9604 msec =====
+DaCapo:origin
+===== DaCapo 9.12 luindex starting =====
+===== DaCapo 9.12 luindex PASSED in 2337 msec =====
+DaCapo:sync-instr
+===== DaCapo 9.12 luindex starting =====
+===== DaCapo 9.12 luindex PASSED in 3086 msec =====
+DaCapo:origin
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,64]
+===== DaCapo 9.12 lusearch starting =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+===== DaCapo 9.12 lusearch PASSED in 17560 msec =====
+DaCapo:sync-instr
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,64]
+===== DaCapo 9.12 lusearch starting =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+===== DaCapo 9.12 lusearch PASSED in 15916 msec =====
+DaCapo:origin
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,256]
+===== DaCapo 9.12 sunflow starting =====
+===== DaCapo 9.12 sunflow PASSED in 8202 msec =====
+DaCapo:sync-instr
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,256]
+===== DaCapo 9.12 sunflow starting =====
+===== DaCapo 9.12 sunflow PASSED in 8246 msec =====
+DaCapo:origin
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,100]
+===== DaCapo 9.12 xalan starting =====
+Normal completion.
+===== DaCapo 9.12 xalan PASSED in 8569 msec =====
+DaCapo:sync-instr
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,100]
+===== DaCapo 9.12 xalan starting =====
+Normal completion.
+===== DaCapo 9.12 xalan PASSED in 10100 msec =====
