@@ -159,6 +159,42 @@ public class InjectHelper implements Opcodes {
 		return cw.toByteArray();
 	}
 
+	public static byte[] transformWait(byte[] classfileBuffer) {
+		ClassReader classReader = new ClassReader(classfileBuffer);
+		ClassNode classNode = new ClassNode(Opcodes.ASM4);
+		classReader.accept(classNode, ClassReader.EXPAND_FRAMES);
+
+		// System.out.println("inside transformer 2!!!!!...");
+		if ((classNode.version >= V1_5) && (classNode.version != V1_1)) {
+			for (MethodNode methodNode : classNode.methods) {
+				int classStatic = methodNode.access & ACC_STATIC;
+
+				ListIterator<AbstractInsnNode> it = methodNode.instructions
+						.iterator();
+				/* Add processCurrentBuffer when use monitorenter */
+				while (it.hasNext()) {
+					AbstractInsnNode instr = it.next();
+					if (instr.getOpcode() == INVOKEVIRTUAL) {
+						MethodInsnNode node = (MethodInsnNode) instr;
+						if (node.name.equals("wait") && node.owner.equals("java/lang/Object")){
+							System.out.println("found a wait()!");
+							AbstractInsnNode call=new MethodInsnNode(INVOKESTATIC,
+								"deferredmethods/syncInstrument/agent/CallProcess",
+								"callProcess", "()V");
+							methodNode.instructions.insertBefore(instr,
+									call);
+						}
+					}
+				}
+			}
+		}
+
+		ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+
+		classNode.accept(cw);
+		return cw.toByteArray();
+	}
+
 	private static InsnList buildTryMonitorEnter(ClassNode classNode) {
 		LabelNode jumpTarget = new LabelNode();
 		LabelNode endTarget = new LabelNode();

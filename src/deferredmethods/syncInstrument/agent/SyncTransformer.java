@@ -61,6 +61,17 @@ public class SyncTransformer implements ClassFileTransformer {
 //		}
 		// System.out.println("Complete to instrument:"+className);
 
+		tmp = InjectHelper.transformWait(tmp);
+		//try {
+		//	System.out.println("writing...");
+		//	FileOutputStream os = new FileOutputStream("hehe.class");
+		//	os.write(tmp);
+		//	os.close();
+		//} catch (Exception e) {
+		//	// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		//}
+
 		return tmp;
 //		return classfileBuffer;
 	}

@@ -1,0 +1,822 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AbstractWorker	test/danilo/workers/AbstractWorker.java	/^    public AbstractWorker(CyclicBarrier barrier, int size, int id) {$/;"	m	language:Java	class:AbstractWorker	signature:(CyclicBarrier barrier, int size, int id)
+AbstractWorker	test/danilo/workers/AbstractWorker.java	/^public abstract class AbstractWorker extends Thread {$/;"	c	language:Java
+AdaptiveProc	deferredmethods/proc/AdaptiveProc.java	/^    public AdaptiveProc() {$/;"	m	language:Java	class:AdaptiveProc	signature:()
+AdaptiveProc	deferredmethods/proc/AdaptiveProc.java	/^    public AdaptiveProc(int numThreads, int queueCapacity) {$/;"	m	language:Java	class:AdaptiveProc	signature:(int numThreads, int queueCapacity)
+AdaptiveProc	deferredmethods/proc/AdaptiveProc.java	/^public class AdaptiveProc implements Processor {$/;"	c	language:Java
+Agent	deferredmethods/Agent.java	/^public class Agent {$/;"	c	language:Java
+Agent	deferredmethods/syncInstrument/agent/Agent.java	/^public class Agent {$/;"	c	language:Java
+Analysis	playground/fromthepaper/DefMethods.java	/^class Analysis {$/;"	c	language:Java
+AnalysisImpl	playground/CounterFactory.java	/^    public AnalysisImpl(Counter counter) {$/;"	m	language:Java	class:AnalysisImpl	signature:(Counter counter)
+AnalysisImpl	playground/CounterFactory.java	/^public class AnalysisImpl {$/;"	c	language:Java
+Argument	deferredmethods/bytecodegeneration/Argument.java	/^    public Argument(String name, Type type) {$/;"	m	language:Java	class:Argument	signature:(String name, Type type)
+Argument	deferredmethods/bytecodegeneration/Argument.java	/^public class Argument {$/;"	c	language:Java
+ArrayAccessor	test/danilo/ArrayAccessor.java	/^public class ArrayAccessor {$/;"	c	language:Java
+ArrayWorker	test/danilo/workers/tl/ArrayWorker.java	/^    public ArrayWorker(CyclicBarrier barrier, int size, int id) {$/;"	m	language:Java	class:ArrayWorker	signature:(CyclicBarrier barrier, int size, int id)
+ArrayWorker	test/danilo/workers/tl/ArrayWorker.java	/^public class ArrayWorker extends AbstractWorker {$/;"	c	language:Java
+Buffer	deferredmethods/Buffer.java	/^public interface Buffer extends Runnable{$/;"	i	language:Java
+BufferGenerator	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	public BufferGenerator(int id) {$/;"	m	language:Java	class:BufferGenerator	signature:(int id)
+BufferGenerator	deferredmethods/bytecodegeneration/BufferGenerator.java	/^public class BufferGenerator extends ClassGenerator {$/;"	c	language:Java
+BytecodeHelper	deferredmethods/bytecodegeneration/BytecodeHelper.java	/^public class BytecodeHelper {$/;"	c	language:Java
+CPTestImpl	newTest/CPTestImpl.java	/^public class CPTestImpl implements CPTestInterfce {$/;"	c	language:Java
+CPTestInterfce	newTest/CPTestInterfce.java	/^public interface CPTestInterfce extends Deferred {$/;"	i	language:Java
+CallProcess	deferredmethods/CallProcess.java	/^public class CallProcess {$/;"	c	language:Java
+CallProcess	deferredmethods/syncInstrument/agent/CallProcess.java	/^public class CallProcess {$/;"	c	language:Java
+ChangeThread	playground/agent/ChangeThread.java	/^public class ChangeThread implements ClassFileTransformer {$/;"	c	language:Java
+CheckPointTest	newTest/CheckPointTest.java	/^public class CheckPointTest {$/;"	c	language:Java
+ClassGenerator	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    public ClassGenerator(String className) {$/;"	m	language:Java	class:ClassGenerator	signature:(String className)
+ClassGenerator	deferredmethods/bytecodegeneration/ClassGenerator.java	/^public abstract class ClassGenerator {$/;"	c	language:Java
+CoalescedFibonacciCalc	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    public CoalescedFibonacciCalc(Result futureResult) {$/;"	m	language:Java	class:CoalescedFibonacciCalc	signature:(Result futureResult)
+CoalescedFibonacciCalc	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^public class CoalescedFibonacciCalc implements FibonacciCalcIntf, ProcessingHooks {$/;"	c	language:Java
+Constants	deferredmethods/Constants.java	/^public class Constants {$/;"	c	language:Java
+Counter	test/Counter.java	/^public class Counter {$/;"	c	language:Java
+CounterSingletonWrapper	test/CounterSingletonWrapper.java	/^    private CounterSingletonWrapper() { }$/;"	m	language:Java	class:CounterSingletonWrapper	file:	signature:()
+CounterSingletonWrapper	test/CounterSingletonWrapper.java	/^public class CounterSingletonWrapper {$/;"	c	language:Java
+CounterTL	test/CounterTL.java	/^public class CounterTL {$/;"	c	language:Java
+CrazyInterface	test/CrazyInterface.java	/^public interface CrazyInterface {$/;"	i	language:Java
+DEBUG	deferredmethods/proc/AdaptiveProc.java	/^    private static final boolean DEBUG = Boolean.getBoolean("dm.debug");$/;"	f	language:Java	class:AdaptiveProc	file:
+DEBUG	deferredmethods/proc/ShadowThreadProc.java	/^    private static final boolean DEBUG = Boolean.getBoolean("dm.debug");$/;"	f	language:Java	class:ShadowThreadProc	file:
+DEBUG	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static final boolean DEBUG = Boolean.getBoolean("dm.debug");$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+DEBUG	deferredmethods/proc/ThreadPoolProc.java	/^    private static final boolean DEBUG = Boolean.getBoolean("dm.debug");$/;"	f	language:Java	class:ThreadPoolProc	file:
+DEFAULT_BUFFER_CLASSNAME	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private static final String DEFAULT_BUFFER_CLASSNAME = "deferredmethods\/GeneratedBuffer";$/;"	f	language:Java	class:BufferGenerator	file:
+DEFAULT_DEFERRED_ENV_CLASSNAME	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private static final String DEFAULT_DEFERRED_ENV_CLASSNAME = "deferredmethods\/GeneratedDeferredEnv";$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+DEFAULT_NUM_THREADLOCALBUFFERS	deferredmethods/Constants.java	/^    public static final int DEFAULT_NUM_THREADLOCALBUFFERS = 100;$/;"	f	language:Java	class:Constants
+DEFAULT_QUEUE_CAPACITY	deferredmethods/proc/AdaptiveProc.java	/^    private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE;$/;"	f	language:Java	class:AdaptiveProc	file:
+DEFAULT_QUEUE_CAPACITY	deferredmethods/proc/ShadowThreadProc.java	/^    private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE * 10;$/;"	f	language:Java	class:ShadowThreadProc	file:
+DEFAULT_QUEUE_CAPACITY	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE * 10;$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+DEFAULT_QUEUE_CAPACITY	deferredmethods/proc/ThreadPoolProc.java	/^    private static final int DEFAULT_QUEUE_CAPACITY = DEFAULT_THREAD_POOL_SIZE * 10;$/;"	f	language:Java	class:ThreadPoolProc	file:
+DEFAULT_THREAD_LOCAL_BUFFER_CLASSNAME	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private static final String DEFAULT_THREAD_LOCAL_BUFFER_CLASSNAME = "deferredmethods\/GeneratedThreadLocalBuffer";$/;"	f	language:Java	class:ThreadLocalBufferGenerator	file:
+DEFAULT_THREAD_POOL_SIZE	deferredmethods/proc/AdaptiveProc.java	/^    private static final int DEFAULT_THREAD_POOL_SIZE = 4;$/;"	f	language:Java	class:AdaptiveProc	file:
+DEFAULT_THREAD_POOL_SIZE	deferredmethods/proc/ShadowThreadProc.java	/^    private static final int DEFAULT_THREAD_POOL_SIZE = 4;$/;"	f	language:Java	class:ShadowThreadProc	file:
+DEFAULT_THREAD_POOL_SIZE	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static final int DEFAULT_THREAD_POOL_SIZE = 4;$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+DEFAULT_THREAD_POOL_SIZE	deferredmethods/proc/ThreadPoolProc.java	/^    private static final int DEFAULT_THREAD_POOL_SIZE = 4;$/;"	f	language:Java	class:ThreadPoolProc	file:
+DO_SOMETHING	playground/tobegenerated/GeneratedBuffer6.java	/^    private static final int DO_SOMETHING = 1;$/;"	f	language:Java	class:GeneratedBuffer6	file:
+DefMethods	playground/fromthepaper/DefMethods.java	/^public interface DefMethods extends Deferred {$/;"	i	language:Java
+DefMethods	test/DefMethods.java	/^public interface DefMethods extends Deferred {$/;"	i	language:Java
+DefMethodsImpl	playground/fromthepaper/DefMethods.java	/^    public DefMethodsImpl(Profile prof) {$/;"	m	language:Java	class:DefMethodsImpl	signature:(Profile prof)
+DefMethodsImpl	playground/fromthepaper/DefMethods.java	/^class DefMethodsImpl implements DefMethods, ProcessingHooks {$/;"	c	language:Java
+DefMethodsImpl	test/DefMethodsImpl.java	/^public class DefMethodsImpl implements DefMethods {$/;"	c	language:Java
+Deferrable	playground/Deferrable.java	/^public class Deferrable {$/;"	c	language:Java
+Deferred	deferredmethods/Deferred.java	/^public interface Deferred {$/;"	i	language:Java
+DeferredEnv	deferredmethods/DeferredEnv.java	/^public interface DeferredEnv<T extends Deferred> {$/;"	i	language:Java
+DeferredEnvClassLoader	deferredmethods/DeferredEnvClassLoader.java	/^    public DeferredEnvClassLoader(Map<String, byte[]> mapClassnameToBytecode) {$/;"	m	language:Java	class:DeferredEnvClassLoader	signature:(Map<String, byte[]> mapClassnameToBytecode)
+DeferredEnvClassLoader	deferredmethods/DeferredEnvClassLoader.java	/^    public DeferredEnvClassLoader(Map<String, byte[]> mapClassnameToBytecode, ClassLoader classLoader) {$/;"	m	language:Java	class:DeferredEnvClassLoader	signature:(Map<String, byte[]> mapClassnameToBytecode, ClassLoader classLoader)
+DeferredEnvClassLoader	deferredmethods/DeferredEnvClassLoader.java	/^public class DeferredEnvClassLoader extends ClassLoader {$/;"	c	language:Java
+DeferredEnvGenerator	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	public DeferredEnvGenerator(int id) {$/;"	m	language:Java	class:DeferredEnvGenerator	signature:(int id)
+DeferredEnvGenerator	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^public class DeferredEnvGenerator extends ClassGenerator {$/;"	c	language:Java
+DeferredExecution	deferredmethods/DeferredExecution.java	/^public class DeferredExecution {$/;"	c	language:Java
+DeferredInterfaceReaderTest	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^public class DeferredInterfaceReaderTest {$/;"	c	language:Java
+DeferredMethodsReader	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public DeferredMethodsReader(Class<?> userDefIntf, Class<?> userDefImpl) throws IOException {$/;"	m	language:Java	class:DeferredMethodsReader	signature:(Class<?> userDefIntf, Class<?> userDefImpl)
+DeferredMethodsReader	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^public class DeferredMethodsReader {$/;"	c	language:Java
+Example	newTest/Example.java	/^public class Example {$/;"	c	language:Java
+ExtendReentrantLock	deferredmethods/bytecodegeneration/extendlock/ExtendReentrantLock.java	/^public final class ExtendReentrantLock {$/;"	c	language:Java
+ExtendThread	deferredmethods/bytecodegeneration/extendthread/ExtendThread.java	/^public final class ExtendThread {$/;"	c	language:Java
+Fibonacci	test/danilo/workers/test1/Fibonacci.java	/^public class Fibonacci {$/;"	c	language:Java
+FibonacciCalcIntf	test/danilo/workers/test1/FibonacciCalcIntf.java	/^public interface FibonacciCalcIntf extends Deferred {$/;"	i	language:Java
+FieldWorker	test/danilo/workers/tl/FieldWorker.java	/^    public FieldWorker(CyclicBarrier barrier, int size, int id) {$/;"	m	language:Java	class:FieldWorker	signature:(CyclicBarrier barrier, int size, int id)
+FieldWorker	test/danilo/workers/tl/FieldWorker.java	/^public class FieldWorker extends AbstractWorker {$/;"	c	language:Java
+FooImpl	newTest/FooImpl.java	/^	public FooImpl(AtomicInteger counter) {$/;"	m	language:Java	class:FooImpl	signature:(AtomicInteger counter)
+FooImpl	newTest/FooImpl.java	/^public class FooImpl implements FooInterface {$/;"	c	language:Java
+FooInterface	newTest/FooInterface.java	/^public interface FooInterface extends Deferred {$/;"	i	language:Java
+GeneralDeferredEnv	deferredmethods/GeneralDeferredEnv.java	/^	public GeneralDeferredEnv(Processor proc, int bufferCapacity, int id) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(Processor proc, int bufferCapacity, int id)
+GeneralDeferredEnv	deferredmethods/GeneralDeferredEnv.java	/^public abstract class GeneralDeferredEnv<T extends Deferred> implements$/;"	c	language:Java
+GeneralProcessingCheckPoint	deferredmethods/GeneralProcessingCheckPoint.java	/^	public GeneralProcessingCheckPoint(int id){$/;"	m	language:Java	class:GeneralProcessingCheckPoint	signature:(int id)
+GeneralProcessingCheckPoint	deferredmethods/GeneralProcessingCheckPoint.java	/^public class GeneralProcessingCheckPoint implements ProcessingCheckPoint {$/;"	c	language:Java
+GeneratedBuffer6	playground/tobegenerated/GeneratedBuffer6.java	/^    public GeneratedBuffer6(int bufferCapacity, Counter c) {$/;"	m	language:Java	class:GeneratedBuffer6	signature:(int bufferCapacity, Counter c)
+GeneratedBuffer6	playground/tobegenerated/GeneratedBuffer6.java	/^public class GeneratedBuffer6 extends TaskWithCoalescingImpl implements Runnable {$/;"	c	language:Java
+GeneratedDeferredEnv6	playground/tobegenerated/GeneratedDeferredEnv6.java	/^    public GeneratedDeferredEnv6(Processor proc, final int bufferCapacity, int id, final Counter c) {$/;"	m	language:Java	class:GeneratedDeferredEnv6	signature:(Processor proc, final int bufferCapacity, int id, final Counter c)
+GeneratedDeferredEnv6	playground/tobegenerated/GeneratedDeferredEnv6.java	/^public class GeneratedDeferredEnv6 extends GeneralDeferredEnv<Task> implements Task {$/;"	c	language:Java
+GeneratedThreadLocalBuffer6	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^    public GeneratedThreadLocalBuffer6(GeneratedDeferredEnv6 generatedDeferredEnv2, Counter c) {$/;"	m	language:Java	class:GeneratedThreadLocalBuffer6	signature:(GeneratedDeferredEnv6 generatedDeferredEnv2, Counter c)
+GeneratedThreadLocalBuffer6	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^public class GeneratedThreadLocalBuffer6 extends ThreadLocalBuffer<GeneratedBuffer6> {$/;"	c	language:Java
+Harness	test/danilo/Harness.java	/^    public Harness(int size, int threads) {$/;"	m	language:Java	class:Harness	signature:(int size, int threads)
+Harness	test/danilo/Harness.java	/^public class Harness {$/;"	c	language:Java
+InjectHelper	deferredmethods/syncInstrument/agent/InjectHelper.java	/^public class InjectHelper implements Opcodes {$/;"	c	language:Java
+InnerThread	newTest/RetTest2.java	/^		public InnerThread(DeferredEnv<?> env, RetTestIntf ret, Ret<?>[] retA,$/;"	m	language:Java	class:RetTest2.InnerThread	signature:(DeferredEnv<?> env, RetTestIntf ret, Ret<?>[] retA, Ret<?>[] retB)
+InnerThread	newTest/RetTest2.java	/^	private static class InnerThread extends Thread {$/;"	c	language:Java	class:RetTest2
+LOCK_BIN_DIR	deferredmethods/bytecodegeneration/extendlock/ExtendReentrantLock.java	/^    private static final String LOCK_BIN_DIR = ".\/bin-lock\/";$/;"	f	language:Java	class:ExtendReentrantLock	file:
+LockTest	newTest/LockTest.java	/^public class LockTest {$/;"	c	language:Java
+LockTestImpl	newTest/LockTestImpl.java	/^public class LockTestImpl implements LockTestInter {$/;"	c	language:Java
+LockTestInter	newTest/LockTestInter.java	/^public interface LockTestInter extends Deferred {$/;"	i	language:Java
+Main	playground/Main.java	/^public class Main {$/;"	c	language:Java
+Main	playground/agent/Main.java	/^public class Main {$/;"	c	language:Java
+Method	deferredmethods/bytecodegeneration/Method.java	/^    public Method(String name, String desc, String signature, String[] exceptions, Argument[] args) {$/;"	m	language:Java	class:Method	signature:(String name, String desc, String signature, String[] exceptions, Argument[] args)
+Method	deferredmethods/bytecodegeneration/Method.java	/^public class Method {$/;"	c	language:Java
+MethodID	playground/fromthepaper/DefMethods.java	/^class MethodID {$/;"	c	language:Java
+MultipleCounter	test/MultipleCounter.java	/^public class MultipleCounter {$/;"	c	language:Java
+MyCounter	test/danilo/MyCounter.java	/^public class MyCounter {$/;"	c	language:Java
+NormalFibonacciCalc	test/danilo/workers/test1/NormalFibonacciCalc.java	/^    public NormalFibonacciCalc(Result futureResult) {$/;"	m	language:Java	class:NormalFibonacciCalc	signature:(Result futureResult)
+NormalFibonacciCalc	test/danilo/workers/test1/NormalFibonacciCalc.java	/^public class NormalFibonacciCalc implements FibonacciCalcIntf {$/;"	c	language:Java
+ProcessingCheckPoint	deferredmethods/ProcessingCheckPoint.java	/^public interface ProcessingCheckPoint {$/;"	i	language:Java
+ProcessingHooks	deferredmethods/ProcessingHooks.java	/^public interface ProcessingHooks {$/;"	i	language:Java
+Processor	deferredmethods/proc/Processor.java	/^public interface Processor {$/;"	i	language:Java
+Profile	playground/fromthepaper/DefMethods.java	/^interface Profile {$/;"	i	language:Java
+ProfileTL	playground/fromthepaper/DefMethods.java	/^class ProfileTL implements Profile {$/;"	c	language:Java
+ProfileTS	playground/fromthepaper/DefMethods.java	/^class ProfileTS implements Profile {$/;"	c	language:Java
+Result	test/danilo/workers/test1/Result.java	/^public class Result {$/;"	c	language:Java
+Ret	deferredmethods/Ret.java	/^	public Ret() {$/;"	m	language:Java	class:Ret	signature:()
+Ret	deferredmethods/Ret.java	/^	public Ret(T val) {$/;"	m	language:Java	class:Ret	signature:(T val)
+Ret	deferredmethods/Ret.java	/^public class Ret<T> {$/;"	c	language:Java
+RetTest	newTest/RetTest.java	/^public class RetTest {$/;"	c	language:Java
+RetTest2	newTest/RetTest2.java	/^public class RetTest2 {$/;"	c	language:Java
+RetTestImpl	newTest/RetTestImpl.java	/^public class RetTestImpl implements RetTestIntf {$/;"	c	language:Java
+RetTestIntf	newTest/RetTestIntf.java	/^public interface RetTestIntf extends Deferred{ $/;"	i	language:Java
+SET_COUNTER	playground/tobegenerated/GeneratedBuffer6.java	/^    private static final int SET_COUNTER = 2;$/;"	f	language:Java	class:GeneratedBuffer6	file:
+ShadowThreadProc	deferredmethods/proc/ShadowThreadProc.java	/^    public ShadowThreadProc() {$/;"	m	language:Java	class:ShadowThreadProc	signature:()
+ShadowThreadProc	deferredmethods/proc/ShadowThreadProc.java	/^    public ShadowThreadProc(int numThreads, int queueCapacity) {$/;"	m	language:Java	class:ShadowThreadProc	signature:(int numThreads, int queueCapacity)
+ShadowThreadProc	deferredmethods/proc/ShadowThreadProc.java	/^public class ShadowThreadProc implements Processor {$/;"	c	language:Java
+ShadowThreadProcWithHooks	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public ShadowThreadProcWithHooks() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:()
+ShadowThreadProcWithHooks	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public ShadowThreadProcWithHooks(int numThreads, int queueCapacity) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:(int numThreads, int queueCapacity)
+ShadowThreadProcWithHooks	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^public class ShadowThreadProcWithHooks implements Processor {$/;"	c	language:Java
+SharedObj	newTest/SharedObj.java	/^public class SharedObj {$/;"	c	language:Java
+SimpleTest	newTest/SimpleTest.java	/^public class SimpleTest {$/;"	c	language:Java
+SimpleTestImpl	newTest/SimpleTestImpl.java	/^public class SimpleTestImpl implements SimpleTestInter {$/;"	c	language:Java
+SimpleTestInter	newTest/SimpleTestInter.java	/^public interface SimpleTestInter extends Deferred {$/;"	i	language:Java
+Stuff	playground/TestVarargs.java	/^    public Stuff() {$/;"	m	language:Java	class:Stuff	signature:()
+Stuff	playground/TestVarargs.java	/^    public Stuff(Integer i) {$/;"	m	language:Java	class:Stuff	signature:(Integer i)
+Stuff	playground/TestVarargs.java	/^    public Stuff(String s, Integer i) {$/;"	m	language:Java	class:Stuff	signature:(String s, Integer i)
+Stuff	playground/TestVarargs.java	/^    public Stuff(String str) {$/;"	m	language:Java	class:Stuff	signature:(String str)
+Stuff	playground/TestVarargs.java	/^class Stuff {$/;"	c	language:Java
+SyncImpl	newTest/SyncImpl.java	/^public class SyncImpl implements SyncInter {$/;"	c	language:Java
+SyncInter	newTest/SyncInter.java	/^public interface SyncInter extends Deferred {$/;"	i	language:Java
+SyncTest	newTest/SyncTest.java	/^public class SyncTest {$/;"	c	language:Java
+SyncTest2	newTest/SyncTest2.java	/^public class SyncTest2 {$/;"	c	language:Java
+SyncTransformer	deferredmethods/syncInstrument/agent/SyncTransformer.java	/^public class SyncTransformer implements ClassFileTransformer {$/;"	c	language:Java
+SynchPill	deferredmethods/proc/AdaptiveProc.java	/^        public SynchPill(CyclicBarrier barrier) {$/;"	m	language:Java	class:AdaptiveProc.SynchPill	signature:(CyclicBarrier barrier)
+SynchPill	deferredmethods/proc/AdaptiveProc.java	/^    private static class SynchPill implements Runnable {$/;"	c	language:Java	class:AdaptiveProc
+SynchPill	deferredmethods/proc/ShadowThreadProc.java	/^        public SynchPill(CyclicBarrier barrier) {$/;"	m	language:Java	class:ShadowThreadProc.SynchPill	signature:(CyclicBarrier barrier)
+SynchPill	deferredmethods/proc/ShadowThreadProc.java	/^    private static class SynchPill implements Runnable {$/;"	c	language:Java	class:ShadowThreadProc
+SynchPill	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	 private static class SynchPill implements Runnable {$/;"	c	language:Java	class:ShadowThreadProcWithHooks
+SynchPill	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	 public SynchPill(CyclicBarrier barrier) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.SynchPill	signature:(CyclicBarrier barrier)
+SynchPill	deferredmethods/proc/ThreadPoolProc.java	/^        public SynchPill(CyclicBarrier barrier) {$/;"	m	language:Java	class:ThreadPoolProc.SynchPill	signature:(CyclicBarrier barrier)
+SynchPill	deferredmethods/proc/ThreadPoolProc.java	/^    private static class SynchPill implements Runnable {$/;"	c	language:Java	class:ThreadPoolProc
+SynchronousProc	deferredmethods/proc/SynchronousProc.java	/^    public SynchronousProc() {$/;"	m	language:Java	class:SynchronousProc	signature:()
+SynchronousProc	deferredmethods/proc/SynchronousProc.java	/^public class SynchronousProc implements Processor {$/;"	c	language:Java
+THREAD_BIN_DIR	deferredmethods/bytecodegeneration/extendthread/ExtendThread.java	/^    private static final String THREAD_BIN_DIR = ".\/bin-thread\/";$/;"	f	language:Java	class:ExtendThread	file:
+THREAD_LOCAL_BUFFER_SUPERCLASS	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private static final String THREAD_LOCAL_BUFFER_SUPERCLASS = "deferredmethods\/ThreadLocalBuffer";$/;"	f	language:Java	class:ThreadLocalBufferGenerator	file:
+Task	test/Task.java	/^public interface Task extends Deferred {$/;"	i	language:Java
+TaskImpl	test/TaskImpl.java	/^    public TaskImpl(Counter counter) {$/;"	m	language:Java	class:TaskImpl	signature:(Counter counter)
+TaskImpl	test/TaskImpl.java	/^public class TaskImpl implements Task {$/;"	c	language:Java
+TaskImplWithMultipleConstructors	test/TaskImplWithMultipleConstructors.java	/^    public TaskImplWithMultipleConstructors(Counter counter) {$/;"	m	language:Java	class:TaskImplWithMultipleConstructors	signature:(Counter counter)
+TaskImplWithMultipleConstructors	test/TaskImplWithMultipleConstructors.java	/^    public TaskImplWithMultipleConstructors(Counter counter, String s) {$/;"	m	language:Java	class:TaskImplWithMultipleConstructors	signature:(Counter counter, String s)
+TaskImplWithMultipleConstructors	test/TaskImplWithMultipleConstructors.java	/^public class TaskImplWithMultipleConstructors implements Task {$/;"	c	language:Java
+TaskImplWithSingleton	test/TaskImplWithSingleton.java	/^public class TaskImplWithSingleton implements Task {$/;"	c	language:Java
+TaskUser	test/TaskUser.java	/^public class TaskUser {$/;"	c	language:Java
+TaskWithArrayTypes	test/TaskWithArrayTypes.java	/^public interface TaskWithArrayTypes extends Deferred {$/;"	i	language:Java
+TaskWithArrayTypesImpl	test/TaskWithArrayTypesImpl.java	/^public class TaskWithArrayTypesImpl implements TaskWithArrayTypes {$/;"	c	language:Java
+TaskWithCoalescingImpl	test/TaskWithCoalescingImpl.java	/^    public TaskWithCoalescingImpl(Counter c) {$/;"	m	language:Java	class:TaskWithCoalescingImpl	signature:(Counter c)
+TaskWithCoalescingImpl	test/TaskWithCoalescingImpl.java	/^public class TaskWithCoalescingImpl implements Task, ProcessingHooks {$/;"	c	language:Java
+TaskWithInstanceVar	test/TaskWithInstanceVar.java	/^    public TaskWithInstanceVar(Counter counter) {$/;"	m	language:Java	class:TaskWithInstanceVar	signature:(Counter counter)
+TaskWithInstanceVar	test/TaskWithInstanceVar.java	/^public class TaskWithInstanceVar implements Task {$/;"	c	language:Java
+TaskWithMultipleParams	test/TaskWithMultipleParams.java	/^public interface TaskWithMultipleParams extends Deferred {$/;"	i	language:Java
+TaskWithMultipleParamsImpl	test/TaskWithMultipleParamsImpl.java	/^public class TaskWithMultipleParamsImpl implements TaskWithMultipleParams {$/;"	c	language:Java
+TaskWithPrimitiveTypes	test/TaskWithPrimitiveTypes.java	/^public interface TaskWithPrimitiveTypes extends Deferred {$/;"	i	language:Java
+TaskWithPrimitiveTypesImpl	test/TaskWithPrimitiveTypesImpl.java	/^public class TaskWithPrimitiveTypesImpl implements TaskWithPrimitiveTypes {$/;"	c	language:Java
+Test	playground/Test.java	/^public class Test {$/;"	c	language:Java
+Test1Worker	test/danilo/workers/test1/Test1Worker.java	/^    public Test1Worker(CyclicBarrier barrier, int size, int id) {$/;"	m	language:Java	class:Test1Worker	signature:(CyclicBarrier barrier, int size, int id)
+Test1Worker	test/danilo/workers/test1/Test1Worker.java	/^public class Test1Worker extends AbstractWorker {$/;"	c	language:Java
+TestAgent	playground/TestAgent.java	/^public class TestAgent {$/;"	c	language:Java
+TestAgent2	playground/TestAgent2.java	/^public class TestAgent2 {$/;"	c	language:Java
+TestVarargs	playground/TestVarargs.java	/^public class TestVarargs {$/;"	c	language:Java
+ThreadCheckPointItems	deferredmethods/ThreadCheckPointItems.java	/^	public ThreadCheckPointItems(){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:()
+ThreadCheckPointItems	deferredmethods/ThreadCheckPointItems.java	/^public class ThreadCheckPointItems {$/;"	c	language:Java
+ThreadLocalBuffer	deferredmethods/ThreadLocalBuffer.java	/^    public ThreadLocalBuffer(GeneralDeferredEnv<?> deferredEnv) {$/;"	m	language:Java	class:ThreadLocalBuffer	signature:(GeneralDeferredEnv<?> deferredEnv)
+ThreadLocalBuffer	deferredmethods/ThreadLocalBuffer.java	/^public abstract class ThreadLocalBuffer<T> {$/;"	c	language:Java
+ThreadLocalBufferGenerator	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    public ThreadLocalBufferGenerator(int id) {$/;"	m	language:Java	class:ThreadLocalBufferGenerator	signature:(int id)
+ThreadLocalBufferGenerator	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^public class ThreadLocalBufferGenerator extends ClassGenerator {$/;"	c	language:Java
+ThreadLocalWorker	test/danilo/workers/tl/ThreadLocalWorker.java	/^    public ThreadLocalWorker(CyclicBarrier barrier, int size, int id) {$/;"	m	language:Java	class:ThreadLocalWorker	signature:(CyclicBarrier barrier, int size, int id)
+ThreadLocalWorker	test/danilo/workers/tl/ThreadLocalWorker.java	/^public class ThreadLocalWorker extends AbstractWorker {$/;"	c	language:Java
+ThreadPoolProc	deferredmethods/proc/ThreadPoolProc.java	/^    public ThreadPoolProc() {$/;"	m	language:Java	class:ThreadPoolProc	signature:()
+ThreadPoolProc	deferredmethods/proc/ThreadPoolProc.java	/^    public ThreadPoolProc(int numThreads, int queueCapacity) {$/;"	m	language:Java	class:ThreadPoolProc	signature:(int numThreads, int queueCapacity)
+ThreadPoolProc	deferredmethods/proc/ThreadPoolProc.java	/^public class ThreadPoolProc implements Processor {$/;"	c	language:Java
+UnsafeObject	deferredmethods/syncInstrument/agent/UnsafeObject.java	/^public class UnsafeObject {$/;"	c	language:Java
+WaitTest	newTest/WaitTest.java	/^public class WaitTest{$/;"	c	language:Java
+WorkerThread	deferredmethods/proc/AdaptiveProc.java	/^        public WorkerThread(BlockingQueue<Runnable> queue) {$/;"	m	language:Java	class:AdaptiveProc.WorkerThread	signature:(BlockingQueue<Runnable> queue)
+WorkerThread	deferredmethods/proc/AdaptiveProc.java	/^    private static class WorkerThread extends Thread {$/;"	c	language:Java	class:AdaptiveProc
+WorkerThread	deferredmethods/proc/ShadowThreadProc.java	/^        public WorkerThread(BlockingQueue<Runnable> queue) {$/;"	m	language:Java	class:ShadowThreadProc.WorkerThread	signature:(BlockingQueue<Runnable> queue)
+WorkerThread	deferredmethods/proc/ShadowThreadProc.java	/^    private static class WorkerThread extends Thread {$/;"	c	language:Java	class:ShadowThreadProc
+WorkerThread	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		public WorkerThread(BlockingQueue<Runnable> queue) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	signature:(BlockingQueue<Runnable> queue)
+WorkerThread	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static class WorkerThread extends Thread {$/;"	c	language:Java	class:ShadowThreadProcWithHooks
+WorkerThread	deferredmethods/proc/ThreadPoolProc.java	/^        public WorkerThread(BlockingQueue<Runnable> queue) {$/;"	m	language:Java	class:ThreadPoolProc.WorkerThread	signature:(BlockingQueue<Runnable> queue)
+WorkerThread	deferredmethods/proc/ThreadPoolProc.java	/^    private static class WorkerThread extends Thread {$/;"	c	language:Java	class:ThreadPoolProc
+Wrapper	playground/CounterFactory.java	/^public class Wrapper {$/;"	c	language:Java
+activateBypass	deferredmethods/Agent.java	/^    private static final Method activateBypass;$/;"	f	language:Java	class:Agent	file:
+activateBypass	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		private static final Method activateBypass;$/;"	f	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	file:
+add	test/Counter.java	/^    public synchronized void add(int i) {$/;"	m	language:Java	class:Counter	signature:(int i)
+add	test/CounterTL.java	/^    public void add(int i) {$/;"	m	language:Java	class:CounterTL	signature:(int i)
+addAndGet	test/danilo/MyCounter.java	/^    public long addAndGet(long add) {$/;"	m	language:Java	class:MyCounter	signature:(long add)
+addCPList	deferredmethods/GeneralDeferredEnv.java	/^	protected void addCPList(Thread thread, GeneralProcessingCheckPoint cp) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(Thread thread, GeneralProcessingCheckPoint cp)
+addNumboolean	test/MultipleCounter.java	/^    public void addNumboolean() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumbyte	test/MultipleCounter.java	/^    public void addNumbyte() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumchar	test/MultipleCounter.java	/^    public void addNumchar() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumdouble	test/MultipleCounter.java	/^    public void addNumdouble() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumfloat	test/MultipleCounter.java	/^    public void addNumfloat() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumint	test/MultipleCounter.java	/^    public void addNumint() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumlong	test/MultipleCounter.java	/^    public void addNumlong() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+addNumshort	test/MultipleCounter.java	/^    public void addNumshort() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+afterProcessing	deferredmethods/ProcessingHooks.java	/^    public void afterProcessing();$/;"	m	language:Java	interface:ProcessingHooks	signature:()
+afterProcessing	playground/fromthepaper/DefMethods.java	/^    public void afterProcessing() {$/;"	m	language:Java	class:DefMethodsImpl	signature:()
+afterProcessing	test/TaskWithCoalescingImpl.java	/^    public void afterProcessing() {$/;"	m	language:Java	class:TaskWithCoalescingImpl	signature:()
+afterProcessing	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    public void afterProcessing() {$/;"	m	language:Java	class:CoalescedFibonacciCalc	signature:()
+allDeferredEnvs	deferredmethods/DeferredExecution.java	/^    private static ConcurrentLinkedQueue<GeneralDeferredEnv<?>> allDeferredEnvs = new ConcurrentLinkedQueue<GeneralDeferredEnv<?>>();$/;"	f	language:Java	class:DeferredExecution	file:
+appendDesc	deferredmethods/bytecodegeneration/Method.java	/^    private final String appendDesc;$/;"	f	language:Java	class:Method	file:
+appendDoSomething	playground/tobegenerated/GeneratedBuffer6.java	/^    public boolean appendDoSomething() {$/;"	m	language:Java	class:GeneratedBuffer6	signature:()
+appendName	deferredmethods/bytecodegeneration/Method.java	/^    private final String appendName;$/;"	f	language:Java	class:Method	file:
+appendSetCounter	playground/tobegenerated/GeneratedBuffer6.java	/^    public boolean appendSetCounter(Counter counter) {$/;"	m	language:Java	class:GeneratedBuffer6	signature:(Counter counter)
+argC	playground/tobegenerated/GeneratedBuffer6.java	/^    private final Counter[] argC;$/;"	f	language:Java	class:GeneratedBuffer6	file:
+argList	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final List<Argument> argList;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+args	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private Object[] args;$/;"	f	language:Java	class:BufferGenerator	file:
+args	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private Object[] args;$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+args	deferredmethods/bytecodegeneration/Method.java	/^    private final Argument[] args;$/;"	f	language:Java	class:Method	file:
+args	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private Object[] args;$/;"	f	language:Java	class:ThreadLocalBufferGenerator	file:
+arraySize	newTest/RetTest2.java	/^	public static final int arraySize = 20;$/;"	f	language:Java	class:RetTest2
+awaitProcessed	deferredmethods/GeneralProcessingCheckPoint.java	/^	public synchronized void awaitProcessed() throws InterruptedException {$/;"	m	language:Java	class:GeneralProcessingCheckPoint	signature:()
+awaitProcessed	deferredmethods/ProcessingCheckPoint.java	/^	public void awaitProcessed() throws InterruptedException;$/;"	m	language:Java	interface:ProcessingCheckPoint	signature:()
+barrier	deferredmethods/proc/AdaptiveProc.java	/^        private final CyclicBarrier barrier;$/;"	f	language:Java	class:AdaptiveProc.SynchPill	file:
+barrier	deferredmethods/proc/AdaptiveProc.java	/^    private final CyclicBarrier barrier;$/;"	f	language:Java	class:AdaptiveProc	file:
+barrier	deferredmethods/proc/ShadowThreadProc.java	/^        private final CyclicBarrier barrier;$/;"	f	language:Java	class:ShadowThreadProc.SynchPill	file:
+barrier	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	 private final CyclicBarrier barrier;$/;"	f	language:Java	class:ShadowThreadProcWithHooks.SynchPill	file:
+barrier	deferredmethods/proc/ThreadPoolProc.java	/^        private final CyclicBarrier barrier;$/;"	f	language:Java	class:ThreadPoolProc.SynchPill	file:
+barrier	deferredmethods/proc/ThreadPoolProc.java	/^    private final CyclicBarrier barrier;$/;"	f	language:Java	class:ThreadPoolProc	file:
+barrier	newTest/RetTest2.java	/^	public static CyclicBarrier barrier = new CyclicBarrier(nThreads);$/;"	f	language:Java	class:RetTest2
+barrier	test/danilo/Harness.java	/^    private final CyclicBarrier barrier;$/;"	f	language:Java	class:Harness	file:
+barrier	test/danilo/workers/AbstractWorker.java	/^    protected final CyclicBarrier barrier;$/;"	f	language:Java	class:AbstractWorker
+barrierAwait	deferredmethods/proc/AdaptiveProc.java	/^    private static void barrierAwait(CyclicBarrier barrier) {$/;"	m	language:Java	class:AdaptiveProc	file:	signature:(CyclicBarrier barrier)
+barrierAwait	deferredmethods/proc/ShadowThreadProc.java	/^    private static void barrierAwait(CyclicBarrier barrier) {$/;"	m	language:Java	class:ShadowThreadProc	file:	signature:(CyclicBarrier barrier)
+barrierAwait	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static void barrierAwait(CyclicBarrier barrier) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	file:	signature:(CyclicBarrier barrier)
+barrierAwait	deferredmethods/proc/ThreadPoolProc.java	/^    private static void barrierAwait(CyclicBarrier barrier) {$/;"	m	language:Java	class:ThreadPoolProc	file:	signature:(CyclicBarrier barrier)
+beforeProcessing	deferredmethods/ProcessingHooks.java	/^    public void beforeProcessing();$/;"	m	language:Java	interface:ProcessingHooks	signature:()
+beforeProcessing	playground/fromthepaper/DefMethods.java	/^    public void beforeProcessing() {$/;"	m	language:Java	class:DefMethodsImpl	signature:()
+beforeProcessing	test/TaskWithCoalescingImpl.java	/^    public void beforeProcessing() {$/;"	m	language:Java	class:TaskWithCoalescingImpl	signature:()
+beforeProcessing	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    public void beforeProcessing() {$/;"	m	language:Java	class:CoalescedFibonacciCalc	signature:()
+bufferAppendMethods	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void bufferAppendMethods(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+bufferCapacity	deferredmethods/GeneralDeferredEnv.java	/^	private volatile int bufferCapacity;$/;"	f	language:Java	class:GeneralDeferredEnv	file:
+bufferConstructor	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void bufferConstructor(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+bufferFields	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void bufferFields(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+bufferGenerator	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private BufferGenerator bufferGenerator;$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+bufferGenerator	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private BufferGenerator bufferGenerator;$/;"	f	language:Java	class:ThreadLocalBufferGenerator	file:
+bufferHeap	deferredmethods/ThreadCheckPointItems.java	/^	private final PriorityQueue<Integer> bufferHeap;$/;"	f	language:Java	class:ThreadCheckPointItems	file:
+bufferID	deferredmethods/GeneralProcessingCheckPoint.java	/^	private final int bufferID;$/;"	f	language:Java	class:GeneralProcessingCheckPoint	file:
+bufferIDAlloc	deferredmethods/ThreadLocalBuffer.java	/^    private final HashMap<Long, AtomicInteger> bufferIDAlloc;$/;"	f	language:Java	class:ThreadLocalBuffer	file:
+bufferRunMethod	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void bufferRunMethod(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+bufferSize	newTest/RetTest2.java	/^	public static final int bufferSize = 15;$/;"	f	language:Java	class:RetTest2
+bufferTL	playground/tobegenerated/GeneratedDeferredEnv6.java	/^    private final GeneratedThreadLocalBuffer6 bufferTL;$/;"	f	language:Java	class:GeneratedDeferredEnv6	file:
+buildArgFromType	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private static Argument buildArgFromType(Type t, int numOcurrences) {$/;"	m	language:Java	class:DeferredMethodsReader	file:	signature:(Type t, int numOcurrences)
+buildTryMonitorEnter	deferredmethods/syncInstrument/agent/InjectHelper.java	/^	private static InsnList buildTryMonitorEnter(ClassNode classNode) {$/;"	m	language:Java	class:InjectHelper	file:	signature:(ClassNode classNode)
+buildTryMonitorExit	deferredmethods/syncInstrument/agent/InjectHelper.java	/^	private static InsnList buildTryMonitorExit(ClassNode classNode) {$/;"	m	language:Java	class:InjectHelper	file:	signature:(ClassNode classNode)
+bypass	deferredmethods/proc/AdaptiveProc.java	/^        private static final Method bypass; $/;"	f	language:Java	class:AdaptiveProc.WorkerThread	file:
+bypass	deferredmethods/proc/ShadowThreadProc.java	/^        private static final Method bypass; $/;"	f	language:Java	class:ShadowThreadProc.WorkerThread	file:
+bypass	deferredmethods/proc/ThreadPoolProc.java	/^        private static final Method bypass; $/;"	f	language:Java	class:ThreadPoolProc.WorkerThread	file:
+c	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^    private final Counter c;$/;"	f	language:Java	class:GeneratedThreadLocalBuffer6	file:
+calc	newTest/RetTestImpl.java	/^	public Ret<Long> calc(long sum, long adder) {$/;"	m	language:Java	class:RetTestImpl	signature:(long sum, long adder)
+calc	newTest/RetTestIntf.java	/^	Ret<Long> calc(long sum, long adder);$/;"	m	language:Java	interface:RetTestIntf	signature:(long sum, long adder)
+calc	test/danilo/workers/test1/Fibonacci.java	/^    public static int calc(int val) {$/;"	m	language:Java	class:Fibonacci	signature:(int val)
+calcAndSum	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    public void calcAndSum(int value) {$/;"	m	language:Java	class:CoalescedFibonacciCalc	signature:(int value)
+calcAndSum	test/danilo/workers/test1/FibonacciCalcIntf.java	/^    public void calcAndSum(int value);$/;"	m	language:Java	interface:FibonacciCalcIntf	signature:(int value)
+calcAndSum	test/danilo/workers/test1/NormalFibonacciCalc.java	/^    public void calcAndSum(int value) {$/;"	m	language:Java	class:NormalFibonacciCalc	signature:(int value)
+callProcess	deferredmethods/CallProcess.java	/^	public static void callProcess() {$/;"	m	language:Java	class:CallProcess	signature:()
+callProcess	deferredmethods/syncInstrument/agent/CallProcess.java	/^	public static void callProcess() {$/;"	m	language:Java	class:CallProcess	signature:()
+callsync	newTest/SyncTest2.java	/^	static private void callsync(SyncInter test, int num, int call) {$/;"	m	language:Java	class:SyncTest2	file:	signature:(SyncInter test, int num, int call)
+canBeRemoved	deferredmethods/ThreadCheckPointItems.java	/^	public boolean canBeRemoved(){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:()
+checkMapItems	deferredmethods/GeneralDeferredEnv.java	/^	public void checkMapItems(final Thread thread) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(final Thread thread)
+classDescriptor	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    private final String classDescriptor;$/;"	f	language:Java	class:ClassGenerator	file:
+className	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    private final String className;$/;"	f	language:Java	class:ClassGenerator	file:
+classNameWithDots	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    private final String classNameWithDots;$/;"	f	language:Java	class:ClassGenerator	file:
+cnt	newTest/RetTestImpl.java	/^	public static int cnt=0;$/;"	f	language:Java	class:RetTestImpl
+comfirmBuffer	deferredmethods/DeferredEnv.java	/^	public void comfirmBuffer(int bufferID, Thread threadID);$/;"	m	language:Java	interface:DeferredEnv	signature:(int bufferID, Thread threadID)
+comfirmBuffer	deferredmethods/GeneralDeferredEnv.java	/^	public void comfirmBuffer(final int bufferID, final Thread thread) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(final int bufferID, final Thread thread)
+comfirmBuffer	deferredmethods/ThreadCheckPointItems.java	/^	public void comfirmBuffer(int bufferId){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:(int bufferId)
+counter	deferredmethods/proc/AdaptiveProc.java	/^        private static final AtomicInteger counter = new AtomicInteger();$/;"	f	language:Java	class:AdaptiveProc.WorkerThread	file:
+counter	deferredmethods/proc/ShadowThreadProc.java	/^        private static final AtomicInteger counter = new AtomicInteger();$/;"	f	language:Java	class:ShadowThreadProc.WorkerThread	file:
+counter	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		private static final AtomicInteger counter = new AtomicInteger();$/;"	f	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	file:
+counter	deferredmethods/proc/ThreadPoolProc.java	/^        private static final AtomicInteger counter = new AtomicInteger();$/;"	f	language:Java	class:ThreadPoolProc.WorkerThread	file:
+counter	newTest/Example.java	/^	public static final AtomicInteger counter = new AtomicInteger();$/;"	f	language:Java	class:Example
+counter	newTest/FooImpl.java	/^	private final AtomicInteger counter;$/;"	f	language:Java	class:FooImpl	file:
+counter	playground/CounterFactory.java	/^    private final Counter counter;$/;"	f	language:Java	class:AnalysisImpl	file:
+counter	playground/CounterFactory.java	/^    private static final Counter counter = Wrapper.getNextCounter();$/;"	f	language:Java	class:AnalysisImpl	file:
+counter	test/Counter.java	/^    private int counter = 0;$/;"	f	language:Java	class:Counter	file:
+counter	test/TaskImpl.java	/^    private Counter counter;$/;"	f	language:Java	class:TaskImpl	file:
+counter	test/TaskImplWithMultipleConstructors.java	/^    private Counter counter;$/;"	f	language:Java	class:TaskImplWithMultipleConstructors	file:
+counter	test/TaskImplWithSingleton.java	/^    private static Counter counter = CounterSingletonWrapper.getCounter();$/;"	f	language:Java	class:TaskImplWithSingleton	file:
+counter	test/TaskWithArrayTypesImpl.java	/^    private static Counter counter;$/;"	f	language:Java	class:TaskWithArrayTypesImpl	file:
+counter	test/TaskWithInstanceVar.java	/^    private Counter counter;$/;"	f	language:Java	class:TaskWithInstanceVar	file:
+counter	test/TaskWithMultipleParamsImpl.java	/^    private static Counter counter;$/;"	f	language:Java	class:TaskWithMultipleParamsImpl	file:
+counter	test/TaskWithPrimitiveTypesImpl.java	/^    private static MultipleCounter counter;$/;"	f	language:Java	class:TaskWithPrimitiveTypesImpl	file:
+counter	test/danilo/MyCounter.java	/^    private long counter;$/;"	f	language:Java	class:MyCounter	file:
+counterTL	test/CounterTL.java	/^    private final ThreadLocal<Integer> counterTL = $/;"	f	language:Java	class:CounterTL	file:
+counterTL	test/TaskWithCoalescingImpl.java	/^    private CounterTL counterTL;$/;"	f	language:Java	class:TaskWithCoalescingImpl	file:
+counterTS	test/DefMethodsImpl.java	/^    private static final Counter counterTS = CounterSingletonWrapper.getCounter();$/;"	f	language:Java	class:DefMethodsImpl	file:
+counterTS	test/TaskWithCoalescingImpl.java	/^    private Counter counterTS;$/;"	f	language:Java	class:TaskWithCoalescingImpl	file:
+counters	playground/CounterFactory.java	/^    private static LinkedList<Counter> counters;$/;"	f	language:Java	class:Wrapper	file:
+cpList	deferredmethods/ThreadCheckPointItems.java	/^	private final LinkedList<GeneralProcessingCheckPoint> cpList;$/;"	f	language:Java	class:ThreadCheckPointItems	file:
+createCheckPoint	deferredmethods/DeferredEnv.java	/^    public ProcessingCheckPoint createCheckPoint();$/;"	m	language:Java	interface:DeferredEnv	signature:()
+createDeferredEnv	deferredmethods/DeferredExecution.java	/^    private static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,$/;"	m	language:Java	class:DeferredExecution	file:	signature:(Class<T> userDefIntf, Class<? extends T> userDefImpl, Processor proc, int bufferSize, ClassLoader classLoader, Object... args)
+createDeferredEnv	deferredmethods/DeferredExecution.java	/^    public static <T extends Deferred> DeferredEnv<T> createDeferredEnv(Class<T> userDefIntf,$/;"	m	language:Java	class:DeferredExecution	signature:(Class<T> userDefIntf, Class<? extends T> userDefImpl, Processor proc, int bufferSize, Object... args)
+currentPos	playground/tobegenerated/GeneratedBuffer6.java	/^    private int currentPos;$/;"	f	language:Java	class:GeneratedBuffer6	file:
+currentPos	playground/tobegenerated/GeneratedBuffer6.java	/^    public int currentPos() {$/;"	m	language:Java	class:GeneratedBuffer6	signature:()
+deactivateBypass	deferredmethods/Agent.java	/^    private static final Method deactivateBypass;$/;"	f	language:Java	class:Agent	file:
+deactivateBypass	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		private static final Method deactivateBypass;$/;"	f	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	file:
+decrease	newTest/LockTestImpl.java	/^	public void decrease(SharedObj obj) {$/;"	m	language:Java	class:LockTestImpl	signature:(SharedObj obj)
+decrease	newTest/LockTestInter.java	/^	void decrease(SharedObj obj);$/;"	m	language:Java	interface:LockTestInter	signature:(SharedObj obj)
+decreaseVal	newTest/SharedObj.java	/^	public synchronized void decreaseVal(){$/;"	m	language:Java	class:SharedObj	signature:()
+def	playground/fromthepaper/DefMethods.java	/^    private static DefMethods def;$/;"	f	language:Java	class:Analysis	file:
+deferredEnvConstructor	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private void deferredEnvConstructor(final ClassWriter cw) {$/;"	m	language:Java	class:DeferredEnvGenerator	file:	signature:(final ClassWriter cw)
+deferredEnvCreateCheckPoint	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private void deferredEnvCreateCheckPoint(final ClassWriter cw) {$/;"	m	language:Java	class:DeferredEnvGenerator	file:	signature:(final ClassWriter cw)
+deferredEnvDeferredMethods	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private void deferredEnvDeferredMethods(final ClassWriter cw) {$/;"	m	language:Java	class:DeferredEnvGenerator	file:	signature:(final ClassWriter cw)
+deferredEnvGenerator	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private DeferredEnvGenerator deferredEnvGenerator;$/;"	f	language:Java	class:BufferGenerator	file:
+deferredEnvGenerator	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private DeferredEnvGenerator deferredEnvGenerator;$/;"	f	language:Java	class:ThreadLocalBufferGenerator	file:
+deferredEnvGetProxy	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private void deferredEnvGetProxy(final ClassWriter cw) {$/;"	m	language:Java	class:DeferredEnvGenerator	file:	signature:(final ClassWriter cw)
+deferredEnvId	deferredmethods/ThreadLocalBuffer.java	/^    private final int deferredEnvId;$/;"	f	language:Java	class:ThreadLocalBuffer	file:
+deferredEnvProcessCurrentBuffer	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private void deferredEnvProcessCurrentBuffer(final ClassWriter cw) {$/;"	m	language:Java	class:DeferredEnvGenerator	file:	signature:(final ClassWriter cw)
+deferredMethodID	playground/tobegenerated/GeneratedBuffer6.java	/^    private final int[] deferredMethodID;$/;"	f	language:Java	class:GeneratedBuffer6	file:
+deferredMethodsReader	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private DeferredMethodsReader deferredMethodsReader;$/;"	f	language:Java	class:BufferGenerator	file:
+deferredMethodsReader	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private DeferredMethodsReader deferredMethodsReader;$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+deferredmethods	deferredmethods/Agent.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/Buffer.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/CallProcess.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/Constants.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/Deferred.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/DeferredEnv.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/DeferredEnvClassLoader.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/DeferredExecution.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/GeneralDeferredEnv.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/GeneralProcessingCheckPoint.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/ProcessingCheckPoint.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/ProcessingHooks.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/Ret.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/ThreadCheckPointItems.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods	deferredmethods/ThreadLocalBuffer.java	/^package deferredmethods;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/Argument.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/BufferGenerator.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/BytecodeHelper.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/ClassGenerator.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/Method.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^package deferredmethods.bytecodegeneration;$/;"	p	language:Java
+deferredmethods.bytecodegeneration.extendlock	deferredmethods/bytecodegeneration/extendlock/ExtendReentrantLock.java	/^package deferredmethods.bytecodegeneration.extendlock;$/;"	p	language:Java
+deferredmethods.bytecodegeneration.extendthread	deferredmethods/bytecodegeneration/extendthread/ExtendThread.java	/^package deferredmethods.bytecodegeneration.extendthread;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/AdaptiveProc.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/Processor.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/ShadowThreadProc.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/SynchronousProc.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.proc	deferredmethods/proc/ThreadPoolProc.java	/^package deferredmethods.proc;$/;"	p	language:Java
+deferredmethods.syncInstrument.agent	deferredmethods/syncInstrument/agent/Agent.java	/^package deferredmethods.syncInstrument.agent;$/;"	p	language:Java
+deferredmethods.syncInstrument.agent	deferredmethods/syncInstrument/agent/CallProcess.java	/^package deferredmethods.syncInstrument.agent;$/;"	p	language:Java
+deferredmethods.syncInstrument.agent	deferredmethods/syncInstrument/agent/InjectHelper.java	/^package deferredmethods.syncInstrument.agent;$/;"	p	language:Java
+deferredmethods.syncInstrument.agent	deferredmethods/syncInstrument/agent/SyncTransformer.java	/^package deferredmethods.syncInstrument.agent;$/;"	p	language:Java
+deferredmethods.syncInstrument.agent	deferredmethods/syncInstrument/agent/UnsafeObject.java	/^package deferredmethods.syncInstrument.agent;$/;"	p	language:Java
+desc	deferredmethods/bytecodegeneration/Method.java	/^    private final String desc;$/;"	f	language:Java	class:Method	file:
+doSomething	playground/tobegenerated/GeneratedDeferredEnv6.java	/^    public void doSomething() {$/;"	m	language:Java	class:GeneratedDeferredEnv6	signature:()
+doSomething	test/Task.java	/^    public void doSomething();$/;"	m	language:Java	interface:Task	signature:()
+doSomething	test/TaskImpl.java	/^    public void doSomething() {$/;"	m	language:Java	class:TaskImpl	signature:()
+doSomething	test/TaskImplWithMultipleConstructors.java	/^    public void doSomething() {$/;"	m	language:Java	class:TaskImplWithMultipleConstructors	signature:()
+doSomething	test/TaskImplWithSingleton.java	/^    public void doSomething() {$/;"	m	language:Java	class:TaskImplWithSingleton	signature:()
+doSomething	test/TaskWithArrayTypes.java	/^    public void doSomething(int[] i, int[][] j, Integer[] k, Integer[][] l);$/;"	m	language:Java	interface:TaskWithArrayTypes	signature:(int[] i, int[][] j, Integer[] k, Integer[][] l)
+doSomething	test/TaskWithArrayTypesImpl.java	/^    public void doSomething(int[] i, int[][] j, Integer[] k, Integer[][] l) {$/;"	m	language:Java	class:TaskWithArrayTypesImpl	signature:(int[] i, int[][] j, Integer[] k, Integer[][] l)
+doSomething	test/TaskWithCoalescingImpl.java	/^    public void doSomething() {$/;"	m	language:Java	class:TaskWithCoalescingImpl	signature:()
+doSomething	test/TaskWithInstanceVar.java	/^    public void doSomething() {$/;"	m	language:Java	class:TaskWithInstanceVar	signature:()
+doSomething	test/TaskWithMultipleParams.java	/^    public void doSomething(Integer i, Integer j);$/;"	m	language:Java	interface:TaskWithMultipleParams	signature:(Integer i, Integer j)
+doSomething	test/TaskWithMultipleParamsImpl.java	/^    public void doSomething(Integer i, Integer j) {$/;"	m	language:Java	class:TaskWithMultipleParamsImpl	signature:(Integer i, Integer j)
+doSomething	test/TaskWithPrimitiveTypes.java	/^    public void doSomething(int i, byte b, long l, float f, double d, short s, char c, boolean bool);$/;"	m	language:Java	interface:TaskWithPrimitiveTypes	signature:(int i, byte b, long l, float f, double d, short s, char c, boolean bool)
+doSomething	test/TaskWithPrimitiveTypesImpl.java	/^    public void doSomething(int i, byte b, long l, float f, double d, short s, char c, boolean bool) {$/;"	m	language:Java	class:TaskWithPrimitiveTypesImpl	signature:(int i, byte b, long l, float f, double d, short s, char c, boolean bool)
+ensureCapacity	deferredmethods/ThreadLocalBuffer.java	/^    private Object[] ensureCapacity(Object[] array, int minCapacity) {$/;"	m	language:Java	class:ThreadLocalBuffer	file:	signature:(Object[] array, int minCapacity)
+env	newTest/RetTest.java	/^	public static DeferredEnv<RetTestIntf> env = DeferredExecution$/;"	f	language:Java	class:RetTest
+env	newTest/RetTest2.java	/^		private DeferredEnv<?> env;$/;"	f	language:Java	class:RetTest2.InnerThread	file:
+env	newTest/RetTest2.java	/^	public static DeferredEnv<RetTestIntf> env = DeferredExecution$/;"	f	language:Java	class:RetTest2
+env	newTest/SimpleTest.java	/^	public static DeferredEnv<SimpleTestInter> env = DeferredExecution$/;"	f	language:Java	class:SimpleTest
+envCouter	deferredmethods/ThreadCheckPointItems.java	/^	private int envCouter; $/;"	f	language:Java	class:ThreadCheckPointItems	file:
+exceptions	deferredmethods/bytecodegeneration/Method.java	/^    private final String[] exceptions;$/;"	f	language:Java	class:Method	file:
+findClass	deferredmethods/DeferredEnvClassLoader.java	/^    protected Class<?> findClass(String className) throws ClassNotFoundException {$/;"	m	language:Java	class:DeferredEnvClassLoader	signature:(String className)
+foo	newTest/WaitTest.java	/^	public void foo(){$/;"	m	language:Java	class:WaitTest	signature:()
+foo1	newTest/CPTestImpl.java	/^	public void foo1() {$/;"	m	language:Java	class:CPTestImpl	signature:()
+foo1	newTest/CPTestInterfce.java	/^	void foo1();$/;"	m	language:Java	interface:CPTestInterfce	signature:()
+foo1	newTest/FooImpl.java	/^	public void foo1() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo1	newTest/FooInterface.java	/^	void foo1();$/;"	m	language:Java	interface:FooInterface	signature:()
+foo1printend	newTest/FooImpl.java	/^	public void foo1printend() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo1printend	newTest/FooInterface.java	/^	void foo1printend();$/;"	m	language:Java	interface:FooInterface	signature:()
+foo2	newTest/CPTestImpl.java	/^	public void foo2() {$/;"	m	language:Java	class:CPTestImpl	signature:()
+foo2	newTest/CPTestInterfce.java	/^	void foo2();$/;"	m	language:Java	interface:CPTestInterfce	signature:()
+foo2	newTest/FooImpl.java	/^	public void foo2() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo2	newTest/FooInterface.java	/^	void foo2();$/;"	m	language:Java	interface:FooInterface	signature:()
+foo2end	newTest/CPTestImpl.java	/^	public void foo2end() {$/;"	m	language:Java	class:CPTestImpl	signature:()
+foo2end	newTest/CPTestInterfce.java	/^	void foo2end();$/;"	m	language:Java	interface:CPTestInterfce	signature:()
+foo2printend	newTest/FooImpl.java	/^	public void foo2printend() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo2printend	newTest/FooInterface.java	/^	void foo2printend();$/;"	m	language:Java	interface:FooInterface	signature:()
+foo3	newTest/CPTestImpl.java	/^	public void foo3(long threadID,ProcessingCheckPoint pcp) {$/;"	m	language:Java	class:CPTestImpl	signature:(long threadID,ProcessingCheckPoint pcp)
+foo3	newTest/CPTestInterfce.java	/^	void foo3(long threadID,ProcessingCheckPoint pcp2);$/;"	m	language:Java	interface:CPTestInterfce	signature:(long threadID,ProcessingCheckPoint pcp2)
+foo3	newTest/FooImpl.java	/^	public void foo3() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo3	newTest/FooInterface.java	/^	void foo3();$/;"	m	language:Java	interface:FooInterface	signature:()
+foo3printend	newTest/FooImpl.java	/^	public void foo3printend() {$/;"	m	language:Java	class:FooImpl	signature:()
+foo3printend	newTest/FooInterface.java	/^	void foo3printend();$/;"	m	language:Java	interface:FooInterface	signature:()
+fooBuffParaTest	newTest/CPTestImpl.java	/^	public void fooBuffParaTest(ProcessingCheckPoint pcp, int i) {$/;"	m	language:Java	class:CPTestImpl	signature:(ProcessingCheckPoint pcp, int i)
+fooBuffParaTest	newTest/CPTestInterfce.java	/^	void fooBuffParaTest(ProcessingCheckPoint pcp,int i);$/;"	m	language:Java	interface:CPTestInterfce	signature:(ProcessingCheckPoint pcp,int i)
+fooBuffParaTest2	newTest/CPTestImpl.java	/^	public void fooBuffParaTest2(int i, int i2) {$/;"	m	language:Java	class:CPTestImpl	signature:(int i, int i2)
+fooBuffParaTest2	newTest/CPTestInterfce.java	/^	void fooBuffParaTest2(int i, int i2);$/;"	m	language:Java	interface:CPTestInterfce	signature:(int i, int i2)
+forceSubmission	deferredmethods/proc/AdaptiveProc.java	/^    private static void forceSubmission(BlockingQueue<Runnable> queue, Runnable task) {$/;"	m	language:Java	class:AdaptiveProc	file:	signature:(BlockingQueue<Runnable> queue, Runnable task)
+forceSubmission	deferredmethods/proc/ShadowThreadProc.java	/^    private static void forceSubmission(BlockingQueue<Runnable> queue, Runnable task) {$/;"	m	language:Java	class:ShadowThreadProc	file:	signature:(BlockingQueue<Runnable> queue, Runnable task)
+forceSubmission	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private static void forceSubmission(BlockingQueue<Runnable> queue,$/;"	m	language:Java	class:ShadowThreadProcWithHooks	file:	signature:(BlockingQueue<Runnable> queue, Runnable task)
+forceSubmission	deferredmethods/proc/ThreadPoolProc.java	/^    private static void forceSubmission(BlockingQueue<Runnable> queue, Runnable task) {$/;"	m	language:Java	class:ThreadPoolProc	file:	signature:(BlockingQueue<Runnable> queue, Runnable task)
+futureResult	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    private Result futureResult;$/;"	f	language:Java	class:CoalescedFibonacciCalc	file:
+futureResult	test/danilo/workers/test1/NormalFibonacciCalc.java	/^    private Result futureResult;$/;"	f	language:Java	class:NormalFibonacciCalc	file:
+generateBytecode	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	public byte[] generateBytecode(DeferredMethodsReader interfaceReader,$/;"	m	language:Java	class:BufferGenerator	signature:(DeferredMethodsReader interfaceReader, DeferredEnvGenerator deferredEnvGenerator, Object... args)
+generateBytecode	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	public byte[] generateBytecode(BufferGenerator bufferGenerator,$/;"	m	language:Java	class:DeferredEnvGenerator	signature:(BufferGenerator bufferGenerator, ThreadLocalBufferGenerator threadLocalBufferGenerator, DeferredMethodsReader interfaceReader, Object... args)
+generateBytecode	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    public byte[] generateBytecode(BufferGenerator bufferGenerator, DeferredEnvGenerator deferredEnvGenerator,$/;"	m	language:Java	class:ThreadLocalBufferGenerator	signature:(BufferGenerator bufferGenerator, DeferredEnvGenerator deferredEnvGenerator, Object... args)
+generatedDeferredEnv2	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^    private final GeneratedDeferredEnv6 generatedDeferredEnv2;$/;"	f	language:Java	class:GeneratedThreadLocalBuffer6	file:
+get	deferredmethods/Ret.java	/^	public T get(DeferredEnv<?> env) throws InterruptedException {$/;"	m	language:Java	class:Ret	signature:(DeferredEnv<?> env)
+get	deferredmethods/ThreadLocalBuffer.java	/^    public T get() {$/;"	m	language:Java	class:ThreadLocalBuffer	signature:()
+get	test/danilo/MyCounter.java	/^    public long get() {$/;"	m	language:Java	class:MyCounter	signature:()
+get	test/danilo/workers/test1/Result.java	/^    public int get() {$/;"	m	language:Java	class:Result	signature:()
+getAppendDesc	deferredmethods/bytecodegeneration/Method.java	/^    public String getAppendDesc() {$/;"	m	language:Java	class:Method	signature:()
+getAppendName	deferredmethods/bytecodegeneration/Method.java	/^    public String getAppendName() {$/;"	m	language:Java	class:Method	signature:()
+getArgList	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public List<Argument> getArgList() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+getArgs	deferredmethods/bytecodegeneration/Method.java	/^    public Argument[] getArgs() {$/;"	m	language:Java	class:Method	signature:()
+getBufferCapacity	deferredmethods/DeferredEnv.java	/^    public int getBufferCapacity();$/;"	m	language:Java	interface:DeferredEnv	signature:()
+getBufferCapacity	deferredmethods/GeneralDeferredEnv.java	/^	public int getBufferCapacity() {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:()
+getBufferHeap	deferredmethods/ThreadCheckPointItems.java	/^	public PriorityQueue<Integer> getBufferHeap(){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:()
+getBufferID	deferredmethods/GeneralProcessingCheckPoint.java	/^	public int getBufferID(){$/;"	m	language:Java	class:GeneralProcessingCheckPoint	signature:()
+getBufferID	deferredmethods/ThreadLocalBuffer.java	/^    protected synchronized int getBufferID(long threadID){$/;"	m	language:Java	class:ThreadLocalBuffer	signature:(long threadID)
+getBufferId	deferredmethods/Buffer.java	/^	public int getBufferId();$/;"	m	language:Java	interface:Buffer	signature:()
+getBufferIdMethod	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void getBufferIdMethod(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+getCPList	deferredmethods/ThreadCheckPointItems.java	/^	public LinkedList<GeneralProcessingCheckPoint> getCPList(){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:()
+getClassDescriptor	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    public String getClassDescriptor() {$/;"	m	language:Java	class:ClassGenerator	signature:()
+getClassName	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    public String getClassName() {$/;"	m	language:Java	class:ClassGenerator	signature:()
+getClassNameWithDots	deferredmethods/bytecodegeneration/ClassGenerator.java	/^    public String getClassNameWithDots() {$/;"	m	language:Java	class:ClassGenerator	signature:()
+getCounter	test/CounterSingletonWrapper.java	/^    public static Counter getCounter() {$/;"	m	language:Java	class:CounterSingletonWrapper	signature:()
+getCounters	playground/CounterFactory.java	/^    public static LinkedList<Counter> getCounters() {$/;"	m	language:Java	class:Wrapper	signature:()
+getDesc	deferredmethods/bytecodegeneration/Method.java	/^    public String getDesc() {$/;"	m	language:Java	class:Method	signature:()
+getDescriptor	deferredmethods/bytecodegeneration/BytecodeHelper.java	/^    public static String getDescriptor(Object[] objs) {$/;"	m	language:Java	class:BytecodeHelper	signature:(Object[] objs)
+getEnv	deferredmethods/Buffer.java	/^	public DeferredEnv getEnv();$/;"	m	language:Java	interface:Buffer	signature:()
+getEnvMethod	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void getEnvMethod(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+getExceptions	deferredmethods/bytecodegeneration/Method.java	/^    public String[] getExceptions() {$/;"	m	language:Java	class:Method	signature:()
+getId	deferredmethods/DeferredExecution.java	/^    private static int getId() {$/;"	m	language:Java	class:DeferredExecution	file:	signature:()
+getId	deferredmethods/GeneralDeferredEnv.java	/^	public int getId() {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:()
+getImplInternalName	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public String getImplInternalName() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+getIntfDescriptor	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public String getIntfDescriptor() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+getIntfInternalName	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public String getIntfInternalName() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+getMethodList	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public List<Method> getMethodList() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+getMyCounter	test/danilo/ArrayAccessor.java	/^    public MyCounter getMyCounter(int idx) {$/;"	m	language:Java	class:ArrayAccessor	signature:(int idx)
+getName	deferredmethods/bytecodegeneration/Argument.java	/^    public String getName() {$/;"	m	language:Java	class:Argument	signature:()
+getName	deferredmethods/bytecodegeneration/Method.java	/^    public String getName() {$/;"	m	language:Java	class:Method	signature:()
+getNextCounter	playground/CounterFactory.java	/^    public static Counter getNextCounter() {$/;"	m	language:Java	class:Wrapper	signature:()
+getNumboolean	test/MultipleCounter.java	/^    public int getNumboolean() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumbyte	test/MultipleCounter.java	/^    public int getNumbyte() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumchar	test/MultipleCounter.java	/^    public int getNumchar() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumdouble	test/MultipleCounter.java	/^    public int getNumdouble() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumfloat	test/MultipleCounter.java	/^    public int getNumfloat() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumint	test/MultipleCounter.java	/^    public int getNumint() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumlong	test/MultipleCounter.java	/^    public int getNumlong() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getNumshort	test/MultipleCounter.java	/^    public int getNumshort() {$/;"	m	language:Java	class:MultipleCounter	signature:()
+getPlusOne	newTest/RetTestImpl.java	/^	public Ret<Integer> getPlusOne(int i) {$/;"	m	language:Java	class:RetTestImpl	signature:(int i)
+getPlusOne	newTest/RetTestIntf.java	/^	Ret<Integer> getPlusOne(int i);$/;"	m	language:Java	interface:RetTestIntf	signature:(int i)
+getProxy	deferredmethods/DeferredEnv.java	/^    public T getProxy();$/;"	m	language:Java	interface:DeferredEnv	signature:()
+getProxy	playground/tobegenerated/GeneratedDeferredEnv6.java	/^    public Task getProxy() {$/;"	m	language:Java	class:GeneratedDeferredEnv6	signature:()
+getQueue	deferredmethods/proc/ShadowThreadProc.java	/^    private BlockingQueue<Runnable> getQueue(Thread thread) {$/;"	m	language:Java	class:ShadowThreadProc	file:	signature:(Thread thread)
+getQueue	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		public BlockingQueue<Runnable> getQueue() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	signature:()
+getQueue	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private BlockingQueue<Runnable> getQueue(Thread thread) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	file:	signature:(Thread thread)
+getSignature	deferredmethods/bytecodegeneration/Method.java	/^    public String getSignature() {$/;"	m	language:Java	class:Method	signature:()
+getThreadItems	deferredmethods/GeneralDeferredEnv.java	/^	private ThreadCheckPointItems getThreadItems(Thread thread) {$/;"	m	language:Java	class:GeneralDeferredEnv	file:	signature:(Thread thread)
+getType	deferredmethods/bytecodegeneration/Argument.java	/^    public Type getType() {$/;"	m	language:Java	class:Argument	signature:()
+getTypeOpcode	deferredmethods/bytecodegeneration/BytecodeHelper.java	/^    public static int getTypeOpcode(Type type) {$/;"	m	language:Java	class:BytecodeHelper	signature:(Type type)
+getTypes	deferredmethods/bytecodegeneration/Method.java	/^    public Type[] getTypes() {$/;"	m	language:Java	class:Method	signature:()
+getValue	test/Counter.java	/^    public synchronized int getValue() {$/;"	m	language:Java	class:Counter	signature:()
+getValue	test/CounterTL.java	/^    public int getValue() {$/;"	m	language:Java	class:CounterTL	signature:()
+go	newTest/Example.java	/^	void go() {$/;"	m	language:Java	class:Example	signature:()
+handInBuffer	deferredmethods/GeneralDeferredEnv.java	/^	protected void handInBuffer(Buffer buffer){$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(Buffer buffer)
+handInBuffer	deferredmethods/ThreadCheckPointItems.java	/^	public void handInBuffer(int bufferId){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:(int bufferId)
+handInThread	deferredmethods/Buffer.java	/^	public Thread handInThread(); \/\/getProducerThread$/;"	m	language:Java	interface:Buffer	signature:()
+handInThreadMethod	deferredmethods/bytecodegeneration/BufferGenerator.java	/^	private void handInThreadMethod(ClassWriter cw) {$/;"	m	language:Java	class:BufferGenerator	file:	signature:(ClassWriter cw)
+hasProcessingHooks	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private boolean hasProcessingHooks;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+hasProcessingHooks	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public boolean hasProcessingHooks() {$/;"	m	language:Java	class:DeferredMethodsReader	signature:()
+hasRet	deferredmethods/bytecodegeneration/Method.java	/^    private final boolean hasRet;$/;"	f	language:Java	class:Method	file:
+hasRet	deferredmethods/bytecodegeneration/Method.java	/^    public boolean hasRet(){$/;"	m	language:Java	class:Method	signature:()
+id	deferredmethods/DeferredExecution.java	/^    private static final AtomicInteger id = new AtomicInteger(0);$/;"	f	language:Java	class:DeferredExecution	file:
+id	deferredmethods/GeneralDeferredEnv.java	/^	private final int id;$/;"	f	language:Java	class:GeneralDeferredEnv	file:
+id	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private int id;$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+id	newTest/RetTest2.java	/^		private static AtomicInteger id = new AtomicInteger(0);$/;"	f	language:Java	class:RetTest2.InnerThread	file:
+implConstructorDescs	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final List<String> implConstructorDescs;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+implInternalName	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final String implInternalName;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+increase	newTest/LockTestImpl.java	/^	public void increase(SharedObj obj) {$/;"	m	language:Java	class:LockTestImpl	signature:(SharedObj obj)
+increase	newTest/LockTestInter.java	/^	void increase(SharedObj obj);$/;"	m	language:Java	interface:LockTestInter	signature:(SharedObj obj)
+increaseVal	newTest/SharedObj.java	/^	public synchronized void increaseVal(){$/;"	m	language:Java	class:SharedObj	signature:()
+increment	test/Counter.java	/^    public synchronized void increment() {$/;"	m	language:Java	class:Counter	signature:()
+increment	test/CounterTL.java	/^    public void increment() {$/;"	m	language:Java	class:CounterTL	signature:()
+incrementAndGet	test/danilo/MyCounter.java	/^    public long incrementAndGet() {$/;"	m	language:Java	class:MyCounter	signature:()
+initialValue	deferredmethods/ThreadLocalBuffer.java	/^    protected abstract T initialValue();$/;"	m	language:Java	class:ThreadLocalBuffer	signature:()
+initialValue	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^    protected GeneratedBuffer6 initialValue() {$/;"	m	language:Java	class:GeneratedThreadLocalBuffer6	signature:()
+integrate	playground/fromthepaper/DefMethods.java	/^    public void integrate(Profile prof) {$/;"	m	language:Java	class:ProfileTL	signature:(Profile prof)
+integrate	playground/fromthepaper/DefMethods.java	/^    public void integrate(Profile prof) {$/;"	m	language:Java	class:ProfileTS	signature:(Profile prof)
+integrate	playground/fromthepaper/DefMethods.java	/^    public void integrate(Profile prof);$/;"	m	language:Java	interface:Profile	signature:(Profile prof)
+integrate	test/Counter.java	/^    public synchronized void integrate(CounterTL counterTL) {$/;"	m	language:Java	class:Counter	signature:(CounterTL counterTL)
+intfDescriptor	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final String intfDescriptor;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+intfInternalName	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final String intfInternalName;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+isDone	deferredmethods/Ret.java	/^	private boolean isDone = false;$/;"	f	language:Java	class:Ret	file:
+isDone	deferredmethods/Ret.java	/^	public boolean isDone() {$/;"	m	language:Java	class:Ret	signature:()
+isEnd	deferredmethods/ThreadCheckPointItems.java	/^	private boolean isEnd;$/;"	f	language:Java	class:ThreadCheckPointItems	file:
+isProcessed	deferredmethods/GeneralProcessingCheckPoint.java	/^	public boolean isProcessed() {$/;"	m	language:Java	class:GeneralProcessingCheckPoint	signature:()
+isProcessed	deferredmethods/ProcessingCheckPoint.java	/^	public boolean isProcessed();$/;"	m	language:Java	interface:ProcessingCheckPoint	signature:()
+isRunning	deferredmethods/proc/AdaptiveProc.java	/^    private final AtomicBoolean isRunning;$/;"	f	language:Java	class:AdaptiveProc	file:
+isRunning	deferredmethods/proc/ShadowThreadProc.java	/^    private final AtomicBoolean isRunning;$/;"	f	language:Java	class:ShadowThreadProc	file:
+isRunning	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		private boolean isRunning = false;$/;"	f	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	file:
+isRunning	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private final AtomicBoolean isRunning;$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+isRunning	deferredmethods/proc/SynchronousProc.java	/^    private volatile boolean isRunning = false;$/;"	f	language:Java	class:SynchronousProc	file:
+isRunning	deferredmethods/proc/ThreadPoolProc.java	/^    private final AtomicBoolean isRunning;$/;"	f	language:Java	class:ThreadPoolProc	file:
+isprocessed	deferredmethods/GeneralProcessingCheckPoint.java	/^	private boolean isprocessed;$/;"	f	language:Java	class:GeneralProcessingCheckPoint	file:
+loadFromBytecode	deferredmethods/DeferredEnvClassLoader.java	/^    private Class<?> loadFromBytecode(String className, byte[] bytecode) {$/;"	m	language:Java	class:DeferredEnvClassLoader	file:	signature:(String className, byte[] bytecode)
+loadFromMap	deferredmethods/DeferredEnvClassLoader.java	/^    public Class<?> loadFromMap(String className) throws ClassNotFoundException {$/;"	m	language:Java	class:DeferredEnvClassLoader	signature:(String className)
+m1	test/CrazyInterface.java	/^    public void m1(String s1, String s2, String s3, Object[] o1);$/;"	m	language:Java	interface:CrazyInterface	signature:(String s1, String s2, String s3, Object[] o1)
+m2	test/CrazyInterface.java	/^    public String m2(String s1, String s2, Object[] o1, Object[] o2);$/;"	m	language:Java	interface:CrazyInterface	signature:(String s1, String s2, Object[] o1, Object[] o2)
+m3	test/CrazyInterface.java	/^    public void m3(int a, int[][] c);$/;"	m	language:Java	interface:CrazyInterface	signature:(int a, int[][] c)
+main	deferredmethods/bytecodegeneration/extendlock/ExtendReentrantLock.java	/^    public static void main(String[] args) throws Exception {$/;"	m	language:Java	class:ExtendReentrantLock	signature:(String[] args)
+main	deferredmethods/bytecodegeneration/extendthread/ExtendThread.java	/^    public static void main(String[] args) throws Exception {$/;"	m	language:Java	class:ExtendThread	signature:(String[] args)
+main	newTest/CheckPointTest.java	/^	public static void main(String[] args) {$/;"	m	language:Java	class:CheckPointTest	signature:(String[] args)
+main	newTest/Example.java	/^	public static void main(String[] args) {$/;"	m	language:Java	class:Example	signature:(String[] args)
+main	newTest/LockTest.java	/^	public static void main(String[] args) {$/;"	m	language:Java	class:LockTest	signature:(String[] args)
+main	newTest/RetTest.java	/^	public static void main(String[] args) {$/;"	m	language:Java	class:RetTest	signature:(String[] args)
+main	newTest/RetTest2.java	/^	public static void main(String[] args) {$/;"	m	language:Java	class:RetTest2	signature:(String[] args)
+main	newTest/SimpleTest.java	/^	public static void main(String[] args){$/;"	m	language:Java	class:SimpleTest	signature:(String[] args)
+main	newTest/SyncTest.java	/^	public static void main(String[] argsd) {$/;"	m	language:Java	class:SyncTest	signature:(String[] argsd)
+main	newTest/SyncTest2.java	/^	public static void main(String[] argsd) {$/;"	m	language:Java	class:SyncTest2	signature:(String[] argsd)
+main	newTest/WaitTest.java	/^	public static void main(String[] args){$/;"	m	language:Java	class:WaitTest	signature:(String[] args)
+main	playground/Main.java	/^    public static void main(String[] args) throws IOException {$/;"	m	language:Java	class:Main	signature:(String[] args)
+main	playground/Test.java	/^    public static void main(String[] args) {$/;"	m	language:Java	class:Test	signature:(String[] args)
+main	playground/TestAgent.java	/^    public static void main(String[] args) throws IOException {$/;"	m	language:Java	class:TestAgent	signature:(String[] args)
+main	playground/TestAgent2.java	/^    public static void main(String[] args) {$/;"	m	language:Java	class:TestAgent2	signature:(String[] args)
+main	playground/TestVarargs.java	/^    public static void main(String[] args) throws Exception {$/;"	m	language:Java	class:TestVarargs	signature:(String[] args)
+main	playground/agent/Main.java	/^    public static void main(String[] args) {$/;"	m	language:Java	class:Main	signature:(String[] args)
+main	test/danilo/Harness.java	/^    public static void main(String[] args) {$/;"	m	language:Java	class:Harness	signature:(String[] args)
+mapClassnameToBytecode	deferredmethods/DeferredEnvClassLoader.java	/^    private final Map<String, byte[]> mapClassnameToBytecode;$/;"	f	language:Java	class:DeferredEnvClassLoader	file:
+maxBufferId	deferredmethods/ThreadCheckPointItems.java	/^	private int maxBufferId;$/;"	f	language:Java	class:ThreadCheckPointItems	file:
+maxIter	test/danilo/Harness.java	/^    private final int maxIter = 5;$/;"	f	language:Java	class:Harness	file:
+methodList	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private final List<Method> methodList;$/;"	f	language:Java	class:DeferredMethodsReader	file:
+method_to_be_deferred	playground/Deferrable.java	/^    private void method_to_be_deferred() {$/;"	m	language:Java	class:Deferrable	file:	signature:()
+monitor	newTest/LockTestImpl.java	/^	public void monitor(SharedObj obj) {$/;"	m	language:Java	class:LockTestImpl	signature:(SharedObj obj)
+monitor	newTest/LockTestInter.java	/^	void monitor(SharedObj obj);$/;"	m	language:Java	interface:LockTestInter	signature:(SharedObj obj)
+mov	deferredmethods/Ret.java	/^	public void mov(Ret<T> ret) {$/;"	m	language:Java	class:Ret	signature:(Ret<T> ret)
+myCounter	test/danilo/workers/tl/ThreadLocalWorker.java	/^    private final ThreadLocal<MyCounter> myCounter = new ThreadLocal<MyCounter>() {$/;"	f	language:Java	class:ThreadLocalWorker	file:
+nThreads	newTest/RetTest2.java	/^	public static final int nThreads = 30;$/;"	f	language:Java	class:RetTest2
+name	deferredmethods/bytecodegeneration/Argument.java	/^    private final String name;$/;"	f	language:Java	class:Argument	file:
+name	deferredmethods/bytecodegeneration/Method.java	/^    private final String name;$/;"	f	language:Java	class:Method	file:
+newDeferredEnv	deferredmethods/DeferredExecution.java	/^    private static <T extends Deferred> GeneralDeferredEnv<T> newDeferredEnv(Class<GeneralDeferredEnv<T>> deferredEnvClass,$/;"	m	language:Java	class:DeferredExecution	file:	signature:(Class<GeneralDeferredEnv<T>> deferredEnvClass, Processor proc, int bufferSize, Object... args)
+newTest	newTest/CPTestImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/CPTestInterfce.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/CheckPointTest.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/Example.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/FooImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/FooInterface.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/LockTest.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/LockTestImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/LockTestInter.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/RetTest.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/RetTest2.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/RetTestImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/RetTestIntf.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SharedObj.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SimpleTest.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SimpleTestImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SimpleTestInter.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SyncImpl.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SyncInter.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SyncTest.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/SyncTest2.java	/^package newTest;$/;"	p	language:Java
+newTest	newTest/WaitTest.java	/^package newTest;$/;"	p	language:Java
+noRet	newTest/SimpleTestImpl.java	/^	public void noRet(int x) {$/;"	m	language:Java	class:SimpleTestImpl	signature:(int x)
+noRet	newTest/SimpleTestInter.java	/^	public void noRet(int i);$/;"	m	language:Java	interface:SimpleTestInter	signature:(int i)
+nothing	newTest/RetTestImpl.java	/^	public void nothing() {$/;"	m	language:Java	class:RetTestImpl	signature:()
+nothing	newTest/RetTestIntf.java	/^	void nothing();$/;"	m	language:Java	interface:RetTestIntf	signature:()
+numboolean	test/MultipleCounter.java	/^    private int numboolean;$/;"	f	language:Java	class:MultipleCounter	file:
+numbyte	test/MultipleCounter.java	/^    private int numbyte;$/;"	f	language:Java	class:MultipleCounter	file:
+numchar	test/MultipleCounter.java	/^    private int numchar;$/;"	f	language:Java	class:MultipleCounter	file:
+numdouble	test/MultipleCounter.java	/^    private int numdouble;$/;"	f	language:Java	class:MultipleCounter	file:
+numfloat	test/MultipleCounter.java	/^    private int numfloat;$/;"	f	language:Java	class:MultipleCounter	file:
+numint	test/MultipleCounter.java	/^    private int numint;$/;"	f	language:Java	class:MultipleCounter	file:
+numlong	test/MultipleCounter.java	/^    private int numlong;$/;"	f	language:Java	class:MultipleCounter	file:
+numshort	test/MultipleCounter.java	/^    private int numshort;$/;"	f	language:Java	class:MultipleCounter	file:
+onEntry	playground/fromthepaper/DefMethods.java	/^    public void onEntry(MethodID thisMID) {$/;"	m	language:Java	class:Analysis	signature:(MethodID thisMID)
+onExit	playground/fromthepaper/DefMethods.java	/^    public void onExit() {$/;"	m	language:Java	class:Analysis	signature:()
+onObjectAlloc	playground/fromthepaper/DefMethods.java	/^    public void onObjectAlloc(Object allocObj) {$/;"	m	language:Java	class:Analysis	signature:(Object allocObj)
+onThreadDeath	deferredmethods/Agent.java	/^    public static void onThreadDeath() {$/;"	m	language:Java	class:Agent	signature:()
+onThreadDeath	playground/TestAgent2.java	/^    public static void onThreadDeath() {$/;"	m	language:Java	class:TestAgent2	signature:()
+onVMDeath	deferredmethods/Agent.java	/^    public static void onVMDeath() {$/;"	m	language:Java	class:Agent	signature:()
+parseImpl	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private void parseImpl(Class<?> userDefImpl) throws IOException {$/;"	m	language:Java	class:DeferredMethodsReader	file:	signature:(Class<?> userDefImpl)
+parseIntf	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    private void parseIntf(Class<?> userDefIntf) throws IOException {$/;"	m	language:Java	class:DeferredMethodsReader	file:	signature:(Class<?> userDefIntf)
+playground	playground/CounterFactory.java	/^package playground;$/;"	p	language:Java
+playground	playground/Deferrable.java	/^package playground;$/;"	p	language:Java
+playground	playground/Main.java	/^package playground;$/;"	p	language:Java
+playground	playground/Test.java	/^package playground;$/;"	p	language:Java
+playground	playground/TestAgent.java	/^package playground;$/;"	p	language:Java
+playground	playground/TestAgent2.java	/^package playground;$/;"	p	language:Java
+playground	playground/TestVarargs.java	/^package playground;$/;"	p	language:Java
+playground.agent	playground/agent/ChangeThread.java	/^package playground.agent;$/;"	p	language:Java
+playground.agent	playground/agent/Main.java	/^package playground.agent;$/;"	p	language:Java
+playground.fromthepaper	playground/fromthepaper/DefMethods.java	/^package playground.fromthepaper;$/;"	p	language:Java
+playground.tobegenerated	playground/tobegenerated/GeneratedBuffer6.java	/^ package playground.tobegenerated;$/;"	p	language:Java
+playground.tobegenerated	playground/tobegenerated/GeneratedDeferredEnv6.java	/^package playground.tobegenerated;$/;"	p	language:Java
+playground.tobegenerated	playground/tobegenerated/GeneratedThreadLocalBuffer6.java	/^package playground.tobegenerated;$/;"	p	language:Java
+premain	deferredmethods/syncInstrument/agent/Agent.java	/^	public static void premain(String agentArgs, Instrumentation instrumentation) {$/;"	m	language:Java	class:Agent	signature:(String agentArgs, Instrumentation instrumentation)
+premain	playground/agent/ChangeThread.java	/^    public static void premain(String arglist, Instrumentation inst) {$/;"	m	language:Java	class:ChangeThread	signature:(String arglist, Instrumentation inst)
+print	newTest/RetTestImpl.java	/^	public void print(Ret<Long> n, DeferredEnv<?> env) {$/;"	m	language:Java	class:RetTestImpl	signature:(Ret<Long> n, DeferredEnv<?> env)
+print	newTest/RetTestIntf.java	/^	void print(Ret<Long> n, DeferredEnv<?> env);$/;"	m	language:Java	interface:RetTestIntf	signature:(Ret<Long> n, DeferredEnv<?> env)
+proc	deferredmethods/GeneralDeferredEnv.java	/^	protected final Processor proc;$/;"	f	language:Java	class:GeneralDeferredEnv
+process	deferredmethods/proc/AdaptiveProc.java	/^    public void process(Buffer buffer) {$/;"	m	language:Java	class:AdaptiveProc	signature:(Buffer buffer)
+process	deferredmethods/proc/Processor.java	/^    void process(Buffer buffer);$/;"	m	language:Java	interface:Processor	signature:(Buffer buffer)
+process	deferredmethods/proc/ShadowThreadProc.java	/^    public void process(Buffer buffer) {$/;"	m	language:Java	class:ShadowThreadProc	signature:(Buffer buffer)
+process	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public void process(Buffer buffer) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:(Buffer buffer)
+process	deferredmethods/proc/SynchronousProc.java	/^    public void process(Buffer buffer) {$/;"	m	language:Java	class:SynchronousProc	signature:(Buffer buffer)
+process	deferredmethods/proc/ThreadPoolProc.java	/^    public void process(Buffer buffer) {$/;"	m	language:Java	class:ThreadPoolProc	signature:(Buffer buffer)
+processCurrentBuffer	deferredmethods/DeferredEnv.java	/^    public void processCurrentBuffer();$/;"	m	language:Java	interface:DeferredEnv	signature:()
+processCurrentBuffer	playground/tobegenerated/GeneratedDeferredEnv6.java	/^    public void processCurrentBuffer() {$/;"	m	language:Java	class:GeneratedDeferredEnv6	signature:()
+processRemainingBuffers	deferredmethods/DeferredExecution.java	/^    public static void processRemainingBuffers() {$/;"	m	language:Java	class:DeferredExecution	signature:()
+producerThreadDied	deferredmethods/proc/AdaptiveProc.java	/^	public void producerThreadDied(Thread t) {$/;"	m	language:Java	class:AdaptiveProc	signature:(Thread t)
+producerThreadDied	deferredmethods/proc/Processor.java	/^    void producerThreadDied(Thread t);$/;"	m	language:Java	interface:Processor	signature:(Thread t)
+producerThreadDied	deferredmethods/proc/ShadowThreadProc.java	/^	public void producerThreadDied(Thread t) {$/;"	m	language:Java	class:ShadowThreadProc	signature:(Thread t)
+producerThreadDied	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public void producerThreadDied(Thread thread) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:(Thread thread)
+producerThreadDied	deferredmethods/proc/SynchronousProc.java	/^	public void producerThreadDied(Thread t) {$/;"	m	language:Java	class:SynchronousProc	signature:(Thread t)
+producerThreadDied	deferredmethods/proc/ThreadPoolProc.java	/^	public void producerThreadDied(Thread t) {$/;"	m	language:Java	class:ThreadPoolProc	signature:(Thread t)
+profAlloc	playground/fromthepaper/DefMethods.java	/^    public void profAlloc(MethodID mid, Object allocObj) {$/;"	m	language:Java	class:DefMethodsImpl	signature:(MethodID mid, Object allocObj)
+profAlloc	playground/fromthepaper/DefMethods.java	/^    public void profAlloc(MethodID mid, Object allocObj) {$/;"	m	language:Java	class:ProfileTL	signature:(MethodID mid, Object allocObj)
+profAlloc	playground/fromthepaper/DefMethods.java	/^    public void profAlloc(MethodID mid, Object allocObj) {$/;"	m	language:Java	class:ProfileTS	signature:(MethodID mid, Object allocObj)
+profAlloc	playground/fromthepaper/DefMethods.java	/^    public void profAlloc(MethodID mid, Object allocObj);$/;"	m	language:Java	interface:DefMethods	signature:(MethodID mid, Object allocObj)
+profAlloc	playground/fromthepaper/DefMethods.java	/^    public void profAlloc(MethodID mid, Object allocObj);$/;"	m	language:Java	interface:Profile	signature:(MethodID mid, Object allocObj)
+profAlloc	test/DefMethods.java	/^    void profAlloc(String mid, Object allocObj);$/;"	m	language:Java	interface:DefMethods	signature:(String mid, Object allocObj)
+profAlloc	test/DefMethodsImpl.java	/^    public void profAlloc(String mid, Object allocObj) {$/;"	m	language:Java	class:DefMethodsImpl	signature:(String mid, Object allocObj)
+profCall	playground/fromthepaper/DefMethods.java	/^    public void profCall(MethodID caller, MethodID callee) {$/;"	m	language:Java	class:DefMethodsImpl	signature:(MethodID caller, MethodID callee)
+profCall	playground/fromthepaper/DefMethods.java	/^    public void profCall(MethodID caller, MethodID callee) {$/;"	m	language:Java	class:ProfileTL	signature:(MethodID caller, MethodID callee)
+profCall	playground/fromthepaper/DefMethods.java	/^    public void profCall(MethodID caller, MethodID callee) {$/;"	m	language:Java	class:ProfileTS	signature:(MethodID caller, MethodID callee)
+profCall	playground/fromthepaper/DefMethods.java	/^    public void profCall(MethodID caller, MethodID callee);$/;"	m	language:Java	interface:DefMethods	signature:(MethodID caller, MethodID callee)
+profCall	playground/fromthepaper/DefMethods.java	/^    public void profCall(MethodID caller, MethodID callee);$/;"	m	language:Java	interface:Profile	signature:(MethodID caller, MethodID callee)
+profCall	test/DefMethods.java	/^    void profCall(String caller, String callee);$/;"	m	language:Java	interface:DefMethods	signature:(String caller, String callee)
+profCall	test/DefMethodsImpl.java	/^    public void profCall(String caller, String callee) {$/;"	m	language:Java	class:DefMethodsImpl	signature:(String caller, String callee)
+profTL	playground/fromthepaper/DefMethods.java	/^    private Profile profTL;$/;"	f	language:Java	class:DefMethodsImpl	file:
+profTS	playground/fromthepaper/DefMethods.java	/^    private Profile profTS;$/;"	f	language:Java	class:DefMethodsImpl	file:
+queue	deferredmethods/proc/AdaptiveProc.java	/^        private final BlockingQueue<Runnable> queue;$/;"	f	language:Java	class:AdaptiveProc.WorkerThread	file:
+queue	deferredmethods/proc/ShadowThreadProc.java	/^        private final BlockingQueue<Runnable> queue;$/;"	f	language:Java	class:ShadowThreadProc.WorkerThread	file:
+queue	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		private final BlockingQueue<Runnable> queue;$/;"	f	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	file:
+queue	deferredmethods/proc/ThreadPoolProc.java	/^        private final BlockingQueue<Runnable> queue;$/;"	f	language:Java	class:ThreadPoolProc.WorkerThread	file:
+queueCapacity	deferredmethods/proc/ShadowThreadProc.java	/^    private final int queueCapacity;$/;"	f	language:Java	class:ShadowThreadProc	file:
+queueCapacity	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private final int queueCapacity;$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+rand	test/danilo/MyCounter.java	/^    private final Random rand = new Random();$/;"	f	language:Java	class:MyCounter	file:
+randomAdd	test/danilo/MyCounter.java	/^    public void randomAdd() {$/;"	m	language:Java	class:MyCounter	signature:()
+readVal	newTest/SharedObj.java	/^	public synchronized int readVal(){$/;"	m	language:Java	class:SharedObj	signature:()
+registerNewThread	deferredmethods/proc/ShadowThreadProc.java	/^    private BlockingQueue<Runnable> registerNewThread(Thread thread) {$/;"	m	language:Java	class:ShadowThreadProc	file:	signature:(Thread thread)
+registerNewThread	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private BlockingQueue<Runnable> registerNewThread(Thread thread) {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	file:	signature:(Thread thread)
+remove	deferredmethods/ThreadLocalBuffer.java	/^    public void remove() {$/;"	m	language:Java	class:ThreadLocalBuffer	signature:()
+result	test/danilo/workers/test1/Result.java	/^    private int result;$/;"	f	language:Java	class:Result	file:
+ret	newTest/RetTest.java	/^	public static RetTestIntf ret = env.getProxy();$/;"	f	language:Java	class:RetTest
+ret	newTest/RetTest2.java	/^		private RetTestIntf ret;$/;"	f	language:Java	class:RetTest2.InnerThread	file:
+ret	newTest/RetTest2.java	/^	public static RetTestIntf ret = env.getProxy();$/;"	f	language:Java	class:RetTest2
+ret	newTest/SimpleTestImpl.java	/^	public Ret<Integer> ret() {$/;"	m	language:Java	class:SimpleTestImpl	signature:()
+ret	newTest/SimpleTestInter.java	/^	Ret<Integer> ret();$/;"	m	language:Java	interface:SimpleTestInter	signature:()
+retA	newTest/RetTest2.java	/^		private Ret<?>[] retA;$/;"	f	language:Java	class:RetTest2.InnerThread	file:
+retB	newTest/RetTest2.java	/^		private Ret<?>[] retB;$/;"	f	language:Java	class:RetTest2.InnerThread	file:
+returnIfExist	deferredmethods/GeneralDeferredEnv.java	/^	private ThreadCheckPointItems returnIfExist(Thread thread) {$/;"	m	language:Java	class:GeneralDeferredEnv	file:	signature:(Thread thread)
+run	deferredmethods/proc/AdaptiveProc.java	/^        public void run() {$/;"	m	language:Java	class:AdaptiveProc.SynchPill	signature:()
+run	deferredmethods/proc/AdaptiveProc.java	/^        public void run() {$/;"	m	language:Java	class:AdaptiveProc.WorkerThread	signature:()
+run	deferredmethods/proc/ShadowThreadProc.java	/^        public void run() {$/;"	m	language:Java	class:ShadowThreadProc.SynchPill	signature:()
+run	deferredmethods/proc/ShadowThreadProc.java	/^        public void run() {$/;"	m	language:Java	class:ShadowThreadProc.WorkerThread	signature:()
+run	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		public void run() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	signature:()
+run	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	 public void run() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.SynchPill	signature:()
+run	deferredmethods/proc/ThreadPoolProc.java	/^        public void run() {$/;"	m	language:Java	class:ThreadPoolProc.SynchPill	signature:()
+run	deferredmethods/proc/ThreadPoolProc.java	/^        public void run() {$/;"	m	language:Java	class:ThreadPoolProc.WorkerThread	signature:()
+run	newTest/RetTest2.java	/^		public void run() {$/;"	m	language:Java	class:RetTest2.InnerThread	signature:()
+run	playground/tobegenerated/GeneratedBuffer6.java	/^    public void run() {$/;"	m	language:Java	class:GeneratedBuffer6	signature:()
+run	test/danilo/workers/AbstractWorker.java	/^    public abstract void run();$/;"	m	language:Java	class:AbstractWorker	signature:()
+run	test/danilo/workers/test1/Test1Worker.java	/^    public void run() {$/;"	m	language:Java	class:Test1Worker	signature:()
+run	test/danilo/workers/tl/ArrayWorker.java	/^    public void run() { $/;"	m	language:Java	class:ArrayWorker	signature:()
+run	test/danilo/workers/tl/FieldWorker.java	/^    public void run() { $/;"	m	language:Java	class:FieldWorker	signature:()
+run	test/danilo/workers/tl/ThreadLocalWorker.java	/^    public void run() {$/;"	m	language:Java	class:ThreadLocalWorker	signature:()
+saveClassToFile	deferredmethods/bytecodegeneration/BytecodeHelper.java	/^    public static void saveClassToFile(byte[] b, String className) throws IOException {$/;"	m	language:Java	class:BytecodeHelper	signature:(byte[] b, String className)
+set	deferredmethods/Ret.java	/^	public synchronized void set(T val) {$/;"	m	language:Java	class:Ret	signature:(T val)
+set	test/danilo/workers/test1/Result.java	/^    public void set(int result) {$/;"	m	language:Java	class:Result	signature:(int result)
+setBufferCapacity	deferredmethods/DeferredEnv.java	/^    public void setBufferCapacity(int size);$/;"	m	language:Java	interface:DeferredEnv	signature:(int size)
+setBufferCapacity	deferredmethods/GeneralDeferredEnv.java	/^	public void setBufferCapacity(int size) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(int size)
+setCounter	test/TaskWithArrayTypes.java	/^    public void setCounter(Counter counter);$/;"	m	language:Java	interface:TaskWithArrayTypes	signature:(Counter counter)
+setCounter	test/TaskWithArrayTypesImpl.java	/^    public void setCounter(Counter c) {$/;"	m	language:Java	class:TaskWithArrayTypesImpl	signature:(Counter c)
+setCounter	test/TaskWithMultipleParams.java	/^    public void setCounter(Counter counter);$/;"	m	language:Java	interface:TaskWithMultipleParams	signature:(Counter counter)
+setCounter	test/TaskWithMultipleParamsImpl.java	/^    public void setCounter(Counter c) {$/;"	m	language:Java	class:TaskWithMultipleParamsImpl	signature:(Counter c)
+setCounter	test/TaskWithPrimitiveTypes.java	/^    public void setCounter(MultipleCounter counter);$/;"	m	language:Java	interface:TaskWithPrimitiveTypes	signature:(MultipleCounter counter)
+setCounter	test/TaskWithPrimitiveTypesImpl.java	/^    public void setCounter(MultipleCounter c) {$/;"	m	language:Java	class:TaskWithPrimitiveTypesImpl	signature:(MultipleCounter c)
+setEnd	deferredmethods/GeneralDeferredEnv.java	/^	public void setEnd(Thread thread) {$/;"	m	language:Java	class:GeneralDeferredEnv	signature:(Thread thread)
+setEnd	deferredmethods/ThreadCheckPointItems.java	/^	public void setEnd(){$/;"	m	language:Java	class:ThreadCheckPointItems	signature:()
+setEndFlags	deferredmethods/DeferredExecution.java	/^	public static void setEndFlags() {$/;"	m	language:Java	class:DeferredExecution	signature:()
+setProcessed	deferredmethods/GeneralProcessingCheckPoint.java	/^	public synchronized void setProcessed() {$/;"	m	language:Java	class:GeneralProcessingCheckPoint	signature:()
+setTask	test/TaskUser.java	/^    public void setTask(Task task) {$/;"	m	language:Java	class:TaskUser	signature:(Task task)
+setUp	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void setUp() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+setVal	newTest/SharedObj.java	/^	public synchronized void setVal(int val){$/;"	m	language:Java	class:SharedObj	signature:(int val)
+signature	deferredmethods/bytecodegeneration/Method.java	/^    private final String signature;$/;"	f	language:Java	class:Method	file:
+size	test/danilo/Harness.java	/^    private final int size;$/;"	f	language:Java	class:Harness	file:
+size	test/danilo/workers/AbstractWorker.java	/^    protected final int size;$/;"	f	language:Java	class:AbstractWorker
+st	newTest/SimpleTest.java	/^	public static SimpleTestInter st = env.getProxy();$/;"	f	language:Java	class:SimpleTest
+stackTL	playground/fromthepaper/DefMethods.java	/^    private static final ThreadLocal<Stack<MethodID>> stackTL = new ThreadLocal<Stack<MethodID>>() {$/;"	f	language:Java	class:Analysis	file:
+start	deferredmethods/proc/AdaptiveProc.java	/^    public void start() {$/;"	m	language:Java	class:AdaptiveProc	signature:()
+start	deferredmethods/proc/Processor.java	/^    void start();$/;"	m	language:Java	interface:Processor	signature:()
+start	deferredmethods/proc/ShadowThreadProc.java	/^    public void start() {$/;"	m	language:Java	class:ShadowThreadProc	signature:()
+start	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public void start() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:()
+start	deferredmethods/proc/SynchronousProc.java	/^    public void start() {$/;"	m	language:Java	class:SynchronousProc	signature:()
+start	deferredmethods/proc/ThreadPoolProc.java	/^    public void start() {$/;"	m	language:Java	class:ThreadPoolProc	signature:()
+stop	deferredmethods/proc/AdaptiveProc.java	/^    public void stop() {$/;"	m	language:Java	class:AdaptiveProc	signature:()
+stop	deferredmethods/proc/Processor.java	/^    void stop();$/;"	m	language:Java	interface:Processor	signature:()
+stop	deferredmethods/proc/ShadowThreadProc.java	/^    public void stop() {$/;"	m	language:Java	class:ShadowThreadProc	signature:()
+stop	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	public void stop() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks	signature:()
+stop	deferredmethods/proc/SynchronousProc.java	/^    public void stop() {$/;"	m	language:Java	class:SynchronousProc	signature:()
+stop	deferredmethods/proc/ThreadPoolProc.java	/^    public void stop() {$/;"	m	language:Java	class:ThreadPoolProc	signature:()
+stopProcessors	deferredmethods/DeferredExecution.java	/^    public static void stopProcessors() {$/;"	m	language:Java	class:DeferredExecution	signature:()
+stopWorkerThreads	deferredmethods/DeferredExecution.java	/^	public static void stopWorkerThreads() {$/;"	m	language:Java	class:DeferredExecution	signature:()
+submitIfPossible	deferredmethods/proc/AdaptiveProc.java	/^    private static boolean submitIfPossible(BlockingQueue<Runnable> queue, Runnable task) {$/;"	m	language:Java	class:AdaptiveProc	file:	signature:(BlockingQueue<Runnable> queue, Runnable task)
+synchPill	deferredmethods/proc/AdaptiveProc.java	/^    private final SynchPill synchPill;$/;"	f	language:Java	class:AdaptiveProc	file:
+synchPill	deferredmethods/proc/ThreadPoolProc.java	/^    private final SynchPill synchPill;$/;"	f	language:Java	class:ThreadPoolProc	file:
+task	test/TaskUser.java	/^    private Task task;$/;"	f	language:Java	class:TaskUser	file:
+tearDown	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void tearDown() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+terminate	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^		public synchronized void terminate() {$/;"	m	language:Java	class:ShadowThreadProcWithHooks.WorkerThread	signature:()
+test	newTest/WaitTest.java	/^	synchronized public void test() throws InterruptedException{$/;"	m	language:Java	class:WaitTest	signature:()
+test	playground/Deferrable.java	/^    public void test() {$/;"	m	language:Java	class:Deferrable	signature:()
+test	playground/TestVarargs.java	/^    private static void test(String s, Object... args) throws Exception {$/;"	m	language:Java	class:TestVarargs	file:	signature:(String s, Object... args)
+test	test/Counter.java	/^package test;$/;"	p	language:Java
+test	test/CounterSingletonWrapper.java	/^package test;$/;"	p	language:Java
+test	test/CounterTL.java	/^package test;$/;"	p	language:Java
+test	test/CrazyInterface.java	/^package test;$/;"	p	language:Java
+test	test/DefMethods.java	/^package test;$/;"	p	language:Java
+test	test/DefMethodsImpl.java	/^package test;$/;"	p	language:Java
+test	test/MultipleCounter.java	/^package test;$/;"	p	language:Java
+test	test/Task.java	/^package test;$/;"	p	language:Java
+test	test/TaskImpl.java	/^package test;$/;"	p	language:Java
+test	test/TaskImplWithMultipleConstructors.java	/^package test;$/;"	p	language:Java
+test	test/TaskImplWithSingleton.java	/^package test;$/;"	p	language:Java
+test	test/TaskUser.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithArrayTypes.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithArrayTypesImpl.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithCoalescingImpl.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithInstanceVar.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithMultipleParams.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithMultipleParamsImpl.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithPrimitiveTypes.java	/^package test;$/;"	p	language:Java
+test	test/TaskWithPrimitiveTypesImpl.java	/^package test;$/;"	p	language:Java
+test	test/danilo/Harness.java	/^    public void test() {$/;"	m	language:Java	class:Harness	signature:()
+test.danilo	test/danilo/ArrayAccessor.java	/^package test.danilo;$/;"	p	language:Java
+test.danilo	test/danilo/Harness.java	/^package test.danilo;$/;"	p	language:Java
+test.danilo	test/danilo/MyCounter.java	/^package test.danilo;$/;"	p	language:Java
+test.danilo.workers	test/danilo/workers/AbstractWorker.java	/^package test.danilo.workers;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/Fibonacci.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/FibonacciCalcIntf.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/NormalFibonacciCalc.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/Result.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.test1	test/danilo/workers/test1/Test1Worker.java	/^package test.danilo.workers.test1;$/;"	p	language:Java
+test.danilo.workers.tl	test/danilo/workers/tl/ArrayWorker.java	/^package test.danilo.workers.tl;$/;"	p	language:Java
+test.danilo.workers.tl	test/danilo/workers/tl/FieldWorker.java	/^package test.danilo.workers.tl;$/;"	p	language:Java
+test.danilo.workers.tl	test/danilo/workers/tl/ThreadLocalWorker.java	/^package test.danilo.workers.tl;$/;"	p	language:Java
+test.deferredmethods.bytecodegeneration	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^package test.deferredmethods.bytecodegeneration;$/;"	p	language:Java
+test1	newTest/SyncImpl.java	/^	public void test1(int num) {$/;"	m	language:Java	class:SyncImpl	signature:(int num)
+test1	newTest/SyncInter.java	/^	public void test1(int num);$/;"	m	language:Java	interface:SyncInter	signature:(int num)
+test1sync	newTest/SyncImpl.java	/^	public void test1sync(int num) {$/;"	m	language:Java	class:SyncImpl	signature:(int num)
+test1sync	newTest/SyncInter.java	/^	public void test1sync(int num);$/;"	m	language:Java	interface:SyncInter	signature:(int num)
+test2	newTest/SyncImpl.java	/^	public void test2(int num) {$/;"	m	language:Java	class:SyncImpl	signature:(int num)
+test2	newTest/SyncInter.java	/^	public void test2(int num);$/;"	m	language:Java	interface:SyncInter	signature:(int num)
+test2sync	newTest/SyncImpl.java	/^	public void test2sync(int num) {$/;"	m	language:Java	class:SyncImpl	signature:(int num)
+test2sync	newTest/SyncInter.java	/^	public void test2sync(int num);$/;"	m	language:Java	interface:SyncInter	signature:(int num)
+test3	newTest/SyncImpl.java	/^	public void test3(int num) {$/;"	m	language:Java	class:SyncImpl	signature:(int num)
+test3	newTest/SyncInter.java	/^	public void test3(int num);$/;"	m	language:Java	interface:SyncInter	signature:(int num)
+testArgumentList	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void testArgumentList() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+testGetArgListFromMethodList	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void testGetArgListFromMethodList() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+testGetMethodList	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void testGetMethodList() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+testValidationWithInvalidArgs	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void testValidationWithInvalidArgs() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+testValidationWithValidArgs	test/deferredmethods/bytecodegeneration/DeferredInterfaceReaderTest.java	/^    public void testValidationWithValidArgs() throws Exception {$/;"	m	language:Java	class:DeferredInterfaceReaderTest	signature:()
+theOne	test/CounterSingletonWrapper.java	/^    private static volatile Counter theOne;$/;"	f	language:Java	class:CounterSingletonWrapper	file:
+threadItemsMap	deferredmethods/GeneralDeferredEnv.java	/^	private final IdentityHashMap<Thread, ThreadCheckPointItems> threadItemsMap;$/;"	f	language:Java	class:GeneralDeferredEnv	file:
+threadLocalBufferConstructor	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private void threadLocalBufferConstructor(ClassWriter cw) {$/;"	m	language:Java	class:ThreadLocalBufferGenerator	file:	signature:(ClassWriter cw)
+threadLocalBufferFields	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private void threadLocalBufferFields(ClassWriter cw) {$/;"	m	language:Java	class:ThreadLocalBufferGenerator	file:	signature:(ClassWriter cw)
+threadLocalBufferGenerator	deferredmethods/bytecodegeneration/DeferredEnvGenerator.java	/^	private ThreadLocalBufferGenerator threadLocalBufferGenerator;$/;"	f	language:Java	class:DeferredEnvGenerator	file:
+threadLocalBufferInitialValue	deferredmethods/bytecodegeneration/ThreadLocalBufferGenerator.java	/^    private void threadLocalBufferInitialValue(ClassWriter cw) {$/;"	m	language:Java	class:ThreadLocalBufferGenerator	file:	signature:(ClassWriter cw)
+threadQueueMap	deferredmethods/proc/ShadowThreadProc.java	/^	private final IdentityHashMap<Thread, BlockingQueue<Runnable>> threadQueueMap;$/;"	f	language:Java	class:ShadowThreadProc	file:
+threadWorkerMap	deferredmethods/proc/ShadowThreadProcWithHooks.java	/^	private final IdentityHashMap<Thread, WorkerThread> threadWorkerMap;$/;"	f	language:Java	class:ShadowThreadProcWithHooks	file:
+threads	test/danilo/Harness.java	/^    private final int threads;$/;"	f	language:Java	class:Harness	file:
+toString	deferredmethods/bytecodegeneration/Argument.java	/^    public String toString() {$/;"	m	language:Java	class:Argument	signature:()
+toString	deferredmethods/bytecodegeneration/Method.java	/^    public String toString() {$/;"	m	language:Java	class:Method	signature:()
+toString	test/Counter.java	/^    public String toString() {$/;"	m	language:Java	class:Counter	signature:()
+toString	test/CounterTL.java	/^    public String toString() {$/;"	m	language:Java	class:CounterTL	signature:()
+transform	deferredmethods/syncInstrument/agent/SyncTransformer.java	/^	public byte[] transform(ClassLoader loader, String className,$/;"	m	language:Java	class:SyncTransformer	signature:(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer)
+transform	playground/agent/ChangeThread.java	/^    public byte[] transform(ClassLoader loader, String cname, Class<?> clazz, ProtectionDomain domain, byte[] bytes)$/;"	m	language:Java	class:ChangeThread	signature:(ClassLoader loader, String cname, Class<?> clazz, ProtectionDomain domain, byte[] bytes)
+transformMonitor	deferredmethods/syncInstrument/agent/InjectHelper.java	/^	public static byte[] transformMonitor(byte[] classfileBuffer) {$/;"	m	language:Java	class:InjectHelper	signature:(byte[] classfileBuffer)
+transformSynchronized	deferredmethods/syncInstrument/agent/InjectHelper.java	/^	public static byte[] transformSynchronized(byte[] classfileBuffer) {$/;"	m	language:Java	class:InjectHelper	signature:(byte[] classfileBuffer)
+transformWait	deferredmethods/syncInstrument/agent/InjectHelper.java	/^	public static byte[] transformWait(byte[] classfileBuffer) {$/;"	m	language:Java	class:InjectHelper	signature:(byte[] classfileBuffer)
+type	deferredmethods/bytecodegeneration/Argument.java	/^    private final Type type;$/;"	f	language:Java	class:Argument	file:
+types	deferredmethods/bytecodegeneration/Method.java	/^    private final Type[] types;$/;"	f	language:Java	class:Method	file:
+unsafe	deferredmethods/syncInstrument/agent/UnsafeObject.java	/^	public static Unsafe unsafe;$/;"	f	language:Java	class:UnsafeObject
+updateCheckPoints	deferredmethods/ThreadCheckPointItems.java	/^	private void updateCheckPoints($/;"	m	language:Java	class:ThreadCheckPointItems	file:	signature:( LinkedList<GeneralProcessingCheckPoint> cpList, int envCouter)
+usingTask	test/TaskUser.java	/^    public void usingTask() {$/;"	m	language:Java	class:TaskUser	signature:()
+val	deferredmethods/Ret.java	/^	private T val;$/;"	f	language:Java	class:Ret	file:
+val	newTest/SharedObj.java	/^	private int val =  0;$/;"	f	language:Java	class:SharedObj	file:
+validate	deferredmethods/bytecodegeneration/DeferredMethodsReader.java	/^    public void validate(Object... args) throws NoSuchMethodException {$/;"	m	language:Java	class:DeferredMethodsReader	signature:(Object... args)
+valueRepetitions	test/danilo/workers/test1/CoalescedFibonacciCalc.java	/^    private HashMap<Integer, Integer> valueRepetitions;$/;"	f	language:Java	class:CoalescedFibonacciCalc	file:
+workQueue	deferredmethods/proc/AdaptiveProc.java	/^    private final BlockingQueue<Runnable> workQueue;$/;"	f	language:Java	class:AdaptiveProc	file:
+workQueue	deferredmethods/proc/ThreadPoolProc.java	/^    private final BlockingQueue<Runnable> workQueue;$/;"	f	language:Java	class:ThreadPoolProc	file:
+workerList	deferredmethods/proc/ShadowThreadProc.java	/^    private final List<WorkerThread> workerList;$/;"	f	language:Java	class:ShadowThreadProc	file:
+workers	deferredmethods/proc/AdaptiveProc.java	/^    private final WorkerThread[] workers;$/;"	f	language:Java	class:AdaptiveProc	file:
+workers	deferredmethods/proc/ThreadPoolProc.java	/^    public volatile WorkerThread[] workers;$/;"	f	language:Java	class:ThreadPoolProc
+write	deferredmethods/bytecodegeneration/extendlock/ExtendReentrantLock.java	/^    private static void write(String outputFile, byte[] data) throws IOException {$/;"	m	language:Java	class:ExtendReentrantLock	file:	signature:(String outputFile, byte[] data)
+write	deferredmethods/bytecodegeneration/extendthread/ExtendThread.java	/^    private static void write(String outputFile, byte[] data) throws IOException {$/;"	m	language:Java	class:ExtendThread	file:	signature:(String outputFile, byte[] data)
