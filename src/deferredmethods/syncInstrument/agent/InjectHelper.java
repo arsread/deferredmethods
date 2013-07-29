@@ -177,7 +177,6 @@ public class InjectHelper implements Opcodes {
 					if (instr.getOpcode() == INVOKEVIRTUAL) {
 						MethodInsnNode node = (MethodInsnNode) instr;
 						if (node.name.equals("wait") && node.owner.equals("java/lang/Object")){
-							System.out.println("found a wait()!");
 							AbstractInsnNode call=new MethodInsnNode(INVOKESTATIC,
 								"deferredmethods/syncInstrument/agent/CallProcess",
 								"callProcess", "()V");
